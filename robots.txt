@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://llx740517.github.io/jimucode-promo-blog/sitemap.xml
