@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V039 article style flow</title>
+  <style>
+    :root {
+      --ink: #111216;
+      --paper: #fffaf0;
+      --line: #ebdec8;
+      --blue: #4f7fc8;
+      --pink: #e26982;
+      --green: #4fae82;
+      --yellow: #f4c964;
+      --dark: #141a22;
+      --shadow: 0 14px 32px rgba(31, 28, 22, 0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1280px; min-height: 720px; background: var(--paper); }
+    body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: var(--ink); letter-spacing: 0; }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 24px 38px 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,250,240,0.96)),
+        radial-gradient(circle at 92% 12%, rgba(226,105,130,0.16), transparent 24%),
+        radial-gradient(circle at 8% 86%, rgba(79,174,130,0.12), transparent 24%);
+    }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 17px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.83);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(40,36,26,0.08);
+      color: #3e4650;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--pink); box-shadow: 17px 0 0 var(--blue), 34px 0 0 var(--green); margin-right: 38px; }
+    h1 { margin: 8px 0 0; font-size: 43px; line-height: 1.04; font-weight: 950; letter-spacing: 0; }
+    .subtitle { margin-top: 6px; font-size: 22px; line-height: 1.2; font-weight: 850; color: #3d444b; }
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .step {
+      min-height: 206px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 14px 16px 13px;
+      position: relative;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 10px;
+      background: #050608;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 950;
+    }
+    .step h2 { margin: 10px 0 7px; font-size: 23px; line-height: 1.08; font-weight: 950; }
+    .step p { margin: 0; font-size: 18px; line-height: 1.2; font-weight: 760; color: #3b4249; }
+    .file {
+      margin-top: 10px;
+      border-radius: 14px;
+      background: #f5f8fd;
+      border: 1px solid #dde8f4;
+      padding: 8px 10px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 15px;
+      line-height: 1.28;
+      font-weight: 800;
+      color: #385576;
+    }
+    .arrow {
+      position: absolute;
+      top: 90px;
+      right: -23px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 950;
+      z-index: 2;
+      box-shadow: 0 8px 18px rgba(79,127,200,0.22);
+    }
+    .step:last-child .arrow { display: none; }
+    .bottom {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1.06fr 1fr 1.2fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .panel {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.88);
+      box-shadow: var(--shadow);
+      padding: 14px 18px;
+    }
+    .panel h3 { margin: 0 0 10px; font-size: 24px; line-height: 1.1; font-weight: 950; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mini { border-radius: 16px; padding: 10px 12px; border: 1px solid #dcebdd; background: #eaf8ef; }
+    .mini.bad { border-color: #efd2d8; background: #ffecef; }
+    .mini b { display: block; font-size: 18px; margin-bottom: 4px; color: #2f7b5c; }
+    .mini.bad b { color: #b64960; }
+    .mini span { display: block; font-size: 16px; line-height: 1.18; font-weight: 760; color: #3c4248; }
+    .terminal {
+      border-radius: 16px;
+      background: var(--dark);
+      color: #edf4f8;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.13);
+      font-family: "SFMono-Regular", Consolas, monospace;
+    }
+    .bar { height: 34px; display: flex; align-items: center; padding: 0 13px; background: #111820; color: #b8c2cc; font-size: 15px; font-weight: 800; }
+    .lamp { width: 8px; height: 8px; border-radius: 50%; background: #ef6b73; box-shadow: 14px 0 0 #f2bf5b, 28px 0 0 #61bf82; margin-right: 34px; }
+    .code { padding: 10px 12px 11px; font-size: 15px; line-height: 1.28; }
+    .blue { color: #8fc5ff; }
+    .green { color: #8ee6b5; }
+    .muted { color: #96a5b1; }
+    .summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      line-height: 1.22;
+      font-weight: 950;
+      background: #fff7dd;
+    }
+    .sumtag { min-width: 84px; height: 42px; border-radius: 12px; background: var(--pink); color: white; display: flex; align-items: center; justify-content: center; }
+    .summary span { color: var(--blue); }
+  </style>
+</head>
+<body>
+  <main class="canvas" role="img" aria-label="V039 图文教程风格流程图">
+    <div class="top">
+      <div>
+        <div class="pill"><i></i>V039 · 多仓库批量检查录屏路线</div>
+        <h1>把自动化录成“看得懂的流程”</h1>
+        <div class="subtitle">保留原关键流程：清单、模板、单仓样例、批量进度、汇总报告、失败分支和安全边界</div>
+      </div>
+    </div>
+
+    <section class="grid">
+      <article class="step"><span class="badge">STEP 1</span><h2>仓库清单</h2><p>先说明这次检查哪几个脱敏示例仓库。</p><div class="file">repos.tsv<br>repo_id / path / type / focus</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 2</span><h2>检查模板</h2><p>统一输出结构，后面才方便汇总。</p><div class="file">repo-check.md<br>概况 / 风险 / 建议 / 复核</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 3</span><h2>单仓样例</h2><p>Codex 和 Claude Code 分开展示，不混成一套命令。</p><div class="file">codex exec<br>claude -p</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 4</span><h2>批量进度</h2><p>不用全程录滚屏，只保留可扫读摘要。</p><div class="file">OK / WARN / FAIL<br>报告路径 / 日志位置</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 5</span><h2>汇总报告</h2><p>让观众看到最终结果页和人工复核标记。</p><div class="file">reports/summary<br>index.md</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 6</span><h2>失败边界</h2><p>展示失败分支，讲清日志、权限和后台化边界。</p><div class="file">logs/<br>需录屏前实测确认</div></article>
+    </section>
+
+    <section class="bottom">
+      <article class="panel">
+        <h3>正常 vs 常见错法</h3>
+        <div class="compare">
+          <div class="mini"><b>正常</b><span>观众看到输入、过程、输出和复核。</span></div>
+          <div class="mini bad"><b>常见错法</b><span>只录终端滚动，看不到结果页。</span></div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>单仓演示卡</h3>
+        <div class="terminal">
+          <div class="bar"><span class="lamp"></span>safe-demo</div>
+          <div class="code"><span class="blue">codex exec</span> -C repo-web --sandbox read-only<br><span class="green">claude -p</span> --output-format json --tools Read,Grep,Glob<br><span class="muted">实际输出需录屏前实测确认</span></div>
+        </div>
+      </article>
+      <article class="panel summary">
+        <div class="sumtag">总结</div>
+        <div>清单 <span>→</span> 模板 <span>→</span> 样例 <span>→</span> 进度 <span>→</span> 汇总 <span>→</span> 失败与边界</div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

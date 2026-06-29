@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V011 macOS 安装 Codex 流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1b"/>
+      <stop offset="0.55" stop-color="#122033"/>
+      <stop offset="1" stop-color="#09111f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f2d43"/>
+      <stop offset="1" stop-color="#142033"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-25%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L7,4 L1,7" fill="none" stroke="#8fb3d9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font: 800 42px "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .subtitle { font: 500 20px "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #bfd0e3; letter-spacing: 0; }
+      .node-title { font: 800 23px "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .node-text { font: 500 16px "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #cbd5e1; letter-spacing: 0; }
+      .num { font: 800 18px Arial, sans-serif; fill: #08111f; }
+      .terminal { font: 500 17px Consolas, "SFMono-Regular", Menlo, monospace; fill: #d1d5db; letter-spacing: 0; }
+      .terminal-green { font: 700 17px Consolas, "SFMono-Regular", Menlo, monospace; fill: #7dd3a8; letter-spacing: 0; }
+      .terminal-blue { font: 700 17px Consolas, "SFMono-Regular", Menlo, monospace; fill: #93c5fd; letter-spacing: 0; }
+      .tag { font: 700 16px "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #e5f0ff; letter-spacing: 0; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M60 132 C270 70 460 152 620 106 C790 58 940 110 1210 70" fill="none" stroke="#60a5fa" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M88 588 C230 520 430 602 600 552 C795 492 978 528 1204 470" fill="none" stroke="#34d399" stroke-opacity="0.18" stroke-width="2"/>
+
+  <text x="72" y="76" class="title">macOS 安装 Codex 到首次提问</text>
+  <text x="74" y="112" class="subtitle">Terminal / zsh → 安装 → 配置 Key/API → 验证版本 → 首次提问 → 日志核对</text>
+
+  <g transform="translate(870 46)" filter="url(#shadow)">
+    <rect x="0" y="0" width="338" height="122" rx="8" fill="#070d18" stroke="#334155"/>
+    <rect x="0" y="0" width="338" height="36" rx="8" fill="#131d2d"/>
+    <circle cx="22" cy="18" r="5" fill="#ef4444"/>
+    <circle cx="40" cy="18" r="5" fill="#f59e0b"/>
+    <circle cx="58" cy="18" r="5" fill="#22c55e"/>
+    <text x="24" y="64" class="terminal">zsh % codex -V</text>
+    <text x="24" y="94" class="terminal-green">codex-cli 0.xxx.x</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(58 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#93c5fd"/>
+      <text x="23" y="34" class="num">1</text>
+      <text x="20" y="69" class="node-title">检查环境</text>
+      <text x="20" y="99" class="node-text">Terminal / zsh</text>
+      <text x="20" y="123" class="node-text">Node/npm 或 brew</text>
+    </g>
+    <g transform="translate(254 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#86efac"/>
+      <text x="23" y="34" class="num">2</text>
+      <text x="20" y="69" class="node-title">安装 Codex</text>
+      <text x="20" y="99" class="node-text">脚本 / npm / brew</text>
+      <text x="20" y="123" class="node-text">录屏只跑一条</text>
+    </g>
+    <g transform="translate(450 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#fcd34d"/>
+      <text x="23" y="34" class="num">3</text>
+      <text x="20" y="69" class="node-title">配置 Key</text>
+      <text x="20" y="99" class="node-text">Codex 产品线</text>
+      <text x="20" y="123" class="node-text">API 地址需实测</text>
+    </g>
+    <g transform="translate(646 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#c4b5fd"/>
+      <text x="23" y="34" class="num">4</text>
+      <text x="20" y="69" class="node-title">验证版本</text>
+      <text x="20" y="99" class="node-text">command -v</text>
+      <text x="20" y="123" class="node-text">doctor --summary</text>
+    </g>
+    <g transform="translate(842 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#fca5a5"/>
+      <text x="23" y="34" class="num">5</text>
+      <text x="20" y="69" class="node-title">第一次提问</text>
+      <text x="20" y="99" class="node-text">干净测试目录</text>
+      <text x="20" y="123" class="node-text">看权限提示</text>
+    </g>
+    <g transform="translate(1038 190)">
+      <rect width="164" height="132" rx="8" fill="url(#card)" stroke="#50627c"/>
+      <circle cx="28" cy="28" r="16" fill="#7dd3fc"/>
+      <text x="23" y="34" class="num">6</text>
+      <text x="20" y="69" class="node-title">日志核对</text>
+      <text x="20" y="99" class="node-text">/logs 状态码</text>
+      <text x="20" y="123" class="node-text">网络 / 旧配置</text>
+    </g>
+  </g>
+
+  <g stroke="#8fb3d9" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)">
+    <line x1="230" y1="256" x2="242" y2="256"/>
+    <line x1="426" y1="256" x2="438" y2="256"/>
+    <line x1="622" y1="256" x2="634" y2="256"/>
+    <line x1="818" y1="256" x2="830" y2="256"/>
+    <line x1="1014" y1="256" x2="1026" y2="256"/>
+  </g>
+
+  <g transform="translate(112 382)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1056" height="124" rx="8" fill="#07101d" stroke="#334155"/>
+    <text x="28" y="41" class="terminal">zsh % command -v codex</text>
+    <text x="350" y="41" class="terminal">zsh % codex -V</text>
+    <text x="650" y="41" class="terminal">zsh % codex doctor --summary</text>
+    <text x="28" y="82" class="terminal-green">命令能找到，再做首次提问</text>
+    <text x="390" y="82" class="terminal-blue">请求失败后，再看 Key、权益和日志</text>
+  </g>
+
+  <g transform="translate(72 560)">
+    <rect x="0" y="0" width="1136" height="78" rx="8" fill="#132033" stroke="#334155"/>
+    <text x="24" y="31" class="subtitle">底部检查标签</text>
+    <g transform="translate(24 49)">
+      <rect x="0" y="-18" width="82" height="30" rx="15" fill="#1f4461"/>
+      <text x="13" y="3" class="tag">Terminal</text>
+      <rect x="96" y="-18" width="56" height="30" rx="15" fill="#1f4461"/>
+      <text x="112" y="3" class="tag">zsh</text>
+      <rect x="166" y="-18" width="92" height="30" rx="15" fill="#1f4b3f"/>
+      <text x="181" y="3" class="tag">Node/npm</text>
+      <rect x="272" y="-18" width="96" height="30" rx="15" fill="#1f4b3f"/>
+      <text x="287" y="3" class="tag">Homebrew</text>
+      <rect x="382" y="-18" width="128" height="30" rx="15" fill="#493d22"/>
+      <text x="398" y="3" class="tag">Key/API 地址</text>
+      <rect x="524" y="-18" width="86" height="30" rx="15" fill="#332f54"/>
+      <text x="539" y="3" class="tag">~/.codex</text>
+      <rect x="624" y="-18" width="72" height="30" rx="15" fill="#332f54"/>
+      <text x="640" y="3" class="tag">doctor</text>
+      <rect x="710" y="-18" width="88" height="30" rx="15" fill="#4c3034"/>
+      <text x="727" y="3" class="tag">权限提示</text>
+      <rect x="812" y="-18" width="72" height="30" rx="15" fill="#1f4461"/>
+      <text x="829" y="3" class="tag">日志页</text>
+    </g>
+  </g>
+</svg>

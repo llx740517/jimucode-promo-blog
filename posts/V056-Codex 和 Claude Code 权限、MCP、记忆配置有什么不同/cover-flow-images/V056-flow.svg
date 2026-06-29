@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#14313c"/>
+      <stop offset="1" stop-color="#1f2933"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#020617" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 5 L 0 10 z" fill="#9fb6c3"/>
+    </marker>
+    <style>
+      .title{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:34px;font-weight:800;fill:#f8fafc}
+      .subtitle{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:18px;fill:#cbd5e1}
+      .boxTitle{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:24px;font-weight:800;fill:#f8fafc}
+      .boxText{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:18px;fill:#dbeafe}
+      .small{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:16px;fill:#cbd5e1}
+      .tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:15px;font-weight:700;fill:#0f172a}
+      .code{font-family:Menlo,Consolas,Monaco,monospace;font-size:16px;fill:#d1fae5}
+      .line{stroke:#9fb6c3;stroke-width:2.2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="34" y="34" width="1212" height="652" rx="26" fill="#08111f" opacity="0.42"/>
+
+  <text x="74" y="82" class="title">Codex 和 Claude Code 配置差异</text>
+  <text x="74" y="113" class="subtitle">先确认版本和 help，再分开看权限、MCP、记忆/规则</text>
+
+  <rect x="74" y="150" width="250" height="88" rx="16" fill="#0f1c2d" stroke="#36526a" filter="url(#softShadow)"/>
+  <text x="105" y="186" class="boxTitle">版本与 help</text>
+  <text x="105" y="215" class="code">codex --help</text>
+  <text x="238" y="215" class="code">claude --help</text>
+
+  <path d="M324 194 C350 194 360 194 388 194" class="line"/>
+
+  <rect x="388" y="144" width="235" height="245" rx="18" fill="#10253c" stroke="#3b82f6" filter="url(#softShadow)"/>
+  <text x="420" y="184" class="boxTitle">权限</text>
+  <text x="420" y="225" class="boxText">Codex</text>
+  <text x="420" y="255" class="code">--sandbox</text>
+  <text x="420" y="282" class="code">--ask-for-approval</text>
+  <text x="420" y="327" class="boxText">Claude Code</text>
+  <text x="420" y="357" class="code">--permission-mode</text>
+
+  <rect x="658" y="144" width="235" height="245" rx="18" fill="#11322f" stroke="#14b8a6" filter="url(#softShadow)"/>
+  <text x="690" y="184" class="boxTitle">MCP</text>
+  <text x="690" y="225" class="boxText">Codex</text>
+  <text x="690" y="255" class="code">codex mcp</text>
+  <text x="690" y="300" class="boxText">Claude Code</text>
+  <text x="690" y="330" class="code">claude mcp</text>
+  <text x="690" y="357" class="code">.mcp.json</text>
+
+  <rect x="928" y="144" width="235" height="245" rx="18" fill="#32243b" stroke="#c084fc" filter="url(#softShadow)"/>
+  <text x="960" y="184" class="boxTitle">记忆 / 规则</text>
+  <text x="960" y="225" class="boxText">Codex</text>
+  <text x="960" y="255" class="code">AGENTS.md</text>
+  <text x="960" y="300" class="boxText">Claude Code</text>
+  <text x="960" y="330" class="code">CLAUDE.md</text>
+  <text x="960" y="357" class="code">auto memory</text>
+
+  <path d="M505 389 C505 420 505 432 505 458" class="line"/>
+  <path d="M775 389 C775 420 775 432 775 458" class="line"/>
+  <path d="M1045 389 C1045 420 1045 432 1045 458" class="line"/>
+
+  <rect x="288" y="458" width="704" height="86" rx="18" fill="#182332" stroke="#64748b" filter="url(#softShadow)"/>
+  <text x="326" y="494" class="boxTitle">选择建议</text>
+  <text x="326" y="525" class="boxText">控执行看权限　接外部工具看 MCP　长期约定看规则 / 记忆</text>
+
+  <path d="M640 544 C640 568 640 577 640 602" class="line"/>
+  <rect x="205" y="602" width="870" height="50" rx="25" fill="#f8fafc" opacity="0.96"/>
+  <text x="238" y="633" class="tag">安全复核</text>
+  <text x="330" y="633" class="tag">Token</text>
+  <text x="407" y="633" class="tag">Header</text>
+  <text x="490" y="633" class="tag">settings</text>
+  <text x="584" y="633" class="tag">MCP URL</text>
+  <text x="690" y="633" class="tag">用户路径</text>
+  <text x="798" y="633" class="tag">内部规则</text>
+</svg>

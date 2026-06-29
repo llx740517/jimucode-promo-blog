@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">V050 Claude Code 后端 500 排查闭环</title>
+  <desc id="desc">读项目、复现 500、看日志和测试、Claude Code 给计划、小步修改、看 diff、跑测试、总结边界。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7FAFC"/>
+      <stop offset="52%" stop-color="#EEF5F4"/>
+      <stop offset="100%" stop-color="#FFF1F1"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#14213D" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 9 5 L 0 10 z" fill="#64748B"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 850; font-size: 42px; fill: #132238; }
+      .sub { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 20px; fill: #5C6773; }
+      .node-title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 780; font-size: 20px; fill: #172033; }
+      .node-text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #596574; }
+      .tag { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #334155; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 14px; fill: #3A5669; }
+      .line { stroke: #64748B; stroke-width: 2; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="54" y="50" width="1172" height="620" rx="28" fill="#FFFFFF" opacity="0.9" filter="url(#shadow)"/>
+  <text x="88" y="112" class="title">Claude Code 后端 500 排查闭环</text>
+  <text x="90" y="148" class="sub">先复现、再定位、再小步修改，最后看 diff 和测试</text>
+  <g transform="translate(86 218)">
+    <rect width="128" height="96" rx="16" fill="#EAF2FF" stroke="#BFD6FF"/>
+    <text x="22" y="36" class="node-title">读项目</text>
+    <text x="22" y="64" class="node-text">路由 / 服务</text>
+    <text x="22" y="84" class="node-text">测试 / 规则</text>
+  </g>
+  <path class="line" d="M 220 266 L 270 266"/>
+  <g transform="translate(276 218)">
+    <rect width="128" height="96" rx="16" fill="#FFECEC" stroke="#F3C3C3"/>
+    <text x="22" y="36" class="node-title">复现 500</text>
+    <text x="22" y="65" class="mono">curl -i</text>
+    <text x="22" y="84" class="node-text">本地 API</text>
+  </g>
+  <path class="line" d="M 410 266 L 460 266"/>
+  <g transform="translate(466 218)">
+    <rect width="128" height="96" rx="16" fill="#FFF4DD" stroke="#F1D59B"/>
+    <text x="20" y="36" class="node-title">日志测试</text>
+    <text x="20" y="64" class="node-text">异常类型</text>
+    <text x="20" y="84" class="node-text">失败用例</text>
+  </g>
+  <path class="line" d="M 600 266 L 650 266"/>
+  <g transform="translate(656 218)">
+    <rect width="128" height="96" rx="16" fill="#F1EEFF" stroke="#D4C8FF"/>
+    <text x="20" y="36" class="node-title">先给计划</text>
+    <text x="20" y="64" class="mono">plan</text>
+    <text x="20" y="84" class="node-text">先读不改</text>
+  </g>
+  <path class="line" d="M 790 266 L 840 266"/>
+  <g transform="translate(846 218)">
+    <rect width="128" height="96" rx="16" fill="#ECF7F0" stroke="#BFE4CD"/>
+    <text x="20" y="36" class="node-title">小步修改</text>
+    <text x="20" y="64" class="node-text">目标接口</text>
+    <text x="20" y="84" class="node-text">补测试</text>
+  </g>
+  <path class="line" d="M 980 266 L 1030 266"/>
+  <g transform="translate(1036 218)">
+    <rect width="128" height="96" rx="16" fill="#F8FAFC" stroke="#D9E1EA"/>
+    <text x="20" y="36" class="node-title">看 diff</text>
+    <text x="20" y="64" class="node-text">改动范围</text>
+    <text x="20" y="84" class="node-text">不碰配置</text>
+  </g>
+  <path d="M 1100 320 C 1100 420 194 420 150 320" stroke="#64748B" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-linecap="round" stroke-dasharray="7 9"/>
+  <g transform="translate(412 408)">
+    <rect width="198" height="86" rx="17" fill="#ECFDF5" stroke="#BFE4CD"/>
+    <text x="30" y="35" class="node-title">跑测试</text>
+    <text x="30" y="63" class="mono">pytest -q</text>
+  </g>
+  <path class="line" d="M 616 451 L 666 451"/>
+  <g transform="translate(672 408)">
+    <rect width="236" height="86" rx="17" fill="#F8FAFC" stroke="#D9E1EA"/>
+    <text x="30" y="35" class="node-title">总结边界</text>
+    <text x="30" y="63" class="node-text">支付 / 退款 / 数据库另审</text>
+  </g>
+  <g transform="translate(112 560)">
+    <rect width="1056" height="54" rx="18" fill="#F8FAFC" stroke="#E3E8EF"/>
+    <text x="34" y="35" class="tag">路由</text>
+    <text x="154" y="35" class="tag">服务层</text>
+    <text x="290" y="35" class="tag">日志</text>
+    <text x="410" y="35" class="tag">权限</text>
+    <text x="530" y="35" class="tag">diff</text>
+    <text x="650" y="35" class="tag">测试</text>
+    <text x="770" y="35" class="tag">数据库</text>
+    <text x="910" y="35" class="tag">支付信息</text>
+  </g>
+</svg>
+

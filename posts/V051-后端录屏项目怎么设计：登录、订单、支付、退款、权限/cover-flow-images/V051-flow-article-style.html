@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V051 图文教程风格流程图</title>
+  <style>
+    :root {
+      --ink:#111;
+      --paper:#fffaf0;
+      --line:#e9decc;
+      --muted:#706a61;
+      --blue:#5aa7ff;
+      --pink:#ef7096;
+      --green:#55c89f;
+      --yellow:#f3c647;
+      --dark:#121a22;
+    }
+    * { box-sizing:border-box; }
+    html, body {
+      margin:0;
+      width:1280px;
+      min-height:720px;
+      background:var(--paper);
+      font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+      letter-spacing:0;
+    }
+    body { overflow:hidden; }
+    #canvas {
+      width:1280px;
+      height:720px;
+      padding:34px 46px 28px;
+      position:relative;
+      color:var(--ink);
+      background:
+        linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px),
+        #fffaf0;
+      background-size:34px 34px;
+    }
+    .head {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:24px;
+      margin-bottom:24px;
+    }
+    h1 { margin:0; font-size:50px; line-height:1.04; font-weight:1000; }
+    .sub { margin-top:8px; color:#49443e; font-size:21px; line-height:1.25; font-weight:800; }
+    .pill {
+      flex:0 0 auto;
+      padding:10px 16px;
+      border:2px solid #111;
+      border-radius:999px;
+      background:#fff;
+      font-size:19px;
+      font-weight:950;
+    }
+    .flow {
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:30px;
+      align-items:stretch;
+      margin-bottom:24px;
+    }
+    .step-card {
+      position:relative;
+      min-height:190px;
+      padding:18px 17px 16px;
+      border:2px solid var(--line);
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 14px 28px rgba(45,35,20,.08);
+    }
+    .step-card:after {
+      content:"→";
+      position:absolute;
+      top:72px;
+      right:-27px;
+      color:#111;
+      font-size:31px;
+      font-weight:1000;
+    }
+    .step-card:last-child:after { content:""; }
+    .badge {
+      display:inline-block;
+      background:#111;
+      color:#fff;
+      border-radius:10px;
+      padding:8px 11px;
+      font-size:16px;
+      line-height:1;
+      font-weight:1000;
+      margin-bottom:12px;
+    }
+    .step-card:nth-child(2) .badge { background:var(--pink); color:#111; }
+    .step-card:nth-child(3) .badge { background:var(--green); color:#111; }
+    .step-card:nth-child(4) .badge { background:var(--blue); color:#111; }
+    .step-card:nth-child(5) .badge { background:var(--yellow); color:#111; }
+    .step-card h2 { margin:0 0 10px; font-size:27px; line-height:1.08; font-weight:1000; }
+    .step-card p { margin:0; font-size:18px; line-height:1.36; color:#403b35; font-weight:760; }
+    .bottom {
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .terminal, .checks {
+      border-radius:24px;
+      min-height:170px;
+      box-shadow:0 14px 28px rgba(45,35,20,.08);
+    }
+    .terminal {
+      background:var(--dark);
+      color:#f3f8fd;
+      padding:21px 24px;
+    }
+    .bar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:#a9b6c1;
+      font-size:17px;
+      font-weight:900;
+      margin-bottom:13px;
+    }
+    .dots { display:flex; gap:7px; }
+    .dots span { width:12px; height:12px; border-radius:50%; display:block; }
+    .dots span:nth-child(1){background:#ff6d6d;}
+    .dots span:nth-child(2){background:#ffd35a;}
+    .dots span:nth-child(3){background:#60d394;}
+    .code {
+      font-family:"SFMono-Regular","Menlo","Consolas",monospace;
+      font-size:20px;
+      line-height:1.45;
+      font-weight:780;
+      white-space:pre-wrap;
+    }
+    .green { color:#92edc0; }
+    .blue { color:#9bd1ff; }
+    .dim { color:#96a5af; }
+    .checks {
+      background:#fff7e6;
+      border:2px solid #ecd7ad;
+      padding:21px 24px;
+    }
+    .checks h3 { margin:0 0 13px; font-size:26px; line-height:1.08; font-weight:1000; }
+    .check-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 16px;
+    }
+    .check {
+      display:grid;
+      grid-template-columns:24px 1fr;
+      gap:8px;
+      align-items:start;
+      font-size:17px;
+      line-height:1.25;
+      color:#37332e;
+      font-weight:800;
+    }
+    .circle {
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:14px;
+      font-weight:1000;
+    }
+    .footer {
+      position:absolute;
+      left:46px;
+      right:46px;
+      bottom:17px;
+      display:flex;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:800;
+    }
+  </style>
+</head>
+<body>
+  <main id="canvas" aria-label="V051 图文教程风格流程图">
+    <header class="head">
+      <div>
+        <h1>后端录屏项目设计流程</h1>
+        <div class="sub">登录、订单、支付、退款、权限都用 demo 数据；每段都要可复现、可验证、可隐藏。</div>
+      </div>
+      <div class="pill">V051 · 设计示意图</div>
+    </header>
+
+    <section class="flow">
+      <article class="step-card">
+        <span class="badge">STEP 1</span>
+        <h2>定边界</h2>
+        <p>不录真实生产系统，只用 demo 数据和假配置。</p>
+      </article>
+      <article class="step-card">
+        <span class="badge">STEP 2</span>
+        <h2>设计模块</h2>
+        <p>登录、订单、支付、退款、权限五段分开准备。</p>
+      </article>
+      <article class="step-card">
+        <span class="badge">STEP 3</span>
+        <h2>准备假数据</h2>
+        <p>demo user、demo order、mock payment。</p>
+      </article>
+      <article class="step-card">
+        <span class="badge">STEP 4</span>
+        <h2>预设故障</h2>
+        <p>500、401、403、重复退款等可复现场景。</p>
+      </article>
+      <article class="step-card">
+        <span class="badge">STEP 5</span>
+        <h2>准备验证</h2>
+        <p>curl / HTTP Client、日志、test、diff 一起收口。</p>
+      </article>
+    </section>
+
+    <section class="bottom">
+      <div class="terminal">
+        <div class="bar"><span>推荐录屏材料</span><div class="dots"><span></span><span></span><span></span></div></div>
+        <div class="code"><span class="blue">.env.example</span> + curl/HTTP Client + service logs + <span class="green">npm test / pytest -q</span>
+<span class="dim">真实命令、端口和框架需录屏前实测确认。</span></div>
+      </div>
+      <div class="checks">
+        <h3>底部检查标签</h3>
+        <div class="check-grid">
+          <div class="check"><span class="circle">✓</span><span>假数据</span></div>
+          <div class="check"><span class="circle">✓</span><span>mock 支付</span></div>
+          <div class="check"><span class="circle">✓</span><span>权限矩阵</span></div>
+          <div class="check"><span class="circle">✓</span><span>接口请求</span></div>
+          <div class="check"><span class="circle">✓</span><span>日志与测试</span></div>
+          <div class="check"><span class="circle">✓</span><span>打码清单</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer"><span>素材性质：非真实登录数据 / 脱敏示意</span><span>#后端实战 #API #项目设计</span></footer>
+  </main>
+</body>
+</html>

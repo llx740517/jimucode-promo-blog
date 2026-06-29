@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">V033 MCP 连接与排查路径图</title>
+  <desc id="desc">MCP 从工具、配置文件、server、权限登录到调用验证的关系，以及失败排查顺序。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#182033" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #f5f7fb; }
+      .grid { stroke: #d7dee9; stroke-width: 1; opacity: .42; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 42px; font-weight: 800; fill: #132033; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 19px; fill: #556171; }
+      .node { fill: #ffffff; stroke-width: 1.5; filter: url(#shadow); }
+      .n1 { stroke: #2b7a78; }
+      .n2 { stroke: #5b6ee1; }
+      .n3 { stroke: #0f8a8a; }
+      .n4 { stroke: #d08728; }
+      .n5 { stroke: #35935c; }
+      .n6 { stroke: #c74747; }
+      .node-title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 24px; font-weight: 750; fill: #182236; }
+      .node-sub { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; fill: #687386; }
+      .badge { fill: #eef3f8; stroke: #d5dfe9; stroke-width: 1; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 17px; font-weight: 650; fill: #243044; }
+      .line { stroke: #8390a3; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .chev { stroke: #8390a3; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; fill: #7b8796; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; font-weight: 700; fill: #334155; }
+      .terminal { fill: #16202f; }
+      .terminal-line { stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect class="bg" width="1280" height="720"/>
+  <g opacity="0.75">
+    <path class="grid" d="M0 96H1280M0 192H1280M0 288H1280M0 384H1280M0 480H1280M0 576H1280M160 0V720M320 0V720M480 0V720M640 0V720M800 0V720M960 0V720M1120 0V720"/>
+  </g>
+  <text x="70" y="78" class="title">MCP 新手第 1 集：连接、权限和失败点</text>
+  <text x="72" y="114" class="subtitle">先看链路，再查配置、Key、日志和权限；Codex 与 Claude Code 分开核对。</text>
+
+  <g transform="translate(58 164)">
+    <rect class="node n1" x="0" y="0" width="172" height="132" rx="8"/>
+    <text class="node-title" x="22" y="44">本地工具</text>
+    <text class="node-title" x="22" y="76">远程服务</text>
+    <text class="node-sub" x="22" y="106">stdio / HTTP</text>
+    <circle cx="136" cy="34" r="10" fill="#2b7a78"/>
+    <circle cx="136" cy="62" r="10" fill="#5b6ee1"/>
+    <circle cx="136" cy="90" r="10" fill="#d08728"/>
+  </g>
+
+  <g transform="translate(264 164)">
+    <rect class="node n2" x="0" y="0" width="172" height="132" rx="8"/>
+    <text class="node-title" x="22" y="45">配置文件</text>
+    <text class="node-sub" x="22" y="75">.mcp.json</text>
+    <text class="node-sub" x="22" y="98">~/.claude.json</text>
+    <text class="small" x="22" y="120">Codex 需实测</text>
+  </g>
+
+  <g transform="translate(470 164)">
+    <rect class="node n3" x="0" y="0" width="172" height="132" rx="8"/>
+    <text class="node-title" x="22" y="45">MCP Server</text>
+    <text class="node-sub" x="22" y="75">工具 / 资源</text>
+    <text class="node-sub" x="22" y="98">提示词暴露</text>
+    <path d="M126 40h18M126 66h18M126 92h18" stroke="#0f8a8a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(676 164)">
+    <rect class="node n4" x="0" y="0" width="172" height="132" rx="8"/>
+    <text class="node-title" x="22" y="45">权限 / 登录</text>
+    <text class="node-sub" x="22" y="75">OAuth / Token</text>
+    <text class="node-sub" x="22" y="98">scope / 信任</text>
+    <path d="M132 43a18 18 0 1 1-1 0M132 61v24" stroke="#d08728" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <g transform="translate(882 164)">
+    <rect class="node n5" x="0" y="0" width="172" height="132" rx="8"/>
+    <text class="node-title" x="22" y="45">调用验证</text>
+    <text class="node-sub" x="22" y="75">list / get</text>
+    <text class="node-sub" x="22" y="98">/mcp 状态</text>
+    <path d="M126 72l12 12 28-34" stroke="#35935c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(1088 164)">
+    <rect class="node n6" x="0" y="0" width="144" height="132" rx="8"/>
+    <text class="node-title" x="18" y="45">失败点</text>
+    <text class="node-sub" x="18" y="75">401 / 404</text>
+    <text class="node-sub" x="18" y="98">timeout</text>
+    <text class="node-sub" x="18" y="120">command path</text>
+  </g>
+
+  <g>
+    <path class="line" d="M230 230H264"/>
+    <path class="chev" d="M257 223l8 7-8 7"/>
+    <path class="line" d="M436 230H470"/>
+    <path class="chev" d="M463 223l8 7-8 7"/>
+    <path class="line" d="M642 230H676"/>
+    <path class="chev" d="M669 223l8 7-8 7"/>
+    <path class="line" d="M848 230H882"/>
+    <path class="chev" d="M875 223l8 7-8 7"/>
+    <path class="line" d="M1054 230H1088"/>
+    <path class="chev" d="M1081 223l8 7-8 7"/>
+  </g>
+
+  <g transform="translate(78 354)">
+    <rect x="0" y="0" width="1124" height="94" rx="8" fill="#ffffff" stroke="#d9e1eb"/>
+    <text x="28" y="38" class="label">工具差异：</text>
+    <text x="142" y="38" class="badge-text">Codex：codex mcp list / get / add / remove / login / logout</text>
+    <text x="142" y="70" class="badge-text">Claude Code：claude mcp、scope、.mcp.json、/mcp、--mcp-config</text>
+    <rect x="900" y="20" width="188" height="54" rx="8" fill="#f7fafc" stroke="#d9e1eb"/>
+  </g>
+
+  <g transform="translate(78 496)">
+    <text x="0" y="0" class="label">失败排查顺序</text>
+    <g transform="translate(0 28)">
+      <rect class="badge" x="0" y="0" width="120" height="48" rx="8"/><text class="badge-text" x="24" y="31">终端输出</text>
+      <path class="line" d="M126 24H146"/><path class="chev" d="M140 18l7 6-7 6"/>
+      <rect class="badge" x="154" y="0" width="120" height="48" rx="8"/><text class="badge-text" x="178" y="31">配置文件</text>
+      <path class="line" d="M280 24H300"/><path class="chev" d="M294 18l7 6-7 6"/>
+      <rect class="badge" x="308" y="0" width="145" height="48" rx="8"/><text class="badge-text" x="326" y="31">Key/API 地址</text>
+      <path class="line" d="M459 24H479"/><path class="chev" d="M473 18l7 6-7 6"/>
+      <rect class="badge" x="487" y="0" width="120" height="48" rx="8"/><text class="badge-text" x="511" y="31">权益状态</text>
+      <path class="line" d="M613 24H633"/><path class="chev" d="M627 18l7 6-7 6"/>
+      <rect class="badge" x="641" y="0" width="96" height="48" rx="8"/><text class="badge-text" x="665" y="31">日志页</text>
+      <path class="line" d="M743 24H763"/><path class="chev" d="M757 18l7 6-7 6"/>
+      <rect class="badge" x="771" y="0" width="82" height="48" rx="8"/><text class="badge-text" x="795" y="31">网络</text>
+      <path class="line" d="M859 24H879"/><path class="chev" d="M873 18l7 6-7 6"/>
+      <rect class="badge" x="887" y="0" width="82" height="48" rx="8"/><text class="badge-text" x="911" y="31">权限</text>
+      <path class="line" d="M975 24H995"/><path class="chev" d="M989 18l7 6-7 6"/>
+      <rect class="badge" x="1003" y="0" width="120" height="48" rx="8"/><text class="badge-text" x="1027" y="31">项目目录</text>
+    </g>
+  </g>
+
+  <g transform="translate(78 622)">
+    <rect class="terminal" x="0" y="0" width="1124" height="56" rx="8"/>
+    <circle cx="26" cy="21" r="6" fill="#ff6b6b"/><circle cx="46" cy="21" r="6" fill="#f6c85f"/><circle cx="66" cy="21" r="6" fill="#6bcf81"/>
+    <line class="terminal-line" x1="100" y1="22" x2="330" y2="22" stroke="#54d1c8"/>
+    <line class="terminal-line" x1="100" y1="38" x2="520" y2="38" stroke="#e2e8f0"/>
+    <line class="terminal-line" x1="610" y1="22" x2="760" y2="22" stroke="#ff8b8b"/>
+    <line class="terminal-line" x1="610" y1="38" x2="1010" y2="38" stroke="#e2e8f0"/>
+    <text class="small" x="930" y="36" fill="#cbd5e1">example only</text>
+  </g>
+</svg>

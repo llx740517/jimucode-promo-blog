@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V002 Codex 配置失败排查流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.46" stop-color="#102238"/>
+      <stop offset="1" stop-color="#1f1824"/>
+    </linearGradient>
+    <linearGradient id="warnLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.48" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#142235" stop-opacity="0.98"/>
+      <stop offset="1" stop-color="#0a1727" stop-opacity="0.99"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#36536a" stroke-width="1" opacity="0.22"/>
+    </pattern>
+    <filter id="shadow" x="-18%" y="-26%" width="136%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+    <filter id="glow" x="-30%" y="-80%" width="160%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#93c5fd"/>
+    </marker>
+    <style>
+      .font{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;letter-spacing:0}
+      .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;letter-spacing:0}
+      .title{font-size:47px;font-weight:950;fill:#f8fafc}
+      .sub{font-size:22px;font-weight:820;fill:#c6d7e6}
+      .route{font-size:25px;font-weight:930;fill:#f8fafc}
+      .card{fill:url(#panel);stroke:#365e78;stroke-width:1.7;filter:url(#shadow)}
+      .blue{stroke:#38bdf8}.amber{stroke:#fbbf24}.red{stroke:#fb7185}.green{stroke:#34d399}.violet{stroke:#a78bfa}
+      .num{font-size:20px;font-weight:950;fill:#061321}
+      .nodeTitle{font-size:26px;font-weight:940;fill:#f8fafc}
+      .nodeDesc{font-size:19px;font-weight:800;fill:#d4e2ec}
+      .nodeMeta{font-size:18px;font-weight:860;fill:#93c5fd}
+      .line{stroke:#93c5fd;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+      .glowLine{stroke:url(#warnLine);stroke-width:7;fill:none;stroke-linecap:round;opacity:.28;filter:url(#glow)}
+      .terminal{fill:#0b1220;stroke:#2f5970;stroke-width:1.4}
+      .termText{font-size:18px;font-weight:820;fill:#dbeafe}
+      .termErr{fill:#fca5a5}
+      .ok{fill:#34d399}.warn{fill:#f59e0b}.bad{fill:#fb7185}
+      .chip{fill:rgba(226,244,255,.12);stroke:#3a6379;stroke-width:1.3}
+      .chipText{font-size:19px;font-weight:900;fill:#e4f1f8}
+      .note{font-size:25px;font-weight:930;fill:#d7e7f4}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <circle cx="116" cy="86" r="172" fill="#2563eb" opacity=".12"/>
+  <circle cx="1110" cy="614" r="210" fill="#dc2626" opacity=".12"/>
+
+  <rect x="54" y="42" width="1172" height="104" rx="24" fill="rgba(7,17,31,.74)" stroke="#2c5368" stroke-width="1.2"/>
+  <text class="font title" x="82" y="92">Codex 配置失败先查这 5 处</text>
+  <text class="font sub" x="84" y="126">别先重装：终端 → 配置 → Key/API → 权益 → 日志</text>
+
+  <g transform="translate(70 184)">
+    <rect class="terminal" x="0" y="0" width="260" height="178" rx="20"/>
+    <circle cx="30" cy="30" r="7" class="bad"/><circle cx="54" cy="30" r="7" class="warn"/><circle cx="78" cy="30" r="7" class="ok"/>
+    <text class="mono termText" x="24" y="76">$ codex ...</text>
+    <text class="mono termText termErr" x="24" y="110">ERROR 401 / 403</text>
+    <text class="mono termText" x="24" y="144">$ codex doctor</text>
+  </g>
+
+  <path class="glowLine" d="M330 273 L394 273 L458 273 L522 273 L586 273 L650 273 L714 273 L778 273 L842 273 L906 273 L970 273"/>
+  <path class="line" d="M330 273 L376 273"/>
+  <path class="line" d="M526 273 L572 273"/>
+  <path class="line" d="M722 273 L768 273"/>
+  <path class="line" d="M918 273 L964 273"/>
+
+  <g transform="translate(380 184)">
+    <rect class="card blue" x="0" y="0" width="150" height="178" rx="20"/>
+    <circle cx="34" cy="36" r="22" fill="#38bdf8"/><text class="font num" x="27" y="43">1</text>
+    <text class="font nodeTitle" x="24" y="84">终端输出</text>
+    <text class="font nodeDesc" x="24" y="120">错误码</text>
+    <text class="font nodeMeta" x="24" y="153">doctor</text>
+  </g>
+  <g transform="translate(576 184)">
+    <rect class="card violet" x="0" y="0" width="150" height="178" rx="20"/>
+    <circle cx="34" cy="36" r="22" fill="#a78bfa"/><text class="font num" x="27" y="43">2</text>
+    <text class="font nodeTitle" x="24" y="84">配置文件</text>
+    <text class="font nodeDesc" x="24" y="120">config.toml</text>
+    <text class="font nodeMeta" x="24" y="153">auth</text>
+  </g>
+  <g transform="translate(772 184)">
+    <rect class="card amber" x="0" y="0" width="150" height="178" rx="20"/>
+    <circle cx="34" cy="36" r="22" fill="#fbbf24"/><text class="font num" x="27" y="43">3</text>
+    <text class="font nodeTitle" x="24" y="84">Key/API</text>
+    <text class="font nodeDesc" x="24" y="120">产品线</text>
+    <text class="font nodeMeta" x="24" y="153">/p/v1</text>
+  </g>
+  <g transform="translate(968 184)">
+    <rect class="card green" x="0" y="0" width="150" height="178" rx="20"/>
+    <circle cx="34" cy="36" r="22" fill="#34d399"/><text class="font num" x="27" y="43">4</text>
+    <text class="font nodeTitle" x="24" y="84">权益状态</text>
+    <text class="font nodeDesc" x="24" y="120">余额额度</text>
+    <text class="font nodeMeta" x="24" y="153">当天可用</text>
+  </g>
+
+  <path class="line" d="M1043 362 C1043 410 880 402 810 430"/>
+
+  <g transform="translate(630 430)">
+    <rect class="card red" x="0" y="0" width="248" height="118" rx="20"/>
+    <circle cx="34" cy="34" r="22" fill="#fb7185"/><text class="font num" x="27" y="41">5</text>
+    <text class="font nodeTitle" x="68" y="43">日志页</text>
+    <text class="font nodeDesc" x="24" y="84">有没有当天请求记录</text>
+  </g>
+  <g transform="translate(914 430)">
+    <rect class="card blue" x="0" y="0" width="250" height="118" rx="20"/>
+    <text class="font nodeTitle" x="24" y="44">最后再看</text>
+    <text class="font nodeDesc" x="24" y="84">网络 / 权限 / 项目目录</text>
+  </g>
+  <path class="line" d="M878 489 L914 489"/>
+
+  <text class="font note" x="82" y="589">排查顺序：</text>
+  <g transform="translate(70 616)">
+    <rect class="chip" x="0" y="0" width="112" height="46" rx="23"/><text class="font chipText" x="20" y="30">终端输出</text>
+    <rect class="chip" x="126" y="0" width="112" height="46" rx="23"/><text class="font chipText" x="146" y="30">配置文件</text>
+    <rect class="chip" x="252" y="0" width="142" height="46" rx="23"/><text class="font chipText" x="272" y="30">Key/API 地址</text>
+    <rect class="chip" x="408" y="0" width="112" height="46" rx="23"/><text class="font chipText" x="428" y="30">权益状态</text>
+    <rect class="chip" x="534" y="0" width="96" height="46" rx="23"/><text class="font chipText" x="558" y="30">日志页</text>
+    <rect class="chip" x="644" y="0" width="84" height="46" rx="23"/><text class="font chipText" x="668" y="30">网络</text>
+    <rect class="chip" x="742" y="0" width="84" height="46" rx="23"/><text class="font chipText" x="766" y="30">权限</text>
+    <rect class="chip" x="840" y="0" width="112" height="46" rx="23"/><text class="font chipText" x="860" y="30">项目目录</text>
+  </g>
+</svg>

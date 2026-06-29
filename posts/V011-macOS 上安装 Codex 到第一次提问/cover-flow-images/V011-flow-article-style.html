@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V011 图文教程风格流程图</title>
+  <style>
+    :root {
+      --bg: #fbf6ec;
+      --paper: #fffdfa;
+      --ink: #111111;
+      --muted: #716b62;
+      --line: #e1d5c4;
+      --pink: #e75a8c;
+      --green: #35a96f;
+      --yellow: #ffd34d;
+      --dark: #101923;
+      --soft-green: #edf8f1;
+      --soft-pink: #fff0f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Arial Black", "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+    .page {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 34px 44px 28px;
+      background:
+        radial-gradient(circle at 90% 85%, rgba(75,155,230,.10), transparent 250px),
+        linear-gradient(180deg, #fffdf9 0%, #fbf5e9 100%);
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 2px solid var(--line);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 50px;
+      padding: 0 24px 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 14px 28px rgba(64,46,28,.08);
+      font-size: 22px;
+      font-weight: 1000;
+    }
+    .spark {
+      width: 17px;
+      height: 17px;
+      border-radius: 5px;
+      background: var(--yellow);
+      transform: rotate(45deg);
+    }
+    .site {
+      padding: 16px 22px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 1000;
+    }
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 26px 0 18px;
+      font-size: 54px;
+      line-height: .95;
+      letter-spacing: 0;
+      font-weight: 1000;
+    }
+    .steps {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .step-card {
+      position: relative;
+      min-height: 226px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,253,250,.92);
+      padding: 16px 14px;
+      box-shadow: 0 10px 20px rgba(64,46,28,.05);
+    }
+    .step-card:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -20px;
+      top: 90px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 1000;
+      z-index: 2;
+    }
+    .step {
+      display: inline-flex;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 1000;
+      margin-bottom: 12px;
+    }
+    .step-card h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .step-card p {
+      margin: 0;
+      font-family: "Microsoft YaHei", sans-serif;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.22;
+      font-weight: 900;
+      min-height: 52px;
+    }
+    .cmd {
+      margin-top: 13px;
+      min-height: 44px;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #dfe8f2;
+      font-family: Consolas, "Courier New", monospace;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .compare {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .85fr;
+      gap: 22px;
+      margin-top: 20px;
+    }
+    .box {
+      min-height: 116px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      font-family: "Microsoft YaHei", sans-serif;
+      font-weight: 900;
+      box-shadow: 0 10px 20px rgba(64,46,28,.05);
+    }
+    .box h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .summary {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      height: 70px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 20px;
+      font-size: 24px;
+      line-height: 1.1;
+      font-weight: 1000;
+    }
+    .summary b {
+      background: var(--pink);
+      border-radius: 10px;
+      padding: 13px 18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <div class="tag"><span class="spark"></span>V011 macOS 安装 Codex</div>
+      <div class="site">code.jimuxyz.com</div>
+    </div>
+    <h1>macOS Codex 入门：Terminal、安装、Key、doctor、首次提问</h1>
+    <section class="steps">
+      <div class="step-card">
+        <div class="step">STEP 1</div>
+        <h2>Terminal / zsh</h2>
+        <p>先确认 macOS、芯片架构和当前 shell。</p>
+        <div class="cmd">echo $SHELL</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 2</div>
+        <h2>基础环境</h2>
+        <p>Node/npm 或 Homebrew 不必全有，但要知道走哪条路。</p>
+        <div class="cmd">node -v / brew</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 3</div>
+        <h2>安装 Codex</h2>
+        <p>脚本、npm、Homebrew 选一条主线，不混跑。</p>
+        <div class="cmd">codex-install.sh</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 4</div>
+        <h2>配置 Key</h2>
+        <p>Codex Key 全程打码，配置字段需实测确认。</p>
+        <div class="cmd">sk-***</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 5</div>
+        <h2>验证 doctor</h2>
+        <p>先看命令位置、版本和本地诊断摘要。</p>
+        <div class="cmd">codex doctor</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 6</div>
+        <h2>首次提问</h2>
+        <p>只在干净测试目录里验证，不直接改真实项目。</p>
+        <div class="cmd">codex</div>
+      </div>
+    </section>
+    <section class="compare">
+      <div class="box" style="background: var(--soft-green)">
+        <h3 style="color: var(--green)">通过标准</h3>
+        <p>zsh 能找到 codex，版本和 doctor 可输出；测试目录能进入交互，日志页能核对请求状态。</p>
+      </div>
+      <div class="box" style="background: var(--soft-pink)">
+        <h3 style="color: var(--pink)">常见错法</h3>
+        <p>安装路线混用、Key 产品线拿错、权限提示没看清、旧 ~/.codex 配置未备份就清理。</p>
+      </div>
+    </section>
+    <div class="summary"><b>总结</b><span>Terminal/zsh → 环境 → 安装 → Key → doctor → 测试目录首次提问 → 日志。</span></div>
+  </main>
+</body>
+</html>

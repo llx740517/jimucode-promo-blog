@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">V039 多仓库批量检查录屏路线</title>
+  <desc id="desc">从仓库清单、检查模板、单仓样例、批量执行到报告、日志和边界的流程图。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1722"/>
+      <stop offset="0.55" stop-color="#122537"/>
+      <stop offset="1" stop-color="#1d202b"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#edf6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 9 5 L 0 10 z" fill="#8fa7c2"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1095" cy="112" r="150" fill="#31b4c9" opacity="0.12"/>
+  <circle cx="140" cy="602" r="170" fill="#ef6b5a" opacity="0.10"/>
+  <g font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, Arial, sans-serif">
+    <text x="68" y="80" fill="#f7fbff" font-size="38" font-weight="850">批量检查多个仓库：录屏要先让观众看懂</text>
+    <text x="70" y="118" fill="#a8bbd2" font-size="19">清单、模板、单仓样例、进度摘要、汇总报告和失败边界，比终端刷屏更重要。</text>
+    <g stroke="#8fa7c2" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M 225 218 H 282"/>
+      <path d="M 462 218 H 519"/>
+      <path d="M 699 218 H 756"/>
+      <path d="M 936 218 C 1014 218 1040 262 1040 336"/>
+      <path d="M 1040 414 C 1040 494 1002 530 934 530"/>
+      <path d="M 756 530 H 699"/>
+      <path d="M 519 530 H 462"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="58" y="160" width="167" height="116" rx="18" fill="url(#node)" stroke="#d7e4ef"/>
+      <rect x="295" y="160" width="167" height="116" rx="18" fill="url(#node)" stroke="#d7e4ef"/>
+      <rect x="532" y="160" width="167" height="116" rx="18" fill="url(#node)" stroke="#d7e4ef"/>
+      <rect x="769" y="160" width="167" height="116" rx="18" fill="#effff8" stroke="#b9e7d2"/>
+      <rect x="769" y="472" width="167" height="116" rx="18" fill="#f4f8ff" stroke="#c6d8f2"/>
+      <rect x="532" y="472" width="167" height="116" rx="18" fill="#fff8e8" stroke="#ead3a0"/>
+      <rect x="295" y="472" width="167" height="116" rx="18" fill="#fff3ef" stroke="#efc1b8"/>
+      <rect x="58" y="472" width="167" height="116" rx="18" fill="#f3f7ff" stroke="#c9d8ef"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="141" y="202" fill="#223044" font-size="22" font-weight="850">仓库清单</text>
+      <text x="141" y="235" fill="#516073" font-size="16">repos.tsv</text>
+      <text x="141" y="258" fill="#516073" font-size="16">范围先讲清</text>
+      <text x="378" y="202" fill="#223044" font-size="22" font-weight="850">检查模板</text>
+      <text x="378" y="235" fill="#516073" font-size="16">固定结构</text>
+      <text x="378" y="258" fill="#516073" font-size="16">方便汇总</text>
+      <text x="615" y="202" fill="#223044" font-size="22" font-weight="850">单仓样例</text>
+      <text x="615" y="235" fill="#516073" font-size="16">Codex exec</text>
+      <text x="615" y="258" fill="#516073" font-size="16">Claude -p</text>
+      <text x="852" y="202" fill="#1d6b4d" font-size="22" font-weight="850">批量执行</text>
+      <text x="852" y="235" fill="#496558" font-size="16">3 个仓库</text>
+      <text x="852" y="258" fill="#496558" font-size="16">只录摘要</text>
+      <text x="852" y="514" fill="#254c86" font-size="22" font-weight="850">单仓报告</text>
+      <text x="852" y="547" fill="#4c5d7a" font-size="16">reports/</text>
+      <text x="852" y="570" fill="#4c5d7a" font-size="16">可回看</text>
+      <text x="615" y="514" fill="#805d15" font-size="22" font-weight="850">汇总报告</text>
+      <text x="615" y="547" fill="#6b5b36" font-size="16">风险等级</text>
+      <text x="615" y="570" fill="#6b5b36" font-size="16">人工复核</text>
+      <text x="378" y="514" fill="#b84234" font-size="22" font-weight="850">失败日志</text>
+      <text x="378" y="547" fill="#65413a" font-size="16">WARN / FAIL</text>
+      <text x="378" y="570" fill="#65413a" font-size="16">看 logs</text>
+      <text x="141" y="514" fill="#254c86" font-size="22" font-weight="850">运行边界</text>
+      <text x="141" y="547" fill="#4c5d7a" font-size="16">CI / tmux</text>
+      <text x="141" y="570" fill="#4c5d7a" font-size="16">服务器</text>
+    </g>
+    <g>
+      <rect x="980" y="166" width="230" height="156" rx="18" fill="#101926" stroke="#33475c"/>
+      <text x="1004" y="204" fill="#dce8f5" font-size="20" font-weight="850">进度摘要</text>
+      <text x="1004" y="238" fill="#7be0ae" font-size="17" font-weight="800">[1/3] repo-web OK</text>
+      <text x="1004" y="268" fill="#ffd28f" font-size="17" font-weight="800">[2/3] repo-api WARN</text>
+      <text x="1004" y="298" fill="#ff8176" font-size="17" font-weight="800">[3/3] repo-cli FAIL</text>
+      <rect x="980" y="430" width="230" height="148" rx="18" fill="#101926" stroke="#33475c"/>
+      <text x="1004" y="468" fill="#dce8f5" font-size="20" font-weight="850">报告文件</text>
+      <text x="1004" y="502" fill="#aebfd3" font-size="16">reports/codex/*.md</text>
+      <text x="1004" y="530" fill="#aebfd3" font-size="16">reports/claude/*.json</text>
+      <text x="1004" y="558" fill="#aebfd3" font-size="16">summary/index.md</text>
+    </g>
+    <g>
+      <rect x="64" y="628" width="1152" height="48" rx="18" fill="#0f1722" stroke="#263447"/>
+      <text x="90" y="658" fill="#8fa2bb" font-size="16" font-weight="700">排查顺序</text>
+      <text x="186" y="658" fill="#d8e2ef" font-size="16">终端输出</text>
+      <text x="286" y="658" fill="#d8e2ef" font-size="16">配置文件</text>
+      <text x="386" y="658" fill="#ffd08a" font-size="16">Key/API 地址</text>
+      <text x="516" y="658" fill="#d8e2ef" font-size="16">权益状态</text>
+      <text x="616" y="658" fill="#d8e2ef" font-size="16">日志页</text>
+      <text x="698" y="658" fill="#ffb0a7" font-size="16">网络</text>
+      <text x="766" y="658" fill="#ffb0a7" font-size="16">权限</text>
+      <text x="834" y="658" fill="#d8e2ef" font-size="16">项目目录</text>
+    </g>
+  </g>
+</svg>

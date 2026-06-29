@@ -1,0 +1,78 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#0F172A"/>
+  <rect x="42" y="36" width="1196" height="648" rx="26" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="76" y="92" fill="#F8FAFC" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="900">V047 Claude Code 前端实战流程</text>
+  <text x="78" y="126" fill="#CBD5E1" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">读项目、修 Bug、新增筛选、验证结果</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="72" y="188" width="150" height="104" rx="18" fill="#162033" stroke="#38BDF8" stroke-width="2"/>
+    <text x="147" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">读项目</text>
+    <text x="147" y="264" text-anchor="middle" fill="#BAE6FD" font-size="16" font-weight="700">页面 / 组件</text>
+    <rect x="272" y="188" width="150" height="104" rx="18" fill="#20233B" stroke="#A78BFA" stroke-width="2"/>
+    <text x="347" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">提任务</text>
+    <text x="347" y="264" text-anchor="middle" fill="#DDD6FE" font-size="16" font-weight="700">边界清楚</text>
+    <rect x="472" y="188" width="150" height="104" rx="18" fill="#331F23" stroke="#FB7185" stroke-width="2"/>
+    <text x="547" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">AI 修改</text>
+    <text x="547" y="264" text-anchor="middle" fill="#FECDD3" font-size="16" font-weight="700">修 Bug</text>
+    <rect x="672" y="188" width="150" height="104" rx="18" fill="#172A2A" stroke="#2DD4BF" stroke-width="2"/>
+    <text x="747" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">看 diff</text>
+    <text x="747" y="264" text-anchor="middle" fill="#99F6E4" font-size="16" font-weight="700">改动范围</text>
+    <rect x="872" y="188" width="150" height="104" rx="18" fill="#322711" stroke="#F59E0B" stroke-width="2"/>
+    <text x="947" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">运行测试</text>
+    <text x="947" y="264" text-anchor="middle" fill="#FDE68A" font-size="16" font-weight="700">lint / test</text>
+    <rect x="1072" y="188" width="132" height="104" rx="18" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+    <text x="1138" y="232" text-anchor="middle" fill="#F8FAFC" font-size="22" font-weight="900">页面验证</text>
+    <text x="1138" y="264" text-anchor="middle" fill="#BFDBFE" font-size="16" font-weight="700">点击筛选</text>
+  </g>
+  <g stroke="#94A3B8" stroke-width="2.2" marker-end="url(#arrow)">
+    <line x1="224" y1="240" x2="264" y2="240"/>
+    <line x1="424" y1="240" x2="464" y2="240"/>
+    <line x1="624" y1="240" x2="664" y2="240"/>
+    <line x1="824" y1="240" x2="864" y2="240"/>
+    <line x1="1024" y1="240" x2="1064" y2="240"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="102" y="386" width="314" height="132" rx="20" fill="#1E293B" stroke="#475569"/>
+    <text x="132" y="432" fill="#F8FAFC" font-size="25" font-weight="900">修 Bug</text>
+    <text x="132" y="468" fill="#CBD5E1" font-size="18">按钮无反应 / 筛选逻辑错误</text>
+    <text x="132" y="497" fill="#94A3B8" font-size="16">先复现，再修改</text>
+    <rect x="483" y="386" width="314" height="132" rx="20" fill="#1E293B" stroke="#475569"/>
+    <text x="513" y="432" fill="#F8FAFC" font-size="25" font-weight="900">新增筛选</text>
+    <text x="513" y="468" fill="#CBD5E1" font-size="18">高优先级 / 待办</text>
+    <text x="513" y="497" fill="#94A3B8" font-size="16">限制改动范围</text>
+    <rect x="864" y="386" width="314" height="132" rx="20" fill="#1E293B" stroke="#475569"/>
+    <text x="894" y="432" fill="#F8FAFC" font-size="25" font-weight="900">结果确认</text>
+    <text x="894" y="468" fill="#CBD5E1" font-size="18">diff + 测试 + 页面点击</text>
+    <text x="894" y="497" fill="#94A3B8" font-size="16">失败先解释原因</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M547 294 C495 334 370 350 259 380"/>
+    <path d="M747 294 C718 336 680 356 640 380"/>
+    <path d="M947 294 C971 336 994 356 1021 380"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <text x="96" y="590" fill="#CBD5E1" font-size="18" font-weight="800">录屏检查点：</text>
+    <rect x="210" y="564" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="268" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">相关文件</text>
+    <rect x="344" y="564" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="402" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">权限提示</text>
+    <rect x="478" y="564" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="536" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">改动范围</text>
+    <rect x="612" y="564" width="92" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="658" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">diff</text>
+    <rect x="722" y="564" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="780" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">测试命令</text>
+    <rect x="856" y="564" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="914" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">页面状态</text>
+    <rect x="990" y="564" width="92" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="1036" y="591" text-anchor="middle" fill="#E2E8F0" font-size="16">移动端</text>
+  </g>
+</svg>
+

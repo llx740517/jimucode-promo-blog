@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V030 图文教程风流程图</title>
+  <style>
+    :root {
+      --ink: #101010;
+      --paper: #fffdf7;
+      --cream: #f7efdf;
+      --line: #e8dccb;
+      --blue: #3b82f6;
+      --pink: #ee6c89;
+      --green: #49a978;
+      --yellow: #ffd166;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9e1d6; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: var(--ink); }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      overflow: hidden;
+      padding: 34px 42px 28px;
+      background:
+        linear-gradient(90deg, rgba(59,130,246,.055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(238,108,137,.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+    }
+    .header { display: flex; justify-content: space-between; align-items: start; gap: 24px; margin-bottom: 22px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--cream);
+      border: 2px solid var(--line);
+      font-size: 19px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+    h1 { margin: 0; font-size: 52px; line-height: 1.04; letter-spacing: 0; font-weight: 1000; }
+    .subtitle { margin-top: 10px; color: #60594f; font-size: 23px; font-weight: 850; }
+    .legend {
+      display: grid;
+      gap: 9px;
+      min-width: 340px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+      font-size: 19px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .project {
+      height: 92px;
+      padding: 16px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 10px 20px rgba(20,16,10,.05);
+    }
+    .project:nth-child(1) { border-top: 8px solid var(--blue); }
+    .project:nth-child(2) { border-top: 8px solid var(--green); }
+    .project:nth-child(3) { border-top: 8px solid var(--pink); }
+    .project:nth-child(4) { border-top: 8px solid var(--yellow); }
+    .project h2 { margin: 0 0 5px; font-size: 25px; line-height: 1.04; font-weight: 1000; }
+    .project p { margin: 0; color: #423d36; font-size: 16px; line-height: 1.18; font-weight: 800; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      position: relative;
+    }
+    .node {
+      height: 142px;
+      padding: 16px 14px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 10px 20px rgba(20,16,10,.055);
+      position: relative;
+    }
+    .node.blue { border-top: 9px solid var(--blue); }
+    .node.green { border-top: 9px solid var(--green); }
+    .node.pink { border-top: 9px solid var(--pink); }
+    .node.yellow { border-top: 9px solid var(--yellow); }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: #080808;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 1000;
+      margin-bottom: 9px;
+    }
+    .node h3 { margin: 0 0 7px; font-size: 23px; line-height: 1.05; font-weight: 1000; }
+    .node p { margin: 0; color: #403b35; font-size: 17px; line-height: 1.2; font-weight: 800; }
+    .arrow {
+      position: absolute;
+      right: -13px;
+      top: 62px;
+      width: 20px;
+      height: 16px;
+      z-index: 2;
+    }
+    .arrow:before { content: ""; position: absolute; left: 0; top: 7px; width: 15px; border-top: 3px solid #171717; }
+    .arrow:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 3px;
+      width: 10px;
+      height: 10px;
+      border-top: 3px solid #171717;
+      border-right: 3px solid #171717;
+      transform: rotate(45deg);
+    }
+    .node:last-child .arrow { display: none; }
+    .middle { margin: 18px 0; display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 18px; }
+    .compare, .note {
+      min-height: 108px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+    }
+    .compare.good { border-left: 12px solid var(--green); }
+    .compare.bad { border-left: 12px solid var(--pink); background: #fff7f7; }
+    .compare h3 { margin: 0 0 8px; font-size: 24px; font-weight: 1000; }
+    .compare p, .note { color: #3d3933; font-size: 19px; line-height: 1.26; font-weight: 820; }
+    .note { background: #fbf2de; border-color: #efdcb7; }
+    .summary {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 28px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 24px;
+      border-radius: 20px;
+      background: #fff;
+      border: 3px solid #111;
+      box-shadow: 6px 6px 0 #111;
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 1000;
+    }
+    .small { color: #6b6259; font-size: 17px; font-weight: 850; }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V030 图文教程风流程图">
+    <header class="header">
+      <div>
+        <div class="tag">V030 / 项目规则模板录屏闭环</div>
+        <h1>项目类型 -> 规则模板 -> 工具入口 -> 验证</h1>
+        <div class="subtitle">先拆四类项目，再分别用 Codex 和 Claude Code 验证加载。</div>
+      </div>
+      <div class="legend">
+        <div>正常：模板写具体，AI 先复述规则，再做小任务。</div>
+        <div>常见错法：只展示 Markdown，没有 diff 或验证。</div>
+      </div>
+    </header>
+
+    <section class="projects">
+      <div class="project"><h2>前端</h2><p>UI / 路由 / 状态 / 测试</p></div>
+      <div class="project"><h2>后端</h2><p>API / 鉴权 / 错误 / 迁移</p></div>
+      <div class="project"><h2>Python</h2><p>环境 / ruff / pytest / 数据</p></div>
+      <div class="project"><h2>全栈</h2><p>合约 / mock / schema / 联调</p></div>
+    </section>
+
+    <section class="flow">
+      <div class="node blue"><span class="step">STEP 1</span><h3>选项目类型</h3><p>确定前端、后端、Python 或全栈。</p><span class="arrow"></span></div>
+      <div class="node green"><span class="step">STEP 2</span><h3>写规则模板</h3><p>AGENTS.md、CLAUDE.md、rules。</p><span class="arrow"></span></div>
+      <div class="node pink"><span class="step">STEP 3</span><h3>分工具加载</h3><p>Codex 与 Claude Code 分开录。</p><span class="arrow"></span></div>
+      <div class="node yellow"><span class="step">STEP 4</span><h3>提小任务</h3><p>先让 AI 复述规则，再给任务。</p><span class="arrow"></span></div>
+      <div class="node blue"><span class="step">STEP 5</span><h3>看 diff / 验证</h3><p>命令能否跑通需现场确认。</p><span class="arrow"></span></div>
+      <div class="node green"><span class="step">STEP 6</span><h3>复用到图文</h3><p>沉淀成教程截图和模板页。</p><span class="arrow"></span></div>
+    </section>
+
+    <section class="middle">
+      <div class="compare good"><h3>正常</h3><p>规则具体到目录、文件、边界、验证命令。</p></div>
+      <div class="compare bad"><h3>常见错法</h3><p>把前端、后端、Python 全塞进一个泛规则。</p></div>
+      <div class="note">注意：Codex 子目录加载、Claude /memory、paths 和测试命令都需录屏前实测确认。</div>
+    </section>
+
+    <div class="summary"><span>文件名 / 目录位置 / 加载确认 / 规则冲突 / 测试命令 / Key 脱敏 / 真实路径 / 后续复用</span><span class="small">非真实登录数据 / 脱敏示意</span></div>
+  </main>
+</body>
+</html>

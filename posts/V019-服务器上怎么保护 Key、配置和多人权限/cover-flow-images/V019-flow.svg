@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08121c"/>
+      <stop offset="0.55" stop-color="#101925"/>
+      <stop offset="1" stop-color="#182226"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#9fb2c5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#7ca7c9" stroke-width="1">
+    <path d="M72 590 C260 500 362 650 548 560 S890 520 1125 604" fill="none"/>
+    <path d="M96 116 H1184"/>
+    <path d="M116 180 H1164"/>
+    <path d="M116 498 H1164"/>
+  </g>
+  <text x="72" y="74" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#f3f7fb">服务器 Key / 配置 / 权限保护路线</text>
+  <text x="73" y="112" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#aab8c7">V019 · Codex 与 Claude Code 分开配置</text>
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(70 190)">
+      <rect width="145" height="112" rx="10" fill="#10283b" stroke="#2a5472"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#e8f3ff">ECS/安全组</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#a9c1d7">端口和来源</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#a9c1d7">先收紧</text>
+    </g>
+    <g transform="translate(238 190)">
+      <rect width="145" height="112" rx="10" fill="#102b32" stroke="#2f6470"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#ecfbff">SSH 登录</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#b4ccd2">密钥权限</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#b4ccd2">主机隐藏</text>
+    </g>
+    <g transform="translate(406 190)">
+      <rect width="145" height="112" rx="10" fill="#17263a" stroke="#365479"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#edf4ff">普通用户隔离</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#b9c8db">不要多人共用</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#b9c8db">同一 home</text>
+    </g>
+    <g transform="translate(574 190)">
+      <rect width="145" height="112" rx="10" fill="#183029" stroke="#3f6f5c"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f0fff8">Key/配置</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#bdd6ca">放用户目录</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#bdd6ca">只看脱敏版</text>
+    </g>
+    <g transform="translate(742 190)">
+      <rect width="145" height="112" rx="10" fill="#231f35" stroke="#594d83"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f5f0ff">工具权限收紧</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#cbc2e0">Codex sandbox</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#cbc2e0">Claude deny</text>
+    </g>
+    <g transform="translate(910 190)">
+      <rect width="145" height="112" rx="10" fill="#2d2418" stroke="#7a603b"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#fff6e8">Git/快照</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#d8c4a9">项目级回退</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#d8c4a9">服务器级回退</text>
+    </g>
+    <g transform="translate(1078 190)">
+      <rect width="145" height="112" rx="10" fill="#332022" stroke="#7a474d"/>
+      <text x="72.5" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#fff1f2">日志核对</text>
+      <text x="72.5" y="70" text-anchor="middle" font-size="14" fill="#dec0c4">请求与用量</text>
+      <text x="72.5" y="92" text-anchor="middle" font-size="14" fill="#dec0c4">全部隐藏</text>
+    </g>
+  </g>
+  <g stroke="#9fb2c5" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+    <path d="M218 246 H232"/>
+    <path d="M386 246 H400"/>
+    <path d="M554 246 H568"/>
+    <path d="M722 246 H736"/>
+    <path d="M890 246 H904"/>
+    <path d="M1058 246 H1072"/>
+  </g>
+  <g transform="translate(86 355)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect width="528" height="110" rx="12" fill="#0e1722" stroke="#28435c"/>
+    <text x="28" y="36" font-size="18" font-weight="700" fill="#eaf4ff">Codex 录屏重点</text>
+    <text x="28" y="66" font-size="16" fill="#b9c9d8">~/.codex/config.toml · --sandbox · --ask-for-approval · --add-dir</text>
+    <text x="28" y="91" font-size="15" fill="#ffb8a8">危险参数只提示，不作为默认执行方案</text>
+  </g>
+  <g transform="translate(666 355)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect width="528" height="110" rx="12" fill="#0e1722" stroke="#40526c"/>
+    <text x="28" y="36" font-size="18" font-weight="700" fill="#f0f5ff">Claude Code 录屏重点</text>
+    <text x="28" y="66" font-size="16" fill="#c4ccdc">settings.json · --allowedTools · --disallowedTools · plan mode</text>
+    <text x="28" y="91" font-size="15" fill="#ffb8a8">.env / secrets / ~/.claude.json 不展示真实内容</text>
+  </g>
+  <g transform="translate(72 548)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="0" y="0" font-size="18" font-weight="700" fill="#f3f7fb">排查顺序</text>
+    <g transform="translate(0 24)" font-size="14" fill="#c6d2de">
+      <rect x="0" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="59" y="23" text-anchor="middle">终端输出</text>
+      <rect x="132" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="191" y="23" text-anchor="middle">配置文件</text>
+      <rect x="264" y="0" width="145" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="336.5" y="23" text-anchor="middle">Key/API 地址</text>
+      <rect x="423" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="482" y="23" text-anchor="middle">权益状态</text>
+      <rect x="555" y="0" width="96" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="603" y="23" text-anchor="middle">日志页</text>
+      <rect x="665" y="0" width="80" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="705" y="23" text-anchor="middle">网络</text>
+      <rect x="759" y="0" width="80" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="799" y="23" text-anchor="middle">权限</text>
+      <rect x="853" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="912" y="23" text-anchor="middle">项目目录</text>
+    </g>
+  </g>
+  <text x="72" y="672" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#7f91a3">提示：所有 Key、Token、日志 ID、用量、公网 IP、实例 ID、安全组 ID、SSH 私钥都必须隐藏。</text>
+</svg>
+

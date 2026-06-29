@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V035 Flow Article Style</title>
+  <style>
+    :root { --paper:#fbf7ec; --ink:#111; --muted:#675f57; --line:#ded7c9; --blue:#3478f6; --pink:#e85d7a; --green:#2da56f; --amber:#f0b84a; --dark:#111923; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e9e3d6; font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; color:var(--ink); letter-spacing:0; }
+    .canvas {
+      width:1280px; height:720px; padding:42px 54px 38px; overflow:hidden; position:relative;
+      background:
+        linear-gradient(90deg,rgba(17,17,17,.035) 1px,transparent 1px),
+        linear-gradient(rgba(17,17,17,.035) 1px,transparent 1px),
+        var(--paper);
+      background-size:38px 38px,38px 38px,auto;
+    }
+    .header { display:flex; justify-content:space-between; gap:20px; align-items:start; margin-bottom:22px; }
+    .badge { display:inline-flex; align-items:center; height:33px; padding:0 13px; border-radius:7px; background:#111; color:#fff; font-size:15px; font-weight:900; margin-bottom:12px; }
+    h1 { margin:0; font-size:43px; line-height:1.04; font-weight:1000; letter-spacing:0; }
+    .side-note { width:270px; padding:15px; border-radius:8px; border:2px solid var(--line); background:rgba(255,255,255,.86); font-size:17px; line-height:1.25; color:var(--muted); font-weight:800; }
+    .start {
+      width: 172px; height: 62px; margin: 0 auto 18px; border-radius: 8px; border: 2px solid var(--line); background:#fff;
+      display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:1000;
+    }
+    .branches { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .branch { min-height:285px; padding:15px; border-radius:8px; border:2px solid var(--line); background:rgba(255,255,255,.9); box-shadow:0 8px 16px rgba(37,32,20,.06); position:relative; }
+    .step { display:inline-flex; align-items:center; height:28px; padding:0 10px; border-radius:6px; background:#111; color:#fff; font-size:14px; font-weight:950; margin-bottom:12px; }
+    .branch h3 { margin:0 0 10px; font-size:31px; line-height:1; font-weight:1000; }
+    .branch p { margin:0 0 12px; font-size:18px; line-height:1.25; color:var(--muted); font-weight:760; }
+    .path { margin-top:11px; display:grid; gap:8px; }
+    .node { padding:9px 10px; border-radius:7px; background:#f7f1e6; border:1px solid #dfd3c2; font-size:16px; font-weight:850; line-height:1.18; }
+    .skill h3 { color:var(--blue); } .agent h3 { color:var(--green); } .plugin h3 { color:var(--pink); }
+    .bottom { margin-top:16px; display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:12px; }
+    .info { border-radius:8px; border:2px solid var(--line); background:rgba(255,255,255,.88); padding:13px 15px; min-height:82px; }
+    .info h3 { margin:0 0 8px; font-size:19px; line-height:1; font-weight:950; }
+    .info p { margin:0; color:var(--muted); font-size:15px; line-height:1.24; font-weight:760; }
+    .ok h3 { color:var(--green); } .bad h3 { color:var(--pink); }
+    .dark { background:var(--dark); color:#fff; border-color:#1b2735; }
+    .dark h3 { color:#fff; } .dark p { color:#d8e0ea; }
+    .summary { position:absolute; left:54px; right:54px; bottom:22px; display:flex; align-items:center; gap:12px; padding:10px 13px; border-radius:8px; background:#fff; border:2px solid var(--line); font-size:17px; line-height:1.12; font-weight:900; }
+    .summary span:first-child { background:var(--pink); color:#fff; border-radius:6px; padding:6px 10px; font-size:14px; flex:0 0 auto; }
+    .tag { position:absolute; right:54px; bottom:4px; color:#756f67; font-size:11px; font-weight:800; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="header">
+      <div><div class="badge">V035 / 三层判断流程</div><h1>Skill、Agent、插件怎么区分</h1></div>
+      <div class="side-note">先问需求属于哪一层：复用做法、分派角色，还是打包给团队安装。</div>
+    </div>
+    <div class="start">需求出现</div>
+    <section class="branches">
+      <div class="branch skill"><div class="step">STEP 1</div><h3>Skill</h3><p>重复方法 / 规则</p><div class="path"><div class="node">写成可复用说明</div><div class="node">沉淀团队清单</div><div class="node">调用验证</div></div></div>
+      <div class="branch agent"><div class="step">STEP 2</div><h3>Agent</h3><p>专门角色 / 后台任务</p><div class="path"><div class="node">限定工具和权限</div><div class="node">配置 name / description</div><div class="node">结果回收</div></div></div>
+      <div class="branch plugin"><div class="step">STEP 3</div><h3>插件</h3><p>团队分发 / 安装更新</p><div class="path"><div class="node">打包 skills / agents</div><div class="node">管理命令或 MCP</div><div class="node">启用验证</div></div></div>
+    </section>
+    <section class="bottom">
+      <div class="info ok"><h3>正常</h3><p>先看版本、入口、文件位置，再做最小验证。</p></div>
+      <div class="info bad"><h3>常见错法</h3><p>把 Skill 当 Agent，把插件当 MCP。</p></div>
+      <div class="info dark"><h3>排查顺序</h3><p>命令版本 / 文件位置 / 权限范围 / 插件状态 / 日志或 debug</p></div>
+    </section>
+    <div class="summary"><span>总结</span><span>Skill 是方法，Agent 是角色，插件是包装层；入口和排查路径要分开。</span></div>
+    <div class="tag">设计示意图，不含真实登录数据</div>
+  </main>
+</body>
+</html>

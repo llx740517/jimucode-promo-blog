@@ -1,0 +1,10 @@
+.DS_Store
+__MACOSX/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.aep
+*.prproj
+node_modules/
+.playwright-cli/

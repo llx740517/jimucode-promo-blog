@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Codex 新手从零到一跑通流程">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081725"/>
+      <stop offset="0.46" stop-color="#0d2532"/>
+      <stop offset="1" stop-color="#15251f"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.16" cy="0.15" r="0.55">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.85" cy="0.23" r="0.52">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-16%" y="-22%" width="132%" height="144%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.34"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10.2" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#b7c7d9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font: 900 50px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .subtitle { font: 700 24px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #bfd0df; letter-spacing: 0; }
+      .card { stroke-width: 1.4; filter: url(#shadow); }
+      .num { font: 900 20px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #07111c; }
+      .node-title { font: 900 30px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .node-sub { font: 700 18px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #d4e2ef; letter-spacing: 0; }
+      .line { stroke: #b7c7d9; stroke-width: 2.2; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+      .chip-text { font: 900 21px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .small { font: 800 18px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #9eb4c8; letter-spacing: 0; }
+      .terminal { font: 700 22px Menlo, Consolas, monospace; fill: #b8f7d4; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow1)"/>
+  <rect width="1280" height="720" fill="url(#glow2)"/>
+  <g opacity="0.14" stroke="#8fb5cc" stroke-width="1">
+    <path d="M80 156 H1190"/>
+    <path d="M80 328 H1190"/>
+    <path d="M80 500 H1190"/>
+    <path d="M142 90 V616"/>
+    <path d="M396 90 V616"/>
+    <path d="M650 90 V616"/>
+    <path d="M904 90 V616"/>
+    <path d="M1158 90 V616"/>
+  </g>
+
+  <text x="64" y="78" class="title">Codex 新手先跑通，再谈改代码</text>
+  <text x="66" y="118" class="subtitle">网站权益 → Codex Key → CLI 配置 → 首次运行 → 日志核对</text>
+  <text x="1188" y="82" class="small" text-anchor="end">V005 / 新手入门</text>
+
+  <path class="line" d="M222 254 L274 254"/>
+  <path class="line" d="M432 254 L484 254"/>
+  <path class="line" d="M642 254 L694 254"/>
+  <path class="line" d="M852 254 L904 254"/>
+  <path class="line" d="M1062 254 C1132 254 1148 382 1036 386 L880 386"/>
+  <path class="line" d="M692 386 L608 386"/>
+
+  <g transform="translate(64 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#123a4a" stroke="#2dd4bf"/>
+    <circle cx="36" cy="34" r="18" fill="#63f6dd"/>
+    <text x="36" y="41" class="num" text-anchor="middle">1</text>
+    <text x="26" y="78" class="node-title">登录网站</text>
+    <text x="26" y="110" class="node-sub">首页 / 价格</text>
+  </g>
+
+  <g transform="translate(274 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#17304f" stroke="#60a5fa"/>
+    <circle cx="36" cy="34" r="18" fill="#93c5fd"/>
+    <text x="36" y="41" class="num" text-anchor="middle">2</text>
+    <text x="26" y="78" class="node-title">选 Codex</text>
+    <text x="26" y="110" class="node-sub">权益别混用</text>
+  </g>
+
+  <g transform="translate(484 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#3c2b11" stroke="#fbbf24"/>
+    <circle cx="36" cy="34" r="18" fill="#fcd34d"/>
+    <text x="36" y="41" class="num" text-anchor="middle">3</text>
+    <text x="26" y="78" class="node-title">创建 Key</text>
+    <text x="26" y="110" class="node-sub">只选 Codex</text>
+  </g>
+
+  <g transform="translate(694 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#2b2457" stroke="#a78bfa"/>
+    <circle cx="36" cy="34" r="18" fill="#c4b5fd"/>
+    <text x="36" y="41" class="num" text-anchor="middle">4</text>
+    <text x="26" y="78" class="node-title">配置 CLI</text>
+    <text x="26" y="110" class="node-sub">写入 .codex</text>
+  </g>
+
+  <g transform="translate(904 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#123d2a" stroke="#34d399"/>
+    <circle cx="36" cy="34" r="18" fill="#86efac"/>
+    <text x="36" y="41" class="num" text-anchor="middle">5</text>
+    <text x="26" y="78" class="node-title">新终端</text>
+    <text x="26" y="110" class="node-sub">版本 / doctor</text>
+  </g>
+
+  <g transform="translate(692 316)">
+    <rect class="card" width="188" height="140" rx="12" fill="#17304f" stroke="#38bdf8"/>
+    <circle cx="38" cy="34" r="18" fill="#7dd3fc"/>
+    <text x="38" y="41" class="num" text-anchor="middle">6</text>
+    <text x="28" y="78" class="node-title">小目录</text>
+    <text x="28" y="110" class="node-sub">先读文件</text>
+  </g>
+
+  <g transform="translate(420 316)">
+    <rect class="card" width="188" height="140" rx="12" fill="#3a1f25" stroke="#fb7185"/>
+    <circle cx="38" cy="34" r="18" fill="#fda4af"/>
+    <text x="38" y="41" class="num" text-anchor="middle">7</text>
+    <text x="28" y="78" class="node-title">日志核对</text>
+    <text x="28" y="110" class="node-sub">当天记录</text>
+  </g>
+
+  <g transform="translate(78 350)">
+    <rect width="250" height="104" rx="14" fill="#06131f" stroke="#31556a"/>
+    <text x="26" y="42" class="terminal">codex --version</text>
+    <text x="26" y="76" class="terminal">codex doctor</text>
+  </g>
+
+  <text x="64" y="534" class="subtitle">失败时按这个顺序查</text>
+  <g transform="translate(64 568)">
+    <rect x="0" y="0" width="128" height="48" rx="10" fill="#123a4a" stroke="#2dd4bf"/>
+    <text x="64" y="31" class="chip-text" text-anchor="middle">终端输出</text>
+    <rect x="144" y="0" width="128" height="48" rx="10" fill="#17304f" stroke="#60a5fa"/>
+    <text x="208" y="31" class="chip-text" text-anchor="middle">配置文件</text>
+    <rect x="288" y="0" width="162" height="48" rx="10" fill="#3c2b11" stroke="#fbbf24"/>
+    <text x="369" y="31" class="chip-text" text-anchor="middle">Key/API 地址</text>
+    <rect x="466" y="0" width="128" height="48" rx="10" fill="#123d2a" stroke="#34d399"/>
+    <text x="530" y="31" class="chip-text" text-anchor="middle">权益状态</text>
+    <rect x="610" y="0" width="100" height="48" rx="10" fill="#3a1f25" stroke="#fb7185"/>
+    <text x="660" y="31" class="chip-text" text-anchor="middle">日志页</text>
+    <rect x="726" y="0" width="82" height="48" rx="10" fill="#2b2457" stroke="#a78bfa"/>
+    <text x="767" y="31" class="chip-text" text-anchor="middle">网络</text>
+    <rect x="824" y="0" width="82" height="48" rx="10" fill="#1d3442" stroke="#67e8f9"/>
+    <text x="865" y="31" class="chip-text" text-anchor="middle">权限</text>
+    <rect x="922" y="0" width="128" height="48" rx="10" fill="#26321d" stroke="#bef264"/>
+    <text x="986" y="31" class="chip-text" text-anchor="middle">项目目录</text>
+  </g>
+</svg>
+

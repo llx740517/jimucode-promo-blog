@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V006 图文教程风格流程图</title>
+  <style>
+    :root {
+      --bg: #fbf6ea;
+      --paper: #fffdf7;
+      --ink: #101010;
+      --muted: #6e685f;
+      --line: #e4d8c8;
+      --blue: #2f6bff;
+      --pink: #e75f8e;
+      --green: #35a86b;
+      --dark: #101923;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1280px; height: 720px; background: var(--bg); }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      padding: 34px 44px;
+      background:
+        linear-gradient(130deg, rgba(255,255,255,.84), rgba(255,247,234,.66) 48%, rgba(222,245,232,.44)),
+        var(--bg);
+    }
+    .frame {
+      position: absolute;
+      inset: 20px;
+      border: 2px solid rgba(199,183,160,.42);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
+      font-size: 21px;
+      font-weight: 900;
+      box-shadow: 0 8px 16px rgba(30,24,12,.07);
+    }
+    .spark { width: 15px; height: 15px; border-radius: 5px; background: #ffd65a; transform: rotate(45deg); }
+    .site {
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: #101010;
+      color: #fff;
+      font-size: 23px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 0 0 22px;
+      font-family: "Arial Black", "PingFang SC", sans-serif;
+      font-size: 52px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .card {
+      position: relative;
+      min-height: 222px;
+      padding: 17px;
+      border-radius: 22px;
+      background: rgba(255,253,247,.98);
+      border: 1px solid var(--line);
+      box-shadow: 0 11px 20px rgba(30,24,12,.08);
+    }
+    .card:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -22px;
+      top: 86px;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      background: #101010;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      font-weight: 900;
+      z-index: 2;
+    }
+    .step {
+      display: inline-flex;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border-radius: 9px;
+      background: #090909;
+      color: #fff;
+      font-family: "Arial Black", sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .card h2 { margin: 14px 0 9px; font-size: 24px; line-height: 1.08; font-weight: 900; }
+    .card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.28; font-weight: 800; }
+    .cmd {
+      position: absolute;
+      left: 17px;
+      right: 17px;
+      bottom: 16px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #101923;
+      color: #fff;
+      font-family: Menlo, Consolas, monospace;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .notes {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 20px;
+    }
+    .note {
+      min-height: 102px;
+      padding: 16px 20px;
+      border-radius: 20px;
+      background: rgba(255,253,247,.98);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 16px rgba(30,24,12,.06);
+    }
+    .note h3 { margin: 0 0 9px; font-size: 25px; line-height: 1.05; font-weight: 900; }
+    .note p { margin: 0; color: var(--muted); font-size: 19px; line-height: 1.28; font-weight: 800; }
+    .summary {
+      margin-top: 16px;
+      border-radius: 18px;
+      padding: 14px 20px;
+      background: #101010;
+      color: #fff;
+      font-size: 23px;
+      line-height: 1.2;
+      font-weight: 900;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .summary b {
+      flex: 0 0 auto;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--pink);
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="frame"></div>
+    <div class="top">
+      <div class="tag"><span class="spark"></span>V006 Claude Code 登录流程</div>
+      <div class="site">code.jimuxyz.com</div>
+    </div>
+    <h1>Claude Code 新手从 0 到 1：先登录再进入项目</h1>
+    <section class="flow">
+      <div class="card">
+        <span class="step">STEP 1</span>
+        <h2>产品线</h2>
+        <p>打开 /pricing，确认当前配置的是 Claude Code。</p>
+        <div class="cmd">/pricing</div>
+      </div>
+      <div class="card">
+        <span class="step">STEP 2</span>
+        <h2>Key</h2>
+        <p>在 /keys 创建测试 Key，完整内容不进公开画面。</p>
+        <div class="cmd">Key: sk-***</div>
+      </div>
+      <div class="card">
+        <span class="step">STEP 3</span>
+        <h2>环境</h2>
+        <p>PowerShell 先看 Node、npm、Git 和 Claude 命令。</p>
+        <div class="cmd">node npm git</div>
+      </div>
+      <div class="card">
+        <span class="step">STEP 4</span>
+        <h2>鉴权</h2>
+        <p>重开终端后跑 auth status 和 doctor。</p>
+        <div class="cmd">auth status</div>
+      </div>
+      <div class="card">
+        <span class="step">STEP 5</span>
+        <h2>项目</h2>
+        <p>进入干净目录，先让 Claude Code 读取项目。</p>
+        <div class="cmd">claude -p</div>
+      </div>
+      <div class="card">
+        <span class="step">STEP 6</span>
+        <h2>日志</h2>
+        <p>回到 /logs 看当天请求记录是否能对上。</p>
+        <div class="cmd">/logs success</div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <div class="note">
+        <h3 style="color: var(--green);">正常判断</h3>
+        <p>auth / doctor 有可解释结果，干净项目能读取，日志能对上。</p>
+      </div>
+      <div class="note">
+        <h3 style="color: var(--pink);">常见错法</h3>
+        <p>混用 Key、旧终端不重开、直接进入真实项目，都会放大排查难度。</p>
+      </div>
+    </section>
+
+    <section class="summary"><b>总结</b><span>产品线 → Key → 环境变量 → 鉴权状态 → 项目目录 → 日志核对；失败就停在当前层排查。</span></section>
+  </main>
+</body>
+</html>

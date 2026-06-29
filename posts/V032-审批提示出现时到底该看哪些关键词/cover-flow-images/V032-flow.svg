@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">V032 审批提示关键词检查路径</title>
+  <desc id="desc">从复现审批提示到看工具、路径、动作、敏感数据、网络权限、决策和 diff 验证的流程图。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101923"/>
+      <stop offset="0.52" stop-color="#172236"/>
+      <stop offset="1" stop-color="#201825"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef4ff"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 9 5 L 0 10 z" fill="#8aa0ba"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1116" cy="105" r="120" fill="#e24a4a" opacity="0.10"/>
+  <circle cx="122" cy="610" r="150" fill="#2fa6c8" opacity="0.10"/>
+  <g font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, Arial, sans-serif">
+    <text x="70" y="84" fill="#f7fbff" font-size="38" font-weight="800">审批提示出现时：先看这些关键词</text>
+    <text x="72" y="122" fill="#9fb1c9" font-size="19">Codex 看命令和沙盒，Claude Code 看工具和参数；共同点是路径、敏感数据、联网和可回滚性。</text>
+    <g stroke="#8aa0ba" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M 222 228 H 282"/>
+      <path d="M 462 228 H 522"/>
+      <path d="M 702 228 H 762"/>
+      <path d="M 942 228 C 1008 228 1034 260 1034 326"/>
+      <path d="M 1034 402 C 1034 468 1008 500 942 500"/>
+      <path d="M 762 500 H 702"/>
+      <path d="M 522 500 H 462"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="60" y="164" width="162" height="128" rx="18" fill="url(#node)" stroke="#d8e2ee"/>
+      <rect x="300" y="164" width="162" height="128" rx="18" fill="url(#node)" stroke="#d8e2ee"/>
+      <rect x="540" y="164" width="162" height="128" rx="18" fill="url(#node)" stroke="#d8e2ee"/>
+      <rect x="780" y="164" width="162" height="128" rx="18" fill="url(#node)" stroke="#d8e2ee"/>
+      <rect x="780" y="436" width="162" height="128" rx="18" fill="#fff6f3" stroke="#f0c5bd"/>
+      <rect x="540" y="436" width="162" height="128" rx="18" fill="#fff8e6" stroke="#ead29b"/>
+      <rect x="300" y="436" width="162" height="128" rx="18" fill="#f0fff8" stroke="#b9e3cf"/>
+      <rect x="60" y="436" width="162" height="128" rx="18" fill="#f4f7ff" stroke="#cad7f0"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="141" y="207" fill="#223044" font-size="22" font-weight="800">复现提示</text>
+      <text x="141" y="242" fill="#516073" font-size="17">停住画面</text>
+      <text x="141" y="266" fill="#516073" font-size="17">别急着允许</text>
+      <text x="381" y="207" fill="#223044" font-size="22" font-weight="800">看工具/命令</text>
+      <text x="381" y="242" fill="#516073" font-size="17">Bash / Read</text>
+      <text x="381" y="266" fill="#516073" font-size="17">Edit / WebFetch</text>
+      <text x="621" y="207" fill="#223044" font-size="22" font-weight="800">看目标路径</text>
+      <text x="621" y="242" fill="#516073" font-size="17">当前项目</text>
+      <text x="621" y="266" fill="#516073" font-size="17">还是项目外</text>
+      <text x="861" y="207" fill="#223044" font-size="22" font-weight="800">看动作类型</text>
+      <text x="861" y="242" fill="#516073" font-size="17">读 / 写</text>
+      <text x="861" y="266" fill="#d84b42" font-size="17" font-weight="700">删除 / 覆盖</text>
+      <text x="861" y="479" fill="#d84b42" font-size="22" font-weight="800">查敏感数据</text>
+      <text x="861" y="514" fill="#5f4a47" font-size="17">.env / Key</text>
+      <text x="861" y="538" fill="#5f4a47" font-size="17">Token / SSH</text>
+      <text x="621" y="479" fill="#805d15" font-size="22" font-weight="800">看网络/权限</text>
+      <text x="621" y="514" fill="#6b5b36" font-size="17">curl / wget</text>
+      <text x="621" y="538" fill="#6b5b36" font-size="17">push / chmod</text>
+      <text x="381" y="479" fill="#1d6b4d" font-size="22" font-weight="800">做决定</text>
+      <text x="381" y="514" fill="#496558" font-size="17">拒绝 / 改小</text>
+      <text x="381" y="538" fill="#496558" font-size="17">确认后允许</text>
+      <text x="141" y="479" fill="#254c86" font-size="22" font-weight="800">看 diff/验证</text>
+      <text x="141" y="514" fill="#4c5d7a" font-size="17">git diff</text>
+      <text x="141" y="538" fill="#4c5d7a" font-size="17">测试 / 日志</text>
+    </g>
+    <g>
+      <rect x="1000" y="168" width="214" height="132" rx="18" fill="#121b28" stroke="#334458"/>
+      <text x="1022" y="204" fill="#dce7f3" font-size="19" font-weight="800">Codex 重点</text>
+      <text x="1022" y="237" fill="#aebed1" font-size="16">shell 命令</text>
+      <text x="1022" y="262" fill="#aebed1" font-size="16">sandbox / approval</text>
+      <text x="1022" y="287" fill="#aebed1" font-size="16">-C / --add-dir</text>
+      <rect x="1000" y="420" width="214" height="132" rx="18" fill="#121b28" stroke="#334458"/>
+      <text x="1022" y="456" fill="#dce7f3" font-size="19" font-weight="800">Claude Code 重点</text>
+      <text x="1022" y="489" fill="#aebed1" font-size="16">工具名和参数</text>
+      <text x="1022" y="514" fill="#aebed1" font-size="16">permission mode</text>
+      <text x="1022" y="539" fill="#aebed1" font-size="16">settings 规则</text>
+    </g>
+    <g>
+      <rect x="64" y="628" width="1152" height="48" rx="18" fill="#0f1722" stroke="#263447"/>
+      <text x="90" y="658" fill="#8fa2bb" font-size="16" font-weight="700">排查顺序</text>
+      <text x="186" y="658" fill="#d8e2ef" font-size="16">终端输出</text>
+      <text x="286" y="658" fill="#d8e2ef" font-size="16">配置文件</text>
+      <text x="386" y="658" fill="#ffd08a" font-size="16">Key/API 地址</text>
+      <text x="516" y="658" fill="#d8e2ef" font-size="16">权益状态</text>
+      <text x="616" y="658" fill="#d8e2ef" font-size="16">日志页</text>
+      <text x="698" y="658" fill="#ffb0a7" font-size="16">网络</text>
+      <text x="766" y="658" fill="#ffb0a7" font-size="16">权限</text>
+      <text x="834" y="658" fill="#d8e2ef" font-size="16">项目目录</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V028 图文教程风格流程图</title>
+  <style>
+    :root{--paper:#f8f3e9;--card:#fffdf8;--ink:#141414;--muted:#70695f;--line:#ddd2bf;--blue:#2878f0;--pink:#ef638a;--green:#4fa868;--yellow:#f0c54a;--dark:#17191d;--soft-blue:#eaf3ff;--soft-pink:#ffeaf0;--soft-green:#eaf7ee;--soft-yellow:#fff4d3}
+    *{box-sizing:border-box} html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;letter-spacing:0}
+    body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(207,196,177,.38) 1px,transparent 1px),linear-gradient(90deg,rgba(207,196,177,.38) 1px,transparent 1px);background-size:38px 38px;opacity:.55}.canvas{position:relative;width:1280px;height:720px;padding:34px 42px}
+    .pill{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 15px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:900}.dot{width:8px;height:8px;border-radius:50%;display:inline-block}.r{background:var(--pink)}.y{background:var(--yellow)}.g{background:var(--green)}
+    .vno{position:absolute;right:42px;top:42px;font-size:15px;font-weight:950}h1{margin:16px 0 8px;font-size:39px;line-height:1.08;font-weight:1000;letter-spacing:0}.blue{color:var(--blue)}.pink{color:var(--pink)}
+    .sub{display:inline-flex;align-items:center;height:31px;padding:0 14px;border-radius:10px;background:var(--soft-blue);border:1px solid #c8ddf6;font-size:16px;font-weight:900;color:var(--blue)}
+    .flow{margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:132px;gap:16px}.node{position:relative;border-radius:16px;background:var(--card);border:1px solid var(--line);padding:16px 16px 14px;box-shadow:0 8px 18px rgba(24,20,15,.05)}.node:nth-child(1),.node:nth-child(5){background:var(--soft-blue)}.node:nth-child(2),.node:nth-child(6){background:var(--soft-green)}.node:nth-child(3),.node:nth-child(7){background:var(--soft-pink)}.node:nth-child(4){background:var(--soft-yellow)}
+    .step{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 10px;border-radius:8px;background:#050505;color:#fff;font-size:14px;font-weight:1000;margin-bottom:10px}.node h2{margin:0 0 8px;font-size:22px;line-height:1.1;font-weight:1000}.node p{margin:0;font-size:15px;line-height:1.25;font-weight:800;color:var(--muted)}.arrow{position:absolute;right:-14px;top:62px;font-size:20px;font-weight:1000;color:#332f2a;z-index:3}.node:nth-child(4) .arrow,.node:nth-child(7) .arrow{display:none}
+    .panels{position:absolute;left:42px;right:42px;bottom:38px;display:grid;grid-template-columns:2fr 1fr;gap:18px}.panel{border-radius:18px;background:#fff;border:1px solid var(--line);padding:18px 24px;box-shadow:0 8px 18px rgba(24,20,15,.05)}.panel h3{margin:0 0 10px;font-size:23px;font-weight:1000}.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:#f3eee5;border:1px solid var(--line);font-size:15px;font-weight:850}.warn{background:var(--soft-pink)}
+    .summary{position:absolute;left:42px;right:42px;bottom:12px;height:22px;border-radius:8px;background:#17191d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="pill"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>V028 / 项目规则文件</div><div class="vno">article-style flow</div>
+    <h1>项目规则文件：<span class="blue">Codex 读 AGENTS.md</span>，<span class="pink">Claude Code 读 CLAUDE.md</span></h1>
+    <div class="sub">保留原流程：同一项目 → 分工具读文件 → 写短规则 → 只读验证 → 小步修改 → diff + 测试</div>
+    <section class="flow">
+      <article class="node"><span class="step">STEP 1</span><h2>同一项目</h2><p>目录里放 AGENTS.md、CLAUDE.md、package.json、src。</p><span class="arrow">→</span></article>
+      <article class="node"><span class="step">STEP 2</span><h2>Codex</h2><p>读 AGENTS.md；具体嵌套读取表现需录屏前实测。</p><span class="arrow">→</span></article>
+      <article class="node"><span class="step">STEP 3</span><h2>Claude Code</h2><p>读 CLAUDE.md；/init、/memory 是它的入口。</p><span class="arrow">→</span></article>
+      <article class="node"><span class="step">STEP 4</span><h2>写短规则</h2><p>项目、命令、风格、边界、验收。</p></article>
+      <article class="node"><span class="step">STEP 5</span><h2>只读验证</h2><p>先让 AI 复述规则，不急着改文件。</p><span class="arrow">→</span></article>
+      <article class="node"><span class="step">STEP 6</span><h2>小步修改</h2><p>只修一个文案或测试预期，先说计划。</p><span class="arrow">→</span></article>
+      <article class="node"><span class="step">STEP 7</span><h2>diff + 测试</h2><p>看 git diff，再跑 npm test / build。</p></article>
+    </section>
+    <section class="panels">
+      <div class="panel"><h3>规则文件写什么</h3><div class="chips"><span class="chip">Project</span><span class="chip">Commands</span><span class="chip">Code Style</span><span class="chip">Boundaries</span><span class="chip">Done</span><span class="chip">git diff</span><span class="chip">npm test</span></div></div>
+      <div class="panel warn"><h3>不要写进去</h3><div class="chips"><span class="chip">Key</span><span class="chip">Token</span><span class="chip">日志 ID</span><span class="chip">真实服务器</span></div></div>
+    </section>
+    <div class="summary">记忆线：短规则，分入口，先复述，再小改，最后看 diff 和测试。</div>
+  </main>
+</body>
+</html>

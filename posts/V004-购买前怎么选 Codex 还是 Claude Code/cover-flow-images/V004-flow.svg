@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#f6f8fb"/>
+  <defs>
+    <style>.t{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',Arial,sans-serif;fill:#111827}.s{fill:#475569}.b{font-weight:700}</style>
+    <marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+  </defs>
+  <text x="64" y="82" class="t b" font-size="40">购买前先判断：Codex 还是 Claude Code？</text>
+  <text x="66" y="126" class="s" font-size="22">先看使用场景，再用同一个本地小项目验证，最后用日志核对产品线</text>
+  <g stroke-width="2">
+    <rect x="64" y="170" width="184" height="130" rx="18" fill="#fff7ed" stroke="#fb923c"/><text x="132" y="207" class="t b" font-size="26">1</text><text x="103" y="244" class="t b" font-size="24">先问场景</text><text x="89" y="276" class="s" font-size="18">短任务 / 长项目</text>
+    <rect x="310" y="170" width="184" height="130" rx="18" fill="#fff" stroke="#cbd5e1"/><text x="378" y="207" class="t b" font-size="26">2</text><text x="349" y="244" class="t b" font-size="24">看产品线</text><text x="365" y="276" class="s" font-size="18">/pricing</text>
+    <rect x="556" y="170" width="184" height="130" rx="18" fill="#fff" stroke="#cbd5e1"/><text x="624" y="207" class="t b" font-size="26">3</text><text x="592" y="244" class="t b" font-size="24">看 CLI 文档</text><text x="604" y="276" class="s" font-size="18">/docs/cli</text>
+    <rect x="802" y="170" width="220" height="130" rx="18" fill="#eef2ff" stroke="#818cf8"/><text x="897" y="207" class="t b" font-size="26">4</text><text x="846" y="244" class="t b" font-size="24">logo 演示</text><text x="838" y="276" class="s" font-size="17">不从 GitHub 下载</text>
+    <rect x="1084" y="170" width="132" height="130" rx="18" fill="#fff" stroke="#cbd5e1"/><text x="1138" y="207" class="t b" font-size="26">5</text><text x="1102" y="244" class="t b" font-size="24">日志核对</text><text x="1127" y="276" class="s" font-size="18">/logs</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#m)"><path d="M258 235H300"/><path d="M504 235H546"/><path d="M750 235H792"/><path d="M1032 235H1074"/></g>
+  <rect x="300" y="355" width="680" height="130" rx="18" fill="#fff" stroke="#a7b4c7" stroke-width="2"/>
+  <text x="340" y="405" class="t b" font-size="25">同一个项目，同一段提示词：先读项目 → 说明结构 → 给计划</text>
+  <text x="340" y="443" class="s" font-size="18">logo 演示：README / make_logo.py / SVG</text>
+  <text x="340" y="472" class="s" font-size="18">任务示例：改深色背景和副标题，先不要改文件</text>
+  <rect x="100" y="535" width="400" height="110" rx="18" fill="#eaf3ff" stroke="#60a5fa" stroke-width="2"/>
+  <text x="132" y="588" class="b" font-size="27" fill="#0f3b73">Codex 路线</text><text x="132" y="626" font-size="20" fill="#2563eb">小步任务 / review / diff / exec</text>
+  <rect x="780" y="535" width="400" height="110" rx="18" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+  <text x="812" y="588" class="b" font-size="27" fill="#065f46">Claude Code 路线</text><text x="812" y="626" font-size="20" fill="#059669">读项目 / 计划 / 权限 / 连续协作</text>
+  <text x="560" y="596" class="s" font-size="18">按高频工作流先选</text>
+  <text x="64" y="700" class="s" font-size="18">场景 / 产品线 / CLI 文档 / logo 演示 / 同任务 / 日志核对</text>
+</svg>

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081018"/>
+      <stop offset="0.58" stop-color="#101b2a"/>
+      <stop offset="1" stop-color="#1c2430"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.26"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#98acbf" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g opacity="0.14" stroke="#7ba4c7" stroke-width="1">
+    <path d="M88 120 H1192"/>
+    <path d="M120 178 H1160"/>
+    <path d="M120 514 H1160"/>
+    <path d="M80 610 C250 548 360 630 520 580 S880 548 1140 622" fill="none"/>
+  </g>
+  <text x="72" y="72" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#f4f8fc">Claude Code CLI 入门命令顺序</text>
+  <text x="73" y="112" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#aab8c7">V024 · help、auth、doctor、update</text>
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(70 195)">
+      <rect width="160" height="116" rx="10" fill="#10283b" stroke="#2a5472"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#e8f3ff">打开终端</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#a9c1d7">干净目录</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#a9c1d7">不进真实项目</text>
+    </g>
+    <g transform="translate(268 195)">
+      <rect width="160" height="116" rx="10" fill="#15263a" stroke="#365479"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#edf4ff">version/help</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#b9c8db">claude --version</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#b9c8db">claude --help</text>
+    </g>
+    <g transform="translate(466 195)">
+      <rect width="160" height="116" rx="10" fill="#172b32" stroke="#31616c"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#ecfbff">auth</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#b4ccd2">login / status</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#b4ccd2">账号隐藏</text>
+    </g>
+    <g transform="translate(664 195)">
+      <rect width="160" height="116" rx="10" fill="#183029" stroke="#3f6f5c"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f0fff8">doctor</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#bdd6ca">安装/配置检查</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#bdd6ca">路径隐藏</text>
+    </g>
+    <g transform="translate(862 195)">
+      <rect width="160" height="116" rx="10" fill="#2d2418" stroke="#7a603b"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#fff6e8">update/install</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#d8c4a9">安装方式不同</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#d8c4a9">更新方式不同</text>
+    </g>
+    <g transform="translate(1060 195)">
+      <rect width="160" height="116" rx="10" fill="#231f35" stroke="#594d83"/>
+      <text x="80" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#f5f0ff">进入项目</text>
+      <text x="80" y="70" text-anchor="middle" font-size="14" fill="#cbc2e0">continue / resume</text>
+      <text x="80" y="92" text-anchor="middle" font-size="14" fill="#cbc2e0">后续展开</text>
+    </g>
+  </g>
+  <g stroke="#98acbf" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+    <path d="M235 253 H260"/>
+    <path d="M433 253 H458"/>
+    <path d="M631 253 H656"/>
+    <path d="M829 253 H854"/>
+    <path d="M1027 253 H1052"/>
+  </g>
+  <g transform="translate(92 360)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect width="530" height="116" rx="12" fill="#0e1722" stroke="#294963"/>
+    <text x="28" y="38" font-size="18" font-weight="700" fill="#eaf4ff">入门只要先记住这四类</text>
+    <text x="28" y="68" font-size="16" fill="#bed0df">help：找入口 · auth：看登录 · doctor：查环境 · update：处理版本</text>
+    <text x="28" y="94" font-size="15" fill="#ffdf8a">`-p` / `--output-format` 留到自动化视频继续讲</text>
+  </g>
+  <g transform="translate(662 360)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect width="530" height="116" rx="12" fill="#0e1722" stroke="#513a4a"/>
+    <text x="28" y="38" font-size="18" font-weight="700" fill="#fff1f2">录屏安全提醒</text>
+    <text x="28" y="68" font-size="16" fill="#d9c6cb">auth 输出、doctor 路径、setup-token 都可能敏感</text>
+    <text x="28" y="94" font-size="15" fill="#ffb8a8">Token、邮箱、组织、会话 ID 一律隐藏</text>
+  </g>
+  <g transform="translate(72 552)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="0" y="0" font-size="18" font-weight="700" fill="#f3f7fb">排查顺序</text>
+    <g transform="translate(0 24)" font-size="14" fill="#c6d2de">
+      <rect x="0" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="59" y="23" text-anchor="middle">终端输出</text>
+      <rect x="132" y="0" width="80" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="172" y="23" text-anchor="middle">版本</text>
+      <rect x="226" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="285" y="23" text-anchor="middle">登录状态</text>
+      <rect x="358" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="417" y="23" text-anchor="middle">配置文件</text>
+      <rect x="490" y="0" width="80" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="530" y="23" text-anchor="middle">网络</text>
+      <rect x="584" y="0" width="80" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="624" y="23" text-anchor="middle">权限</text>
+      <rect x="678" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="737" y="23" text-anchor="middle">安装方式</text>
+      <rect x="810" y="0" width="118" height="36" rx="18" fill="#172637" stroke="#2b465f"/>
+      <text x="869" y="23" text-anchor="middle">项目目录</text>
+    </g>
+  </g>
+  <text x="72" y="672" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#7f91a3">提示：本图不包含真实登录数据。账号、Token、路径、日志、会话 ID 均需录屏时隐藏。</text>
+</svg>
+

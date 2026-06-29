@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V055 Agent 没按预期工作怎么排查流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#172033"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e8eef7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#020617" flood-opacity="0.24"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#93a4b8"/>
+    </marker>
+    <style>
+      .title{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:850;fill:#f8fafc;letter-spacing:0}
+      .sub{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:560;fill:#b8c3d1;letter-spacing:0}
+      .card-title{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:820;fill:#111827;letter-spacing:0}
+      .card-text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:620;fill:#4b5563;letter-spacing:0}
+      .tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:760;fill:#dbeafe;letter-spacing:0}
+      .tiny{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-weight:650;fill:#94a3b8;letter-spacing:0}
+      .line{stroke:#93a4b8;stroke-width:2;fill:none;marker-end:url(#arrow)}
+      .node-line{stroke:#334155;stroke-width:1.4;fill:none;opacity:.55}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path class="node-line" d="M92 180 C250 112 348 224 502 154 S794 88 1006 168 S1152 264 1212 132"/>
+  <path class="node-line" d="M90 584 C248 460 372 592 528 424 S806 282 962 380 S1088 496 1190 342"/>
+  <circle cx="500" cy="154" r="5" fill="#60a5fa"/>
+  <circle cx="962" cy="380" r="5" fill="#34d399"/>
+  <circle cx="1088" cy="496" r="5" fill="#f87171"/>
+
+  <text x="70" y="76" class="title" font-size="42">Agent 没按预期工作怎么排查</text>
+  <text x="72" y="114" class="sub" font-size="20">主路径按故障排查顺序走；Agent 专属项放在任务、配置和权限里核对</text>
+
+  <g transform="translate(58 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="20" y="46" class="card-title" font-size="22">复现</text>
+    <text x="20" y="75" class="card-title" font-size="22">现象</text>
+    <text x="20" y="101" class="card-text" font-size="13">没读 / 跑偏</text>
+  </g>
+  <path class="line" d="M198 218 H236"/>
+
+  <g transform="translate(246 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="18" y="46" class="card-title" font-size="22">终端</text>
+    <text x="18" y="75" class="card-title" font-size="22">输出</text>
+    <text x="18" y="101" class="card-text" font-size="13">Agent 面板</text>
+  </g>
+  <path class="line" d="M386 218 H424"/>
+
+  <g transform="translate(434 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="18" y="46" class="card-title" font-size="22">配置</text>
+    <text x="18" y="75" class="card-title" font-size="22">文件</text>
+    <text x="18" y="101" class="card-text" font-size="13">Agent 定义</text>
+  </g>
+  <path class="line" d="M574 218 H612"/>
+
+  <g transform="translate(622 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="18" y="46" class="card-title" font-size="22">Key/API</text>
+    <text x="18" y="75" class="card-title" font-size="22">地址</text>
+    <text x="18" y="101" class="card-text" font-size="13">请求失败再查</text>
+  </g>
+  <path class="line" d="M762 218 H800"/>
+
+  <g transform="translate(810 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="18" y="46" class="card-title" font-size="22">权益</text>
+    <text x="18" y="75" class="card-title" font-size="22">状态</text>
+    <text x="18" y="101" class="card-text" font-size="13">额度 / 模型</text>
+  </g>
+  <path class="line" d="M950 218 H988"/>
+
+  <g transform="translate(998 158)" filter="url(#shadow)">
+    <rect width="132" height="120" rx="12" fill="url(#card)" stroke="#d7e0ea"/>
+    <text x="18" y="46" class="card-title" font-size="22">日志页</text>
+    <text x="18" y="75" class="card-title" font-size="22">核对</text>
+    <text x="18" y="101" class="card-text" font-size="13">/logs / JSON</text>
+  </g>
+  <path class="line" d="M1064 286 V326 H986"/>
+
+  <g transform="translate(730 326)" filter="url(#shadow)">
+    <rect width="246" height="118" rx="12" fill="#f8fafc" stroke="#d7e0ea"/>
+    <text x="22" y="42" class="card-title" font-size="24">网络 / 权限 / 项目目录</text>
+    <text x="22" y="74" class="card-text" font-size="15">cwd、tools、sandbox、approval</text>
+    <text x="22" y="98" class="card-text" font-size="15">确认后再收窄任务重跑</text>
+  </g>
+  <path class="line" d="M720 384 H610"/>
+
+  <g transform="translate(358 326)" filter="url(#shadow)">
+    <rect width="232" height="118" rx="12" fill="#111827" stroke="#475569"/>
+    <text x="22" y="42" class="tag" font-size="24">Agent 专属辅助检查</text>
+    <text x="22" y="74" class="tiny" font-size="15">任务描述 / Agent 定义</text>
+    <text x="22" y="98" class="tiny" font-size="15">前台重跑 / 后台权限</text>
+  </g>
+
+  <g transform="translate(70 544)">
+    <rect width="1140" height="72" rx="16" fill="#0f172a" stroke="#334155"/>
+    <text x="26" y="28" class="tiny" font-size="16">排查标签</text>
+    <g transform="translate(124 17)">
+      <rect width="98" height="36" rx="18" fill="#1e3a8a"/><text x="49" y="24" text-anchor="middle" class="tag" font-size="15">终端输出</text>
+      <rect x="112" width="98" height="36" rx="18" fill="#334155"/><text x="161" y="24" text-anchor="middle" class="tag" font-size="15">配置文件</text>
+      <rect x="224" width="122" height="36" rx="18" fill="#334155"/><text x="285" y="24" text-anchor="middle" class="tag" font-size="15">Key/API 地址</text>
+      <rect x="360" width="98" height="36" rx="18" fill="#334155"/><text x="409" y="24" text-anchor="middle" class="tag" font-size="15">权益状态</text>
+      <rect x="472" width="82" height="36" rx="18" fill="#7f1d1d"/><text x="513" y="24" text-anchor="middle" class="tag" font-size="15">日志页</text>
+      <rect x="568" width="66" height="36" rx="18" fill="#334155"/><text x="601" y="24" text-anchor="middle" class="tag" font-size="15">网络</text>
+      <rect x="648" width="66" height="36" rx="18" fill="#334155"/><text x="681" y="24" text-anchor="middle" class="tag" font-size="15">权限</text>
+      <rect x="728" width="98" height="36" rx="18" fill="#334155"/><text x="777" y="24" text-anchor="middle" class="tag" font-size="15">项目目录</text>
+    </g>
+  </g>
+</svg>

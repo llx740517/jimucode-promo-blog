@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>V047 Flow Article Style</title>
+  <style>
+    :root {
+      --paper: #fffdf8; --cream: #f8f1e4; --ink: #111; --muted: #706b62; --line: #171717;
+      --blue: #2d6cff; --pink: #ec5b82; --green: #24a36a; --yellow: #f4c752;
+      --blue-soft: #eaf2ff; --pink-soft: #ffe9f0; --green-soft: #eaf7ef; --yellow-soft: #fff3cc; --dark: #15181f;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: var(--cream); }
+    body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: var(--ink); }
+    .canvas { position: relative; width: 1280px; height: 720px; padding: 36px 44px; background: linear-gradient(180deg, #fffefa, #fbf3e7); }
+    .canvas:before { content: ""; position: absolute; inset: 22px; border: 3px solid var(--line); border-radius: 26px; pointer-events: none; }
+    .tag { display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 19px; border-radius: 11px; background: var(--ink); color: white; font-size: 18px; font-weight: 950; }
+    h1 { margin: 18px 0 4px; font-size: 48px; line-height: 1.05; font-weight: 1000; letter-spacing: 0; }
+    .sub { color: var(--muted); font-size: 20px; font-weight: 750; }
+    .steps { margin-top: 28px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 13px; align-items: stretch; }
+    .step-card { min-height: 140px; border: 2.5px solid var(--line); border-radius: 19px; padding: 15px 12px 13px; box-shadow: 0 8px 0 rgba(17,17,17,.08); background: white; }
+    .step-card:nth-child(1), .step-card:nth-child(5) { background: var(--blue-soft); }
+    .step-card:nth-child(2), .step-card:nth-child(6) { background: var(--yellow-soft); }
+    .step-card:nth-child(3), .step-card:nth-child(7) { background: var(--pink-soft); }
+    .step-card:nth-child(4) { background: var(--green-soft); }
+    .num { display: inline-flex; align-items: center; justify-content: center; height: 30px; min-width: 72px; padding: 0 10px; border-radius: 8px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 950; }
+    .step-card h2 { margin: 14px 0 8px; font-size: 23px; line-height: 1.1; }
+    .step-card p { margin: 0; font-size: 14.5px; line-height: 1.32; color: var(--muted); font-weight: 750; }
+    .arrow { position: absolute; top: 282px; color: var(--line); font-size: 24px; font-weight: 1000; }
+    .a1 { left: 208px; } .a2 { left: 378px; } .a3 { left: 548px; } .a4 { left: 718px; } .a5 { left: 888px; } .a6 { left: 1058px; }
+    .bottom { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr 1.22fr; gap: 20px; }
+    .panel { border: 2.5px solid var(--line); border-radius: 22px; min-height: 142px; padding: 21px 22px; box-shadow: 0 8px 0 rgba(17,17,17,.08); }
+    .panel h3 { margin: 0 0 10px; font-size: 25px; }
+    .panel p { margin: 0; font-size: 18px; line-height: 1.36; color: var(--muted); font-weight: 760; }
+    .normal { background: var(--green-soft); border-left: 11px solid var(--green); }
+    .wrong { background: var(--pink-soft); border-left: 11px solid var(--pink); }
+    .summary { background: var(--yellow-soft); border-left: 11px solid var(--yellow); }
+    .chips { position: absolute; left: 58px; right: 58px; bottom: 38px; display: flex; gap: 12px; align-items: center; }
+    .chip { border: 2px solid var(--line); border-radius: 999px; padding: 8px 17px; background: white; font-size: 16px; font-weight: 900; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="tag">V047 · Claude Code 前端实战流程</div>
+    <h1>先整理项目卡，再让 AI 进入修改</h1>
+    <div class="sub">保留原流程：读项目 → 提任务 → AI 修改 → 看 diff → 运行测试 → 页面验证 → 总结边界</div>
+
+    <section class="steps">
+      <div class="step-card"><span class="num">STEP 1</span><h2>读项目</h2><p>入口页面、组件、状态、测试命令。</p></div>
+      <div class="step-card"><span class="num">STEP 2</span><h2>提任务</h2><p>先列文件和计划，边界要清楚。</p></div>
+      <div class="step-card"><span class="num">STEP 3</span><h2>复现 Bug</h2><p>按钮无反应或筛选逻辑错误。</p></div>
+      <div class="step-card"><span class="num">STEP 4</span><h2>AI 修改</h2><p>只改筛选相关组件和状态。</p></div>
+      <div class="step-card"><span class="num">STEP 5</span><h2>看 diff</h2><p>检查文件数、核心逻辑和无关改动。</p></div>
+      <div class="step-card"><span class="num">STEP 6</span><h2>运行测试</h2><p>具体命令需录屏前实测确认。</p></div>
+      <div class="step-card"><span class="num">STEP 7</span><h2>页面验证</h2><p>浏览器点击筛选，确认状态变化。</p></div>
+    </section>
+    <div class="arrow a1">→</div><div class="arrow a2">→</div><div class="arrow a3">→</div><div class="arrow a4">→</div><div class="arrow a5">→</div><div class="arrow a6">→</div>
+
+    <section class="bottom">
+      <div class="panel normal"><h3>正常</h3><p>修 Bug 和新增筛选分两段做，每段都有 diff 和验证。</p></div>
+      <div class="panel wrong"><h3>常见错法</h3><p>一次塞进修 Bug、加功能、改样式、重构，改动边界失控。</p></div>
+      <div class="panel summary"><h3>总结边界</h3><p>小任务、看权限、查 diff、跑验证；失败时带着输出继续收敛。</p></div>
+    </section>
+
+    <div class="chips">
+      <span class="chip">相关文件</span><span class="chip">权限提示</span><span class="chip">改动范围</span><span class="chip">diff</span><span class="chip">测试命令</span><span class="chip">页面状态</span><span class="chip">移动端</span>
+    </div>
+  </main>
+</body>
+</html>

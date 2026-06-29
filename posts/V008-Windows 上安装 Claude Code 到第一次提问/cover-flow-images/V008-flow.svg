@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c2138"/>
+      <stop offset="0.55" stop-color="#101b2f"/>
+      <stop offset="1" stop-color="#102f36"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L8,5 L1,9" fill="none" stroke="#b9c8d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:50px;font-weight:900;fill:#f8fbff}
+      .sub{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:25px;font-weight:800;fill:#c8d9ea}
+      .meta{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:18px;font-weight:800;fill:#aac1d5}
+      .node-title{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:28px;font-weight:900;fill:#ffffff}
+      .node-sub{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:18px;font-weight:800;fill:#d8e3ee}
+      .num{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:21px;font-weight:900;fill:#07111f}
+      .tag{font-family:"Arial","Microsoft YaHei",sans-serif;font-size:22px;font-weight:900;fill:#f3f8ff}
+      .line{stroke:#b9c8d8;stroke-width:2;fill:none;marker-end:url(#arrow);opacity:.9}
+      .grid{stroke:#36536a;stroke-width:1;opacity:.45}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g opacity=".34">
+    <path class="grid" d="M140 90v526M396 90v526M652 90v526M908 90v526M1164 90v526"/>
+    <path class="grid" d="M70 155h1126M70 330h1126M70 502h1126"/>
+  </g>
+  <text class="title" x="64" y="78">Windows 安装 Claude Code 到第一次提问</text>
+  <text class="sub" x="66" y="118">PowerShell → 环境检查 → 安装 → 配置 Key/API → 验证 → 提问 → 日志核对</text>
+  <text class="meta" x="970" y="132">V008 / Windows 安装配置</text>
+
+  <g filter="url(#shadow)">
+    <rect x="58" y="184" width="152" height="140" rx="10" fill="#133b56" stroke="#36c5ff" stroke-width="2"/>
+    <circle cx="94" cy="219" r="19" fill="#7dd3fc"/><text class="num" x="88" y="226">1</text>
+    <text class="node-title" x="82" y="262">PowerShell</text>
+    <text class="node-sub" x="82" y="295">打开终端</text>
+
+    <rect x="260" y="184" width="160" height="140" rx="10" fill="#12233a" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="296" cy="219" r="19" fill="#93c5fd"/><text class="num" x="290" y="226">2</text>
+    <text class="node-title" x="284" y="262">检查环境</text>
+    <text class="node-sub" x="284" y="295">Node / npm / Git</text>
+
+    <rect x="470" y="184" width="170" height="140" rx="10" fill="#332d10" stroke="#facc15" stroke-width="2"/>
+    <circle cx="506" cy="219" r="19" fill="#fde047"/><text class="num" x="500" y="226">3</text>
+    <text class="node-title" x="494" y="262">安装工具</text>
+    <text class="node-sub" x="494" y="295">npm / 官方入口</text>
+
+    <rect x="688" y="184" width="170" height="140" rx="10" fill="#302357" stroke="#a78bfa" stroke-width="2"/>
+    <circle cx="724" cy="219" r="19" fill="#c4b5fd"/><text class="num" x="718" y="226">4</text>
+    <text class="node-title" x="712" y="262">配置 Key</text>
+    <text class="node-sub" x="712" y="295">ANTHROPIC_*</text>
+
+    <rect x="906" y="184" width="154" height="140" rx="10" fill="#123d2a" stroke="#34d399" stroke-width="2"/>
+    <circle cx="942" cy="219" r="19" fill="#86efac"/><text class="num" x="936" y="226">5</text>
+    <text class="node-title" x="930" y="262">重开终端</text>
+    <text class="node-sub" x="930" y="295">刷新变量</text>
+
+    <rect x="704" y="356" width="188" height="100" rx="10" fill="#123b53" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="740" cy="392" r="18" fill="#67e8f9"/><text class="num" x="734" y="399">6</text>
+    <text class="node-title" x="760" y="400">验证命令</text>
+    <text class="node-sub" x="760" y="430">version / doctor</text>
+
+    <rect x="420" y="356" width="210" height="100" rx="10" fill="#4b2300" stroke="#fb923c" stroke-width="2"/>
+    <circle cx="456" cy="392" r="18" fill="#fdba74"/><text class="num" x="450" y="399">7</text>
+    <text class="node-title" x="480" y="400">第一次提问</text>
+    <text class="node-sub" x="480" y="430">干净测试目录</text>
+
+    <rect x="152" y="356" width="188" height="100" rx="10" fill="#4a1d2e" stroke="#fb7185" stroke-width="2"/>
+    <circle cx="188" cy="392" r="18" fill="#fda4af"/><text class="num" x="182" y="399">8</text>
+    <text class="node-title" x="212" y="400">日志核对</text>
+    <text class="node-sub" x="212" y="430">当天记录</text>
+
+    <rect x="930" y="356" width="230" height="88" rx="10" fill="#07111f" stroke="#41566e" stroke-width="1.2"/>
+    <text x="956" y="392" font-family="Consolas,Menlo,monospace" font-size="22" font-weight="800" fill="#c7f9d4">claude --version</text>
+    <text x="956" y="424" font-family="Consolas,Menlo,monospace" font-size="22" font-weight="800" fill="#c7f9d4">claude doctor</text>
+  </g>
+
+  <path class="line" d="M210 254H258"/>
+  <path class="line" d="M420 254H468"/>
+  <path class="line" d="M640 254H686"/>
+  <path class="line" d="M858 254H904"/>
+  <path class="line" d="M1060 254 C1112 260 1126 314 1102 350 C1078 384 1018 398 894 405"/>
+  <path class="line" d="M704 406H632"/>
+  <path class="line" d="M420 406H342"/>
+
+  <text class="sub" x="64" y="536">失败时按这个顺序查</text>
+  <g>
+    <rect x="64" y="568" width="128" height="48" rx="8" fill="#123b56" stroke="#36c5ff" stroke-width="1.5"/><text class="tag" x="86" y="599">终端输出</text>
+    <rect x="208" y="568" width="128" height="48" rx="8" fill="#162b47" stroke="#60a5fa" stroke-width="1.5"/><text class="tag" x="230" y="599">环境变量</text>
+    <rect x="352" y="568" width="160" height="48" rx="8" fill="#2f2356" stroke="#a78bfa" stroke-width="1.5"/><text class="tag" x="374" y="599">Key/API 地址</text>
+    <rect x="528" y="568" width="128" height="48" rx="8" fill="#123d2a" stroke="#34d399" stroke-width="1.5"/><text class="tag" x="550" y="599">权益状态</text>
+    <rect x="672" y="568" width="104" height="48" rx="8" fill="#4a1d2e" stroke="#fb7185" stroke-width="1.5"/><text class="tag" x="698" y="599">日志页</text>
+    <rect x="792" y="568" width="82" height="48" rx="8" fill="#123b53" stroke="#22d3ee" stroke-width="1.5"/><text class="tag" x="814" y="599">网络</text>
+    <rect x="890" y="568" width="82" height="48" rx="8" fill="#123b53" stroke="#67e8f9" stroke-width="1.5"/><text class="tag" x="912" y="599">权限</text>
+    <rect x="988" y="568" width="128" height="48" rx="8" fill="#2d3f18" stroke="#a3e635" stroke-width="1.5"/><text class="tag" x="1010" y="599">项目目录</text>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">V040 编辑器协同工作流</title>
+  <desc id="desc">从打开项目、终端定位、AI 读项目、小步修改、看 Git diff、运行验证到总结边界的流程图。</desc>
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#162033" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #f4f7fb; }
+      .grid { stroke: #d7dee9; stroke-width: 1; opacity: .55; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 42px; font-weight: 850; fill: #111827; }
+      .sub { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 19px; fill: #526071; }
+      .node { fill: #fff; stroke-width: 1.5; filter: url(#softShadow); }
+      .n1 { stroke: #2563eb; }
+      .n2 { stroke: #0f766e; }
+      .n3 { stroke: #7c3aed; }
+      .n4 { stroke: #d97706; }
+      .n5 { stroke: #16a34a; }
+      .n6 { stroke: #db2777; }
+      .n7 { stroke: #475569; }
+      .node-title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 22px; font-weight: 780; fill: #162033; }
+      .node-sub { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #667085; }
+      .line { stroke: #8a96a8; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .chev { stroke: #8a96a8; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .panel-title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; font-weight: 800; fill: #1f2937; }
+      .panel-text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; font-weight: 650; fill: #344054; }
+      .badge { fill: #eef3f8; stroke: #d5dfe9; stroke-width: 1; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; font-weight: 700; fill: #253044; }
+      .tiny { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; fill: #728197; }
+      .terminal { fill: #101827; }
+    </style>
+  </defs>
+  <rect class="bg" width="1280" height="720"/>
+  <g>
+    <path class="grid" d="M0 96H1280M0 192H1280M0 288H1280M0 384H1280M0 480H1280M0 576H1280M160 0V720M320 0V720M480 0V720M640 0V720M800 0V720M960 0V720M1120 0V720"/>
+  </g>
+  <text class="title" x="66" y="76">编辑器里怎么配合 AI 编程</text>
+  <text class="sub" x="68" y="113">项目目录、终端、AI 会话、Git diff、验证命令同屏配合。</text>
+
+  <g transform="translate(50 166)">
+    <rect class="node n1" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">打开项目</text>
+    <text class="node-sub" x="22" y="72">VS Code / Cursor</text>
+    <text class="node-sub" x="22" y="94">JetBrains</text>
+  </g>
+  <g transform="translate(224 166)">
+    <rect class="node n2" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">终端定位</text>
+    <text class="node-sub" x="22" y="72">git status</text>
+    <text class="node-sub" x="22" y="94">正确目录</text>
+  </g>
+  <g transform="translate(398 166)">
+    <rect class="node n3" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">AI 读项目</text>
+    <text class="node-sub" x="22" y="72">入口文件</text>
+    <text class="node-sub" x="22" y="94">验证命令</text>
+  </g>
+  <g transform="translate(572 166)">
+    <rect class="node n4" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">小步修改</text>
+    <text class="node-sub" x="22" y="72">只改相关文件</text>
+    <text class="node-sub" x="22" y="94">说明边界</text>
+  </g>
+  <g transform="translate(746 166)">
+    <rect class="node n5" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">看 Git diff</text>
+    <text class="node-sub" x="22" y="72">文件数量</text>
+    <text class="node-sub" x="22" y="94">关键改动</text>
+  </g>
+  <g transform="translate(920 166)">
+    <rect class="node n6" x="0" y="0" width="148" height="118" rx="8"/>
+    <text class="node-title" x="22" y="42">运行验证</text>
+    <text class="node-sub" x="22" y="72">test / lint</text>
+    <text class="node-sub" x="22" y="94">真实输出</text>
+  </g>
+  <g transform="translate(1094 166)">
+    <rect class="node n7" x="0" y="0" width="136" height="118" rx="8"/>
+    <text class="node-title" x="18" y="42">总结边界</text>
+    <text class="node-sub" x="18" y="72">人工确认</text>
+    <text class="node-sub" x="18" y="94">可回滚</text>
+  </g>
+
+  <g>
+    <path class="line" d="M198 225H224"/><path class="chev" d="M218 219l7 6-7 6"/>
+    <path class="line" d="M372 225H398"/><path class="chev" d="M392 219l7 6-7 6"/>
+    <path class="line" d="M546 225H572"/><path class="chev" d="M566 219l7 6-7 6"/>
+    <path class="line" d="M720 225H746"/><path class="chev" d="M740 219l7 6-7 6"/>
+    <path class="line" d="M894 225H920"/><path class="chev" d="M914 219l7 6-7 6"/>
+    <path class="line" d="M1068 225H1094"/><path class="chev" d="M1088 219l7 6-7 6"/>
+  </g>
+
+  <g transform="translate(68 342)">
+    <rect x="0" y="0" width="538" height="138" rx="8" fill="#ffffff" stroke="#d8e1eb" filter="url(#softShadow)"/>
+    <text class="panel-title" x="26" y="36">Codex 录屏重点</text>
+    <text class="panel-text" x="26" y="72">`-C/--cd` 指定项目根目录，`--add-dir` 只给必要目录。</text>
+    <text class="panel-text" x="26" y="104">可用 `codex review --uncommitted` 辅助看未提交改动。</text>
+    <text class="tiny" x="26" y="126">具体 IDE 集成入口需录屏前实测确认。</text>
+  </g>
+
+  <g transform="translate(674 342)">
+    <rect x="0" y="0" width="538" height="138" rx="8" fill="#ffffff" stroke="#d8e1eb" filter="url(#softShadow)"/>
+    <text class="panel-title" x="26" y="36">Claude Code 录屏重点</text>
+    <text class="panel-text" x="26" y="72">`--ide`、`--add-dir`、`--permission-mode` 分开讲。</text>
+    <text class="panel-text" x="26" y="104">先读项目，再小步修改，不直接给满权限。</text>
+    <text class="tiny" x="26" y="126">编辑器按钮位置需录屏前实测确认。</text>
+  </g>
+
+  <g transform="translate(68 530)">
+    <rect class="badge" x="0" y="0" width="92" height="46" rx="8"/><text class="badge-text" x="22" y="30">目录树</text>
+    <rect class="badge" x="112" y="0" width="78" height="46" rx="8"/><text class="badge-text" x="135" y="30">终端</text>
+    <rect class="badge" x="210" y="0" width="98" height="46" rx="8"/><text class="badge-text" x="229" y="30">AI 会话</text>
+    <rect class="badge" x="328" y="0" width="96" height="46" rx="8"/><text class="badge-text" x="347" y="30">Git 面板</text>
+    <rect class="badge" x="444" y="0" width="70" height="46" rx="8"/><text class="badge-text" x="463" y="30">diff</text>
+    <rect class="badge" x="534" y="0" width="112" height="46" rx="8"/><text class="badge-text" x="553" y="30">测试输出</text>
+    <rect class="badge" x="666" y="0" width="92" height="46" rx="8"/><text class="badge-text" x="688" y="30">回滚点</text>
+  </g>
+
+  <g transform="translate(68 622)">
+    <rect class="terminal" x="0" y="0" width="1144" height="56" rx="8"/>
+    <circle cx="26" cy="21" r="6" fill="#ff6b6b"/><circle cx="46" cy="21" r="6" fill="#f6c85f"/><circle cx="66" cy="21" r="6" fill="#6bcf81"/>
+    <rect x="104" y="17" width="230" height="6" rx="3" fill="#67e8f9"/>
+    <rect x="104" y="35" width="410" height="6" rx="3" fill="#cbd5e1"/>
+    <rect x="594" y="17" width="168" height="6" rx="3" fill="#86efac"/>
+    <rect x="594" y="35" width="430" height="6" rx="3" fill="#fda4af"/>
+  </g>
+</svg>

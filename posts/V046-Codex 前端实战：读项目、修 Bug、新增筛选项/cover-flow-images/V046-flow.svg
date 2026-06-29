@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V046 Codex 前端实战流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1720"/>
+      <stop offset="0.54" stop-color="#172638"/>
+      <stop offset="1" stop-color="#232936"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L7,4.5 L1,8" fill="none" stroke="#9fb1cd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 42px; font-weight: 850; fill: #f8fbff; letter-spacing: 0; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 20px; fill: #bfd0e8; letter-spacing: 0; }
+      .nodeTitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 23px; font-weight: 780; fill: #ffffff; letter-spacing: 0; }
+      .nodeText { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #d7e0ee; letter-spacing: 0; }
+      .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: #b7efd5; }
+      .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; fill: #e8eef8; letter-spacing: 0; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #9fb0c9; letter-spacing: 0; }
+      .num { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; font-weight: 800; fill: #0f1720; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M72 594 C218 520 350 628 510 548 C668 470 760 450 930 510 C1064 558 1160 530 1222 482" fill="none" stroke="#2f4667" stroke-width="2" opacity="0.46"/>
+  <text x="78" y="66" class="title">Codex 前端实战流程</text>
+  <text x="78" y="102" class="subtitle">先读项目，再拆小任务；页面验证、diff 和 build/test 一起收口</text>
+
+  <g transform="translate(76 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="url(#card)" stroke="#557091"/>
+    <circle cx="34" cy="34" r="17" fill="#8bd3ff"/><text x="29" y="40" class="num">1</text>
+    <text x="24" y="76" class="nodeTitle">读项目</text>
+    <text x="24" y="108" class="code">package.json</text>
+    <text x="24" y="132" class="nodeText">入口 / 组件 / 状态</text>
+  </g>
+
+  <g transform="translate(310 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#172f48" stroke="#5aa7d5"/>
+    <circle cx="34" cy="34" r="17" fill="#8bd3ff"/><text x="29" y="40" class="num">2</text>
+    <text x="24" y="76" class="nodeTitle">复现 Bug</text>
+    <text x="24" y="108" class="nodeText">浏览器点击</text>
+    <text x="24" y="132" class="nodeText">按钮无响应</text>
+  </g>
+
+  <g transform="translate(544 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#173d35" stroke="#58d391"/>
+    <circle cx="34" cy="34" r="17" fill="#9cf0c8"/><text x="29" y="40" class="num">3</text>
+    <text x="24" y="76" class="nodeTitle">Codex 修改</text>
+    <text x="24" y="108" class="nodeText">只修相关组件</text>
+    <text x="24" y="132" class="nodeText">不重构样式</text>
+  </g>
+
+  <g transform="translate(778 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#332b48" stroke="#a997ff"/>
+    <circle cx="34" cy="34" r="17" fill="#c7bdff"/><text x="29" y="40" class="num">4</text>
+    <text x="24" y="76" class="nodeTitle">新增筛选</text>
+    <text x="24" y="108" class="nodeText">保留搜索</text>
+    <text x="24" y="132" class="nodeText">不改接口结构</text>
+  </g>
+
+  <g transform="translate(1012 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#3a3030" stroke="#ff9a7a"/>
+    <circle cx="34" cy="34" r="17" fill="#ffc09c"/><text x="29" y="40" class="num">5</text>
+    <text x="24" y="76" class="nodeTitle">验证结果</text>
+    <text x="24" y="108" class="nodeText">diff / 浏览器</text>
+    <text x="24" y="132" class="code">build / test</text>
+  </g>
+
+  <path d="M264 235 H302" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M498 235 H536" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M732 235 H770" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M966 235 H1004" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <g transform="translate(126 386)" filter="url(#shadow)">
+    <rect width="1028" height="118" rx="8" fill="#101827" stroke="#4f6685"/>
+    <text x="26" y="40" class="nodeTitle">推荐录屏命令</text>
+    <text x="26" y="76" class="code">codex -C ~/Desktop/jimu-v046-frontend-demo  →  git diff  →  npm run build</text>
+    <text x="26" y="101" class="nodeText">脚本名、端口、测试命令以 package.json 和现场终端输出为准，需录屏前实测确认</text>
+  </g>
+
+  <g transform="translate(78 574)">
+    <text x="0" y="-18" class="small">底部检查标签：每一步都要能复现、能验证，真实数据必须脱敏。</text>
+    <rect x="0" y="0" width="96" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="19" y="23" class="tag">项目结构</text>
+    <rect x="108" y="0" width="96" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="128" y="23" class="tag">Bug 复现</text>
+    <rect x="216" y="0" width="110" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="235" y="23" class="tag">Codex 修改</text>
+    <rect x="338" y="0" width="82" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="359" y="23" class="tag">diff</text>
+    <rect x="432" y="0" width="112" height="34" rx="17" fill="#332b48" stroke="#69609d"/><text x="450" y="23" class="tag">浏览器验证</text>
+    <rect x="556" y="0" width="98" height="34" rx="17" fill="#4b3535" stroke="#8b5a55"/><text x="576" y="23" class="tag">build/test</text>
+    <rect x="666" y="0" width="82" height="34" rx="17" fill="#243852" stroke="#4d7798"/><text x="687" y="23" class="tag">脱敏</text>
+  </g>
+  <text x="78" y="668" class="small">录屏重点：读项目、定位 Bug、新增筛选、运行验证。</text>
+</svg>

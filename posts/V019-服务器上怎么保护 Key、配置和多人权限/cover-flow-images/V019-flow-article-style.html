@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V019 flow article style</title>
+  <style>
+    :root {
+      --paper: #fbf7ef;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #e6dccd;
+      --blue: #2f72ff;
+      --pink: #ff6a9d;
+      --green: #18a66a;
+      --amber: #f3b43f;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1280px;
+      height: 720px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 38px 48px 36px;
+      background:
+        linear-gradient(90deg, rgba(47,114,255,.05) 0 1px, transparent 1px 88px),
+        linear-gradient(0deg, rgba(24,166,106,.035) 0 1px, transparent 1px 88px),
+        var(--paper);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      font-size: 18px;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+    .tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: var(--green);
+      box-shadow: 17px 0 0 var(--blue), 34px 0 0 var(--pink);
+    }
+    h1 {
+      margin: 0;
+      font-size: 50px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      width: 410px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      border: 2px solid #cbdbff;
+      background: #eaf1ff;
+      color: #263a62;
+      font-size: 20px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+    .flow {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .node {
+      position: relative;
+      min-height: 132px;
+      padding: 16px 18px;
+      border-radius: 23px;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 14px 24px rgba(36,48,71,.08);
+    }
+    .node::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 48px;
+      color: var(--ink);
+      font-size: 30px;
+      font-weight: 950;
+      z-index: 2;
+    }
+    .node:nth-child(4)::after {
+      content: "↓";
+      right: 18px;
+      top: 126px;
+    }
+    .node:nth-child(5)::after { display: none; }
+    .node:nth-child(6)::after,
+    .node:nth-child(7)::after {
+      content: "←";
+      left: -18px;
+      right: auto;
+    }
+    .node:nth-child(8)::after { display: none; }
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .node h2 {
+      margin: 0 0 6px;
+      font-size: 23px;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+    .node p {
+      margin: 0;
+      color: #4b5566;
+      font-size: 15px;
+      line-height: 1.23;
+      font-weight: 730;
+    }
+    .note-row {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .note {
+      min-height: 72px;
+      padding: 12px 16px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .note b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 62px;
+      height: 32px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .ok { background: var(--green); }
+    .warn { background: var(--pink); }
+    .info { background: var(--blue); }
+    .snap { background: var(--amber); color: var(--ink) !important; }
+    .note span {
+      color: #3b4556;
+      font-size: 17px;
+      line-height: 1.22;
+      font-weight: 760;
+    }
+    .summary {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 36px;
+      height: 68px;
+      padding: 0 22px;
+      border-radius: 22px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 18px 34px rgba(17,24,39,.18);
+    }
+    .summary strong {
+      color: #a7f3d0;
+      font-size: 22px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .summary p {
+      margin: 0;
+      color: #dbe7ff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="header">
+      <div>
+        <div class="tag">V019 浅色图文流程</div>
+        <h1>服务器 Key / 配置 / 权限保护路线</h1>
+      </div>
+      <div class="subtitle">保留本条关键流程：安全组、SSH、普通用户、用户目录、工具权限、Git/快照、日志核对。</div>
+    </div>
+
+    <section class="flow">
+      <div class="node"><div class="num">STEP 1</div><h2>ECS / 安全组</h2><p>先确认网络入口，控制台字段需录屏前实测确认。</p></div>
+      <div class="node"><div class="num">STEP 2</div><h2>SSH 登录</h2><p>登录命令、用户名和地址只用脱敏示意。</p></div>
+      <div class="node"><div class="num">STEP 3</div><h2>普通用户隔离</h2><p>按人或用途分 home，避免共用配置。</p></div>
+      <div class="node"><div class="num">STEP 4</div><h2>Key / 配置</h2><p>配置放用户目录，只展示路径和权限。</p></div>
+      <div class="node"><div class="num">STEP 7</div><h2>日志脱敏核对</h2><p>看请求状态，不展示完整明细和个人信息。</p></div>
+      <div class="node"><div class="num">STEP 6</div><h2>Git / 快照回退</h2><p>项目改动看 Git，服务器改动确认快照入口。</p></div>
+      <div class="node"><div class="num">STEP 5</div><h2>工具权限收紧</h2><p>Codex / Claude Code 先用保守权限。</p></div>
+      <div class="node"><div class="num">提醒</div><h2>危险权限</h2><p>只作为风险提示，不作为教程默认执行方案。</p></div>
+    </section>
+
+    <section class="note-row">
+      <div class="note"><b class="ok">正常</b><span>用户、配置、项目目录分开管理。</span></div>
+      <div class="note"><b class="warn">风险</b><span>共用账号和过大权限要谨慎。</span></div>
+      <div class="note"><b class="info">验证</b><span>终端、配置、日志和 Git 对照看。</span></div>
+      <div class="note"><b class="snap">回退</b><span>快照不能替代 Git，分工不同。</span></div>
+    </section>
+
+    <div class="summary">
+      <strong>排查标签</strong>
+      <p>终端输出 / 配置文件 / Key/API 地址 / 权益状态 / 日志页 / 网络 / 权限 / 项目目录</p>
+    </div>
+  </main>
+</body>
+</html>

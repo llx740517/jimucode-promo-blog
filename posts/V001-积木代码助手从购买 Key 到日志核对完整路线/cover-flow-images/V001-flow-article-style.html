@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V001 图文风流程图</title>
+  <style>
+    :root {
+      --ink: #07090d;
+      --blue: #2874ed;
+      --pink: #de637b;
+      --green: #36b879;
+      --cream: #fff8ea;
+      --line: #e1e6ef;
+      --dark: #141c25;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #edf4fb;
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+    .cover {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 5%, rgba(40,116,237,0.14), transparent 30%),
+        radial-gradient(circle at 4% 92%, rgba(54,184,121,0.13), transparent 28%),
+        linear-gradient(180deg, #fffefd 0%, #fbfdff 54%, #e6f3ff 100%);
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(55,92,130,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(55,92,130,0.055) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+    .pill {
+      position: absolute;
+      left: 54px;
+      top: 30px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--cream);
+      font-size: 22px;
+      font-weight: 950;
+    }
+    h1 {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      top: 82px;
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 1000;
+    }
+    .blue { color: var(--blue); }
+    .pink { color: var(--pink); }
+    .flow {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      top: 178px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .step-card {
+      min-height: 154px;
+      padding: 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 12px 30px rgba(48,75,105,0.08);
+    }
+    .num {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: #050505;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 1000;
+    }
+    .step-card:nth-child(2) .num,
+    .step-card:nth-child(4) .num { background: var(--blue); }
+    .step-card:nth-child(3) .num { background: #efb44c; }
+    .step-card:nth-child(5) .num { background: var(--pink); }
+    .step-title {
+      font-size: 26px;
+      line-height: 1.1;
+      font-weight: 1000;
+      margin-bottom: 12px;
+    }
+    .step-copy {
+      color: #445061;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 820;
+    }
+    .cards {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      top: 372px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+    .panel {
+      min-height: 164px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 12px 30px rgba(48,75,105,0.08);
+      padding: 20px 24px;
+    }
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+    .config-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 10px 0;
+      font-size: 21px;
+      font-weight: 850;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 11px;
+      border-radius: 999px;
+      background: #eaf2ff;
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 1000;
+      flex: 0 0 auto;
+    }
+    .logs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .bubble {
+      min-height: 96px;
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 13px;
+      background: #fff;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .bubble b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 22px;
+      font-weight: 1000;
+    }
+    .bubble.bad { background: #fff8f8; border-color: #f0d8dd; }
+    .summary {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      bottom: 38px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      font-size: 24px;
+      font-weight: 950;
+      box-shadow: 0 12px 30px rgba(48,75,105,0.08);
+    }
+    .summary span {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 14px;
+      margin-right: 14px;
+      border-radius: 8px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 1000;
+    }
+  </style>
+</head>
+<body>
+  <main class="cover" aria-label="V001 图文风流程图">
+    <div class="pill">V001 · 购买 Key 到日志核对</div>
+    <h1><span class="blue">购买后先跑通</span>：五步闭环，不要只看终端</h1>
+
+    <section class="flow">
+      <div class="step-card">
+        <div class="num">1</div>
+        <div class="step-title">购买 / 兑换</div>
+        <div class="step-copy">先确认 Codex、Claude Code、Gemini 产品线。</div>
+      </div>
+      <div class="step-card">
+        <div class="num">2</div>
+        <div class="step-title">创建 Key</div>
+        <div class="step-copy">Key 属于对应产品线，不要混用。</div>
+      </div>
+      <div class="step-card">
+        <div class="num">3</div>
+        <div class="step-title">写配置</div>
+        <div class="step-copy">Codex 看 config，Claude Code 看环境变量。</div>
+      </div>
+      <div class="step-card">
+        <div class="num">4</div>
+        <div class="step-title">最小运行</div>
+        <div class="step-copy">只问简单问题，不改真实项目。</div>
+      </div>
+      <div class="step-card">
+        <div class="num">5</div>
+        <div class="step-title">日志核对</div>
+        <div class="step-copy">核对时间、模型、状态和消耗。</div>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="panel">
+        <h2>配置重点</h2>
+        <div class="config-row"><span class="badge">Codex</span> `~/.codex/config.toml` · `https://code.jimuxyz.com/p/v1`</div>
+        <div class="config-row"><span class="badge">Claude Code</span> `ANTHROPIC_BASE_URL` · `https://code.jimuxyz.com/p`</div>
+        <div class="config-row"><span class="badge">Key</span> 只用脱敏示意，完整内容不要出现在画面里</div>
+      </div>
+      <div class="panel">
+        <h2>核对结果</h2>
+        <div class="logs">
+          <div class="bubble"><b>✓ 正常</b>终端返回，logs 有当天请求记录。</div>
+          <div class="bubble bad"><b>× 需要排查</b>无日志、认证失败、地址或权益不匹配。</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="summary"><span>总结</span>买/兑 → 建 Key → 写配置 → 跑一次 → 看日志，完整走完才算真正跑通。</div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V033 v2 图文教程流程图</title>
+  <style>
+    :root {
+      --paper: #fbf7ed;
+      --ink: #101010;
+      --line: #e8dfd1;
+      --blue: #2f7cf6;
+      --pink: #e75f7b;
+      --green: #2f9f74;
+      --amber: #f1b846;
+      --muted: #5f6670;
+      --terminal: #121923;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #e7e1d5;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      letter-spacing: 0;
+    }
+    body { display: grid; place-items: center; }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      overflow: hidden;
+      padding: 34px 42px 30px;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(17,17,17,0.026) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(rgba(17,17,17,0.022) 1px, transparent 1px) 0 0 / 36px 36px,
+        var(--paper);
+    }
+    .header {
+      height: 112px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 14px 0 0;
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .legend {
+      width: 374px;
+      min-height: 88px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+      font-weight: 780;
+    }
+    .legend strong {
+      display: block;
+      color: #111;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .step-card {
+      position: relative;
+      height: 224px;
+      padding: 15px 13px 12px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+    }
+    .step-card::after {
+      content: "→";
+      position: absolute;
+      right: -17px;
+      top: 91px;
+      color: #111;
+      font-size: 27px;
+      font-weight: 950;
+      z-index: 2;
+    }
+    .step-card:last-child::after { content: ""; }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      min-width: 78px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 950;
+    }
+    .step-card h2 {
+      margin: 13px 0 9px;
+      min-height: 52px;
+      font-size: 24px;
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.32;
+      font-weight: 740;
+    }
+    .pink { color: var(--pink); }
+    .blue { color: var(--blue); }
+    .green { color: var(--green); }
+    .notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .note {
+      height: 112px;
+      padding: 15px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+    }
+    .note.dark {
+      background: linear-gradient(180deg, #111923, #182434);
+      border-color: #0b111a;
+      color: #edf4fb;
+    }
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.27;
+      font-weight: 760;
+    }
+    .note.dark p {
+      color: #aebdcc;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 17px;
+    }
+    .summary {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 30px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: white;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .summary b {
+      color: #fff;
+      background: var(--pink);
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-right: 10px;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    .summary span:last-child {
+      color: #737983;
+      font-size: 17px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V033 图文教程流程图">
+    <header class="header">
+      <div>
+        <span class="kicker">V033 / MCP 连接与排查路径</span>
+        <h1>MCP 新手先看连接链路</h1>
+      </div>
+      <div class="legend">
+        <strong>本集边界</strong>
+        只做总览，不承诺 GitHub、数据库、浏览器等 MCP 都当场跑通。
+      </div>
+    </header>
+
+    <section class="flow">
+      <div class="step-card">
+        <span class="step">STEP 1</span>
+        <h2>本地工具 / 远程服务</h2>
+        <p>stdio 本地进程，或 HTTP 远程 MCP server。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 2</span>
+        <h2>配置文件</h2>
+        <p>Claude Code 看 `.mcp.json`、`~/.claude.json`；Codex 配置需实测。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 3</span>
+        <h2>MCP Server</h2>
+        <p>server 暴露工具、资源和提示词给客户端。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 4</span>
+        <h2 class="pink">权限 / 登录</h2>
+        <p>Token、OAuth、scope、项目是否信任。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 5</span>
+        <h2>调用验证</h2>
+        <p>`list`、`get`、`/mcp`、工具数量和状态。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 6</span>
+        <h2>常见失败点</h2>
+        <p>命令路径、URL、Token、网络、权限、项目目录。</p>
+      </div>
+    </section>
+
+    <section class="notes">
+      <div class="note">
+        <h3 class="green">正常</h3>
+        <p>先 list / get 核对，再 add 具体 server。</p>
+      </div>
+      <div class="note">
+        <h3 class="pink">常见错法</h3>
+        <p>把 MCP 当开关，失败后只会重复添加。</p>
+      </div>
+      <div class="note dark">
+        <h3>排查顺序</h3>
+        <p>终端输出 / 配置文件 / Key/API / 日志页 / 网络 / 权限 / 项目目录</p>
+      </div>
+    </section>
+
+    <div class="summary">
+      <div><b>总结</b> MCP 是连接层：工具服务 -> 配置 -> server -> 授权 -> 调用 -> 排查。</div>
+      <span>设计示意图，不含真实登录数据</span>
+    </div>
+  </main>
+</body>
+</html>

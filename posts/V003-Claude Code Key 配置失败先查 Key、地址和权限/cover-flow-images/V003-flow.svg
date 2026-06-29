@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Claude Code 配置失败排查路线">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="0.45" stop-color="#17243b"/>
+      <stop offset="1" stop-color="#263a57"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.82" cy="0.18" r="0.72">
+      <stop offset="0" stop-color="#ff7b5f" stop-opacity="0.35"/>
+      <stop offset="0.46" stop-color="#3756d5" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#101827" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff444a"/>
+      <stop offset="0.55" stop-color="#ff8b2d"/>
+      <stop offset="1" stop-color="#4d79ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#020617" flood-opacity="0.38"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8aa1bc"/>
+    </marker>
+    <style>
+      .title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:900;fill:#0b1220;letter-spacing:0}
+      .sub{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:700;fill:#3e506b;letter-spacing:0}
+      .darkTitle{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:900;fill:#0b1220;font-size:27px;letter-spacing:0}
+      .darkText{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:760;fill:#52637a;font-size:21px;letter-spacing:0}
+      .nodeTitle{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:900;fill:#f8fbff;font-size:27px;letter-spacing:0}
+      .nodeText{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:760;fill:#cfe0f5;font-size:21px;letter-spacing:0}
+      .badgeText{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:900;fill:#ffffff;font-size:22px;letter-spacing:0}
+      .small{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:850;fill:#eaf2ff;font-size:22px;letter-spacing:0}
+      .chip{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-weight:850;fill:#d9e7f7;font-size:22px;letter-spacing:0}
+      .line{stroke:#8aa1bc;stroke-width:2.2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#warm)"/>
+  <path d="M0 88H1280M0 178H1280M0 268H1280M0 358H1280M0 448H1280M0 538H1280M0 628H1280M94 0V720M184 0V720M274 0V720M364 0V720M454 0V720M544 0V720M634 0V720M724 0V720M814 0V720M904 0V720M994 0V720M1084 0V720M1174 0V720" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+
+  <rect x="54" y="38" width="1172" height="112" rx="28" fill="#f8fbff" fill-opacity="0.96" stroke="#d9e4f2" filter="url(#shadow)"/>
+  <text x="84" y="92" class="title" font-size="44">Claude Code 配置失败排查路线</text>
+  <text x="86" y="126" class="sub" font-size="22">先定位失败层级，再决定重配、换网络，还是进入项目权限排查</text>
+  <rect x="934" y="66" width="226" height="44" rx="22" fill="url(#hot)"/>
+  <text x="964" y="95" class="badgeText">Key · 地址 · 权限</text>
+
+  <g filter="url(#shadow)">
+    <rect x="58" y="206" width="172" height="126" rx="20" fill="#fff1f1" stroke="#ff8a8a" stroke-width="1.6"/>
+    <circle cx="91" cy="238" r="18" fill="#f43f46"/><text x="84" y="247" class="badgeText">0</text>
+    <text x="116" y="247" class="darkTitle">复现现象</text>
+    <text x="83" y="285" class="darkText">保留错误关键词</text>
+    <text x="83" y="313" class="darkText">不要先重装</text>
+  </g>
+  <path class="line" d="M238 269H278"/>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="206" width="190" height="126" rx="20" fill="#13243c" stroke="#426fa7" stroke-width="1.6"/>
+    <circle cx="323" cy="238" r="18" fill="#f97316"/><text x="317" y="247" class="badgeText">1</text>
+    <text x="348" y="247" class="nodeTitle">终端输出</text>
+    <text x="316" y="285" class="nodeText">version / auth</text>
+    <text x="316" y="313" class="nodeText">doctor / 状态</text>
+  </g>
+  <path class="line" d="M488 269H528"/>
+
+  <g filter="url(#shadow)">
+    <rect x="540" y="206" width="190" height="126" rx="20" fill="#142840" stroke="#4f7ebb" stroke-width="1.6"/>
+    <circle cx="573" cy="238" r="18" fill="#2f7cf6"/><text x="567" y="247" class="badgeText">2</text>
+    <text x="598" y="247" class="nodeTitle">配置文件</text>
+    <text x="566" y="285" class="nodeText">user / project</text>
+    <text x="566" y="313" class="nodeText">local settings</text>
+  </g>
+  <path class="line" d="M738 269H778"/>
+
+  <g filter="url(#shadow)">
+    <rect x="790" y="206" width="214" height="126" rx="20" fill="#2a1721" stroke="#ff7075" stroke-width="1.6"/>
+    <circle cx="823" cy="238" r="18" fill="#ef2f39"/><text x="817" y="247" class="badgeText">3</text>
+    <text x="848" y="247" class="nodeTitle">Key/API 地址</text>
+    <text x="816" y="285" class="nodeText">Key 是否有效</text>
+    <text x="816" y="313" class="nodeText">地址是否当前</text>
+  </g>
+  <path class="line" d="M1012 269H1052"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1064" y="206" width="166" height="126" rx="20" fill="#132d26" stroke="#43d982" stroke-width="1.6"/>
+    <circle cx="1097" cy="238" r="18" fill="#18a95b"/><text x="1091" y="247" class="badgeText">4</text>
+    <text x="1120" y="247" class="nodeTitle">权益日志</text>
+    <text x="1090" y="285" class="nodeText">额度 / 状态</text>
+    <text x="1090" y="313" class="nodeText">/logs 命中</text>
+  </g>
+
+  <path class="line" d="M1147 338 C1147 374 1126 393 1080 410"/>
+  <g filter="url(#shadow)">
+    <rect x="914" y="404" width="190" height="126" rx="20" fill="#10283a" stroke="#22b7e9" stroke-width="1.6"/>
+    <circle cx="947" cy="436" r="18" fill="#19a9e6"/><text x="941" y="445" class="badgeText">5</text>
+    <text x="972" y="445" class="nodeTitle">网络</text>
+    <text x="940" y="483" class="nodeText">代理 / DNS</text>
+    <text x="940" y="511" class="nodeText">公司网络限制</text>
+  </g>
+  <path class="line" d="M906 467H798"/>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="404" width="206" height="126" rx="20" fill="#2a1721" stroke="#ff7075" stroke-width="1.6"/>
+    <circle cx="623" cy="436" r="18" fill="#f43f46"/><text x="617" y="445" class="badgeText">6</text>
+    <text x="648" y="445" class="nodeTitle">权限</text>
+    <text x="616" y="483" class="nodeText">权限弹窗</text>
+    <text x="616" y="511" class="nodeText">allow / ask / deny</text>
+  </g>
+  <path class="line" d="M582 467H502"/>
+
+  <g filter="url(#shadow)">
+    <rect x="304" y="404" width="198" height="126" rx="20" fill="#14243b" stroke="#6b8db8" stroke-width="1.6"/>
+    <circle cx="337" cy="436" r="18" fill="#0f172a"/><text x="331" y="445" class="badgeText">7</text>
+    <text x="362" y="445" class="nodeTitle">项目目录</text>
+    <text x="330" y="483" class="nodeText">空目录对比</text>
+    <text x="330" y="511" class="nodeText">再查真实项目</text>
+  </g>
+
+  <text x="70" y="612" class="small">完整排查顺序</text>
+  <g>
+    <rect x="70" y="632" width="120" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="94" y="657" class="chip">终端输出</text>
+    <rect x="206" y="632" width="120" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="230" y="657" class="chip">配置文件</text>
+    <rect x="342" y="632" width="154" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="364" y="657" class="chip">Key/API 地址</text>
+    <rect x="512" y="632" width="120" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="536" y="657" class="chip">权益状态</text>
+    <rect x="648" y="632" width="96" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="671" y="657" class="chip">日志页</text>
+    <rect x="760" y="632" width="74" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="780" y="657" class="chip">网络</text>
+    <rect x="850" y="632" width="74" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="870" y="657" class="chip">权限</text>
+    <rect x="940" y="632" width="120" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#bcd1ea" stroke-opacity="0.35"/>
+    <text x="964" y="657" class="chip">项目目录</text>
+  </g>
+</svg>

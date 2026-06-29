@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V054 flow article style</title>
+  <style>
+    :root {
+      --paper: #fbf6eb;
+      --ink: #101010;
+      --muted: #697069;
+      --line: #ddd3c5;
+      --blue: #4d89ef;
+      --pink: #e86b86;
+      --green: #55b87d;
+      --yellow: #ffe27a;
+      --terminal: #121a22;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1280px;
+      height: 720px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+    }
+
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 38px 48px 34px;
+      background:
+        radial-gradient(circle at 92% 9%, rgba(232, 107, 134, 0.13), transparent 23%),
+        linear-gradient(180deg, #fffdf8 0%, var(--paper) 100%);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #f0eadf;
+      border: 1px solid #e1d7c9;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .dots {
+      width: 48px;
+      height: 11px;
+      position: relative;
+      flex: 0 0 48px;
+    }
+
+    .dots::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 18px 0 0 var(--pink), 36px 0 0 var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.03;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      align-self: end;
+      border-radius: 18px;
+      background: #fff8df;
+      border: 1px solid #eadcac;
+      padding: 12px 18px;
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 850;
+      width: 420px;
+    }
+
+    .flow {
+      margin-top: 18px;
+      padding: 18px 16px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(25, 24, 21, 0.07);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .step-card {
+      width: 124px;
+      min-height: 128px;
+      border-radius: 16px;
+      border: 1px solid #ded5c8;
+      background: #f8f4ed;
+      padding: 13px 10px 11px;
+      position: relative;
+      text-align: center;
+    }
+
+    .step-card:nth-child(4n+1) {
+      background: #fff2f5;
+      border-color: #efcbd5;
+    }
+
+    .step-card:nth-child(4n+3) {
+      background: #eef6ff;
+      border-color: #cbdff8;
+    }
+
+    .step-card:nth-child(4n+5) {
+      background: #eefbf4;
+      border-color: #c8ead8;
+    }
+
+    .step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 25px;
+      min-width: 50px;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+
+    .step-name {
+      font-size: 23px;
+      line-height: 1.08;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      color: #4c514d;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+
+    .arrow {
+      width: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111111;
+      font-size: 30px;
+      font-weight: 950;
+      margin-top: -6px;
+    }
+
+    .lower {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 290px;
+      gap: 18px;
+    }
+
+    .box {
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 22px rgba(25, 24, 21, 0.07);
+      padding: 18px 20px;
+      overflow: hidden;
+    }
+
+    .box-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 950;
+      margin-bottom: 13px;
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      min-width: 64px;
+      border-radius: 10px;
+      background: #080808;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 950;
+    }
+
+    .terminal {
+      border-radius: 15px;
+      background: var(--terminal);
+      color: #eef5ff;
+      border: 1px solid #2b3641;
+      padding: 16px 18px;
+      font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+      font-size: 18px;
+      line-height: 1.46;
+      font-weight: 740;
+      white-space: pre-line;
+    }
+
+    .confirm-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .confirm {
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 850;
+      border: 1px solid #ded6ca;
+      background: #f8f4ed;
+    }
+
+    .confirm.good {
+      background: #eefaf4;
+      border-color: rgba(85, 184, 125, 0.55);
+    }
+
+    .confirm.bad {
+      background: #fff1f4;
+      border-color: rgba(232, 107, 134, 0.52);
+    }
+
+    .summary {
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 2px solid #111111;
+      overflow: hidden;
+      min-height: 70px;
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      background: #ffffff;
+      box-shadow: 0 8px 0 rgba(17, 17, 17, 0.08);
+    }
+
+    .summary-label {
+      background: var(--pink);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      font-weight: 950;
+    }
+
+    .summary-text {
+      padding: 14px 18px;
+      font-size: 24px;
+      line-height: 1.24;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <header class="header">
+      <div>
+        <div class="tag"><span class="dots"></span><span>V054 总排查路线</span></div>
+        <h1>配置后不能用：八步排查路线</h1>
+      </div>
+      <div class="subtitle">先留证据，再定位层级；页面字段与网络命令需录屏前实测确认。</div>
+    </header>
+
+    <section class="flow">
+      <div class="step-card"><div class="step-index">STEP 1</div><div class="step-name">终端输出</div><div class="step-desc">错误类型 / 当前目录</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 2</div><div class="step-name">配置文件</div><div class="step-desc">路径 / 格式 / 版本</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 3</div><div class="step-name">Key/API</div><div class="step-desc">完整性 / 地址</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 4</div><div class="step-name">权益状态</div><div class="step-desc">额度 / 限流 / 到期</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 5</div><div class="step-name">日志页</div><div class="step-desc">是否到服务端</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 6</div><div class="step-name">网络</div><div class="step-desc">代理 / DNS / 超时</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 7</div><div class="step-name">权限</div><div class="step-desc">模式 / 读写范围</div></div>
+      <div class="arrow">→</div>
+      <div class="step-card"><div class="step-index">STEP 8</div><div class="step-name">项目目录</div><div class="step-desc">根目录 / 子目录</div></div>
+    </section>
+
+    <section class="lower">
+      <div class="box">
+        <div class="box-title"><span class="mark">Codex</span><span>先查这些</span></div>
+        <div class="terminal">$ codex --version
+$ codex login status
+$ codex doctor --summary
+~/.codex/config.toml
+-C/--cd  --add-dir  --sandbox</div>
+      </div>
+      <div class="box">
+        <div class="box-title"><span class="mark">Claude</span><span>先查这些</span></div>
+        <div class="terminal">$ claude --version
+$ claude auth status --text
+$ claude doctor
+~/.claude/settings.json
+--permission-mode  --allowedTools</div>
+      </div>
+      <div class="box">
+        <div class="box-title"><span class="mark">对比</span><span>不要跳步</span></div>
+        <div class="confirm-list">
+          <div class="confirm good">正常：终端、配置、日志能对应</div>
+          <div class="confirm bad">错法：只改 Key，不看目录和权限</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="summary-label">总结</div>
+      <div class="summary-text">每次只改一个点，再用同一个最小命令复测；不要把所有问题都归结到 Key。</div>
+    </section>
+  </main>
+</body>
+</html>

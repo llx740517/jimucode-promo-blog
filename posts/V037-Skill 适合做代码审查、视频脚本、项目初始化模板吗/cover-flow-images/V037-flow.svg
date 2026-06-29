@@ -1,0 +1,79 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#0F172A"/>
+  <rect x="42" y="36" width="1196" height="648" rx="28" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="76" y="92" fill="#F8FAFC" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="800">V037 Skill 模板工作流</text>
+  <text x="78" y="126" fill="#CBD5E1" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">适合重复流程，不替代人工判断</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="76" y="188" width="190" height="112" rx="18" fill="#1E293B" stroke="#475569"/>
+    <text x="171" y="234" text-anchor="middle" fill="#E2E8F0" font-size="23" font-weight="800">重复任务</text>
+    <text x="171" y="267" text-anchor="middle" fill="#A7F3D0" font-size="17">流程稳定</text>
+
+    <rect x="316" y="188" width="210" height="112" rx="18" fill="#162033" stroke="#38BDF8"/>
+    <text x="421" y="232" text-anchor="middle" fill="#F8FAFC" font-size="23" font-weight="800">SKILL.md</text>
+    <text x="421" y="266" text-anchor="middle" fill="#BAE6FD" font-size="17">模板 + 示例</text>
+
+    <rect x="576" y="188" width="220" height="112" rx="18" fill="#20233B" stroke="#A78BFA"/>
+    <text x="686" y="232" text-anchor="middle" fill="#F8FAFC" font-size="23" font-weight="800">工具调用</text>
+    <text x="686" y="266" text-anchor="middle" fill="#DDD6FE" font-size="17">Codex / Claude Code</text>
+
+    <rect x="846" y="188" width="190" height="112" rx="18" fill="#172A2A" stroke="#2DD4BF"/>
+    <text x="941" y="232" text-anchor="middle" fill="#F8FAFC" font-size="23" font-weight="800">结构化产物</text>
+    <text x="941" y="266" text-anchor="middle" fill="#99F6E4" font-size="17">固定输出格式</text>
+
+    <rect x="1086" y="188" width="118" height="112" rx="18" fill="#331F23" stroke="#FB7185"/>
+    <text x="1145" y="232" text-anchor="middle" fill="#F8FAFC" font-size="23" font-weight="800">校验</text>
+    <text x="1145" y="266" text-anchor="middle" fill="#FECDD3" font-size="17">人工确认</text>
+  </g>
+
+  <g stroke="#94A3B8" stroke-width="2.2" marker-end="url(#arrow)">
+    <line x1="268" y1="244" x2="306" y2="244"/>
+    <line x1="528" y1="244" x2="566" y2="244"/>
+    <line x1="798" y1="244" x2="836" y2="244"/>
+    <line x1="1038" y1="244" x2="1076" y2="244"/>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="96" y="380" width="310" height="130" rx="20" fill="#1E293B" stroke="#64748B"/>
+    <text x="124" y="426" fill="#F8FAFC" font-size="25" font-weight="800">代码审查模板</text>
+    <text x="124" y="464" fill="#CBD5E1" font-size="18">风险 · 缺测 · 验证建议</text>
+
+    <rect x="485" y="380" width="310" height="130" rx="20" fill="#1E293B" stroke="#64748B"/>
+    <text x="513" y="426" fill="#F8FAFC" font-size="25" font-weight="800">视频脚本模板</text>
+    <text x="513" y="464" fill="#CBD5E1" font-size="18">镜头 · 口播 · 素材 · 剪辑</text>
+
+    <rect x="874" y="380" width="310" height="130" rx="20" fill="#1E293B" stroke="#64748B"/>
+    <text x="902" y="426" fill="#F8FAFC" font-size="25" font-weight="800">项目初始化模板</text>
+    <text x="902" y="464" fill="#CBD5E1" font-size="18">目录 · README · 核对要点</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M421 303 C390 333 310 347 251 374"/>
+    <path d="M686 303 C681 336 661 350 640 374"/>
+    <path d="M941 303 C972 333 1007 350 1029 374"/>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <text x="96" y="574" fill="#CBD5E1" font-size="18" font-weight="700">录屏检查点：</text>
+    <rect x="210" y="548" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="268" y="575" text-anchor="middle" fill="#E2E8F0" font-size="16">触发条件</text>
+    <rect x="346" y="548" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="404" y="575" text-anchor="middle" fill="#E2E8F0" font-size="16">路径位置</text>
+    <rect x="482" y="548" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="540" y="575" text-anchor="middle" fill="#E2E8F0" font-size="16">权限范围</text>
+    <rect x="618" y="548" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="676" y="575" text-anchor="middle" fill="#E2E8F0" font-size="16">输出格式</text>
+    <rect x="754" y="548" width="116" height="42" rx="21" fill="#0F172A" stroke="#475569"/>
+    <text x="812" y="575" text-anchor="middle" fill="#E2E8F0" font-size="16">人工验证</text>
+  </g>
+</svg>
+

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V026 Claude Code 权限模式和工具限制流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f7f4"/>
+      <stop offset="0.52" stop-color="#eef5f6"/>
+      <stop offset="1" stop-color="#f7f2ee"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-18%" width="124%" height="146%">
+      <feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#26353a" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,1.4 L8,4.5 L0,7.6" fill="none" stroke="#5f7077" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 140 H1280 M0 280 H1280 M0 420 H1280 M0 560 H1280 M160 0 V720 M320 0 V720 M480 0 V720 M640 0 V720 M800 0 V720 M960 0 V720 M1120 0 V720" stroke="#dbe4e5" stroke-width="1" opacity="0.52"/>
+  <rect x="44" y="42" width="1192" height="636" rx="8" fill="#ffffff" opacity="0.76"/>
+  <text x="72" y="96" font-family="Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="800" fill="#172f37">Claude Code 权限选择流程</text>
+  <text x="72" y="129" font-family="Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#607178">先保守进入项目，再逐步放开工具和写入权限</text>
+
+  <g font-family="Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif" filter="url(#shadow)">
+    <g transform="translate(58 203)">
+      <rect width="168" height="144" rx="8" fill="#ffffff" stroke="#d6dfdf" stroke-width="1.2"/>
+      <rect x="19" y="19" width="56" height="56" rx="8" fill="#fff2cf" stroke="#dfb84f"/>
+      <path d="M47 30 L67 66 H27 Z" fill="#d89d25"/>
+      <rect x="44" y="44" width="6" height="15" rx="3" fill="#fff7df"/>
+      <circle cx="47" cy="63" r="3" fill="#fff7df"/>
+      <text x="19" y="102" font-size="22" font-weight="800" fill="#1a3038">识别风险</text>
+      <text x="19" y="127" font-size="14" fill="#607178">.env / 删除 / 联网</text>
+    </g>
+
+    <g transform="translate(276 203)">
+      <rect width="168" height="144" rx="8" fill="#ffffff" stroke="#cbd9e5" stroke-width="1.2"/>
+      <rect x="19" y="19" width="128" height="36" rx="8" fill="#e7f0fb"/>
+      <text x="33" y="43" font-size="17" fill="#315d80" font-family="Menlo, Consolas, monospace">plan</text>
+      <rect x="19" y="64" width="128" height="36" rx="8" fill="#edf2f4"/>
+      <text x="33" y="88" font-size="17" fill="#526a73" font-family="Menlo, Consolas, monospace">default</text>
+      <text x="19" y="127" font-size="22" font-weight="800" fill="#1a3038">选模式</text>
+    </g>
+
+    <g transform="translate(494 203)">
+      <rect width="178" height="144" rx="8" fill="#ffffff" stroke="#c8dfd4" stroke-width="1.2"/>
+      <rect x="18" y="22" width="142" height="32" rx="8" fill="#e7f6ed"/>
+      <text x="32" y="44" font-size="16" fill="#2f744f" font-family="Menlo, Consolas, monospace">Read</text>
+      <rect x="18" y="62" width="142" height="32" rx="8" fill="#e7f6ed"/>
+      <text x="32" y="84" font-size="16" fill="#2f744f" font-family="Menlo, Consolas, monospace">Grep</text>
+      <rect x="18" y="102" width="142" height="26" rx="8" fill="#e7f6ed"/>
+      <text x="32" y="121" font-size="15" fill="#2f744f" font-family="Menlo, Consolas, monospace">Glob</text>
+      <text x="18" y="142" font-size="20" font-weight="800" fill="#1a3038">限制工具</text>
+    </g>
+
+    <g transform="translate(722 203)">
+      <rect width="188" height="144" rx="8" fill="#ffffff" stroke="#dfd5c2" stroke-width="1.2"/>
+      <rect x="18" y="20" width="152" height="28" rx="8" fill="#e8f6ed"/>
+      <text x="31" y="39" font-size="15" fill="#2f744f" font-family="Menlo, Consolas, monospace">allow: Read</text>
+      <rect x="18" y="58" width="152" height="28" rx="8" fill="#fff2cf"/>
+      <text x="31" y="77" font-size="15" fill="#896125" font-family="Menlo, Consolas, monospace">ask: Edit</text>
+      <rect x="18" y="96" width="152" height="28" rx="8" fill="#ffe8e5"/>
+      <text x="31" y="115" font-size="15" fill="#a7443f" font-family="Menlo, Consolas, monospace">deny: .env</text>
+      <text x="18" y="142" font-size="20" font-weight="800" fill="#1a3038">写规则</text>
+    </g>
+
+    <g transform="translate(960 203)">
+      <rect width="168" height="144" rx="8" fill="#ffffff" stroke="#e8c2bf" stroke-width="1.2"/>
+      <rect x="18" y="20" width="132" height="74" rx="8" fill="#fff0ee"/>
+      <rect x="34" y="37" width="100" height="10" rx="5" fill="#d4574f"/>
+      <rect x="34" y="57" width="74" height="10" rx="5" fill="#d4574f" opacity="0.78"/>
+      <circle cx="126" cy="61" r="16" fill="#d4574f"/>
+      <rect x="123" y="49" width="6" height="17" rx="3" fill="#ffffff"/>
+      <circle cx="126" cy="72" r="3" fill="#ffffff"/>
+      <text x="18" y="127" font-size="22" font-weight="800" fill="#1a3038">看提示</text>
+    </g>
+  </g>
+
+  <g stroke="#5f7077" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.9">
+    <path d="M236 275 H266"/>
+    <path d="M454 275 H484"/>
+    <path d="M682 275 H712"/>
+    <path d="M920 275 H950"/>
+  </g>
+
+  <g transform="translate(317 421)" font-family="Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif">
+    <rect width="646" height="86" rx="8" fill="#172f37"/>
+    <text x="28" y="36" font-size="22" font-weight="800" fill="#ffffff">验证结果：看 diff、跑测试、必要时回滚</text>
+    <text x="28" y="65" font-size="17" fill="#bfd2d8">权限控制只是第一层，不能替代人工复核和项目验证</text>
+  </g>
+  <path d="M1044 354 C1044 395 964 417 963 458" stroke="#5f7077" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.9"/>
+
+  <g transform="translate(72 590)" font-family="Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif">
+    <text x="0" y="0" font-size="16" font-weight="700" fill="#53686f">关键标签</text>
+    <g transform="translate(0 18)" font-size="15" fill="#354b52">
+      <rect x="0" y="0" width="132" height="34" rx="8" fill="#e8eef0"/><text x="14" y="22">permission mode</text>
+      <rect x="144" y="0" width="56" height="34" rx="8" fill="#e8eef0"/><text x="158" y="22">plan</text>
+      <rect x="212" y="0" width="78" height="34" rx="8" fill="#e8eef0"/><text x="226" y="22">default</text>
+      <rect x="302" y="0" width="76" height="34" rx="8" fill="#e8eef0"/><text x="316" y="22">--tools</text>
+      <rect x="390" y="0" width="124" height="34" rx="8" fill="#e8eef0"/><text x="404" y="22">--allowedTools</text>
+      <rect x="526" y="0" width="140" height="34" rx="8" fill="#e8eef0"/><text x="540" y="22">--disallowedTools</text>
+      <rect x="678" y="0" width="174" height="34" rx="8" fill="#e8eef0"/><text x="692" y="22">.claude/settings.json</text>
+      <rect x="864" y="0" width="58" height="34" rx="8" fill="#e8eef0"/><text x="878" y="22">.env</text>
+      <rect x="934" y="0" width="94" height="34" rx="8" fill="#e8eef0"/><text x="948" y="22">git diff</text>
+    </g>
+  </g>
+</svg>

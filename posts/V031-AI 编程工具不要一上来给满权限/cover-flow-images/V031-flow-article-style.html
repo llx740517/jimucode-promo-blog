@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V031 v2 图文教程流程图</title>
+  <style>
+    :root {
+      --paper: #fbf7ed;
+      --ink: #101010;
+      --line: #e8dfd1;
+      --blue: #2f7cf6;
+      --pink: #e75f7b;
+      --green: #3ba66b;
+      --amber: #f1b846;
+      --muted: #5f656d;
+      --terminal: #121923;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #e7e1d5;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      letter-spacing: 0;
+    }
+    body { display: grid; place-items: center; }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      padding: 34px 42px 30px;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(17,17,17,0.026) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(rgba(17,17,17,0.022) 1px, transparent 1px) 0 0 / 36px 36px,
+        var(--paper);
+    }
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      height: 118px;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 14px 0 0;
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .legend {
+      width: 360px;
+      min-height: 88px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.82);
+      font-size: 19px;
+      line-height: 1.32;
+      color: var(--muted);
+      font-weight: 780;
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+    }
+    .legend strong { display: block; color: #111; font-size: 22px; margin-bottom: 4px; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .step-card {
+      position: relative;
+      height: 236px;
+      padding: 16px 14px 14px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+    }
+    .step-card::after {
+      content: "→";
+      position: absolute;
+      top: 92px;
+      right: -17px;
+      color: #111;
+      font-size: 28px;
+      font-weight: 950;
+      z-index: 2;
+    }
+    .step-card:last-child::after { content: ""; }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 33px;
+      min-width: 82px;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+      font-weight: 950;
+    }
+    .step-card h2 {
+      margin: 14px 0 10px;
+      min-height: 56px;
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 740;
+    }
+    .blue { color: var(--blue); }
+    .pink { color: var(--pink); }
+    .green { color: var(--green); }
+    .note-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .note {
+      height: 104px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      padding: 15px 16px;
+      box-shadow: 0 8px 0 rgba(0,0,0,0.045);
+    }
+    .note.dark {
+      background: linear-gradient(180deg, #111923, #182434);
+      border-color: #0b111a;
+      color: #eaf1f8;
+    }
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.27;
+      font-weight: 760;
+    }
+    .note.dark p { color: #aebdcc; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 17px; }
+    .summary {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 30px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .summary b {
+      color: #fff;
+      background: var(--pink);
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-right: 10px;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    .summary span:last-child {
+      color: #737983;
+      font-size: 17px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V031 图文教程流程图">
+    <header class="header">
+      <div>
+        <span class="kicker">V031 / Codex + Claude Code 权限安全流程</span>
+        <h1>AI 编程工具不要一上来给满权限</h1>
+      </div>
+      <div class="legend">
+        <strong>使用原则</strong>
+        不是追求最快授权，而是让每一步都知道 AI 正在碰什么。
+      </div>
+    </header>
+
+    <section class="flow">
+      <div class="step-card">
+        <span class="step">STEP 1</span>
+        <h2>识别风险</h2>
+        <p>`.env`、Key、删除、联网、权限命令先标出来。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 2</span>
+        <h2>只读 / 计划</h2>
+        <p>Codex 用 read-only；Claude Code 用 plan。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 3</span>
+        <h2>读项目列计划</h2>
+        <p>先说明会看哪些文件、可能改哪里。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 4</span>
+        <h2>小步放开</h2>
+        <p>只允许一个小任务、一个目录或一个文件范围。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 5</span>
+        <h2>审批前停住</h2>
+        <p>看工具、路径、参数和风险词。</p>
+      </div>
+      <div class="step-card">
+        <span class="step">STEP 6</span>
+        <h2>diff / test 确认</h2>
+        <p>用 `git diff`、`npm test` 和日志核对结果。</p>
+      </div>
+    </section>
+
+    <section class="note-row">
+      <div class="note">
+        <h3 class="green">正常</h3>
+        <p>先只读、列计划，再按小任务放开。</p>
+      </div>
+      <div class="note">
+        <h3 class="pink">常见错法</h3>
+        <p>直接满权限，审批提示也不看路径。</p>
+      </div>
+      <div class="note dark">
+        <h3>风险词</h3>
+        <p>rm / curl / sudo / chmod / --force / .env / secrets</p>
+      </div>
+    </section>
+
+    <div class="summary">
+      <div><b>总结</b> 先只读，列计划，小步放开，看审批，最后 diff + test。</div>
+      <span>设计示意图，不含真实登录数据</span>
+    </div>
+  </main>
+</body>
+</html>

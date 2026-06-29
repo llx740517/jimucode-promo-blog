@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V041 Flow Article Style</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1280px; height: 720px; background: #fbf7ef; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #101010; }
+    #canvas { position: relative; width: 1280px; height: 720px; overflow: hidden; padding: 38px 46px 32px; background: linear-gradient(90deg, rgba(20,24,28,.04) 1px, transparent 1px), linear-gradient(rgba(20,24,28,.04) 1px, transparent 1px), #fbf7ef; background-size: 34px 34px; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+    .label { display: inline-flex; height: 38px; align-items: center; padding: 0 16px; border-radius: 19px; background: #101010; color: #fff; font-size: 18px; font-weight: 950; margin-bottom: 12px; }
+    h1 { margin: 0; font-size: 48px; line-height: 1.04; letter-spacing: 0; font-weight: 950; }
+    .desc { margin-top: 8px; font-size: 22px; line-height: 1.2; font-weight: 780; color: #5b554b; }
+    .side-tag { height: 42px; display: flex; align-items: center; padding: 0 18px; border-radius: 21px; border: 2px solid #ead8b8; background: #fff3dc; font-size: 20px; font-weight: 900; }
+    .flow { display: grid; grid-template-columns: 180px 44px 180px 44px 180px 44px 180px 44px 180px; align-items: center; margin-top: 8px; }
+    .node { height: 116px; border-radius: 20px; border: 2px solid #e3d6c1; background: #fffdf8; padding: 16px 14px; text-align: center; box-shadow: 0 14px 32px rgba(32,27,20,.08); }
+    .node:nth-child(1) { background: #f2fbf5; border-color: #b8e3c8; } .node:nth-child(3) { background: #f0f7ff; border-color: #bdd9ff; } .node:nth-child(5) { background: #eefaf7; border-color: #a9ded4; } .node:nth-child(7) { background: #f5f1ff; border-color: #d0c5f1; } .node:nth-child(9) { background: #fff3f6; border-color: #f3bfcb; }
+    .node-title { font-size: 24px; line-height: 1.16; font-weight: 950; }
+    .node-text { margin-top: 8px; font-size: 17px; line-height: 1.2; font-weight: 760; color: #5c554c; }
+    .arrow { height: 4px; margin: 0 8px; background: #111; position: relative; border-radius: 2px; }
+    .arrow:after { content: ""; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 14px solid #111; }
+    .lower { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-top: 28px; }
+    .panel { min-height: 152px; border-radius: 22px; background: rgba(255,255,255,.88); border: 2px solid #e8ddca; padding: 18px 20px; box-shadow: 0 12px 28px rgba(33,29,21,.06); }
+    .panel-head { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+    .step { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 9px; background: #101010; color: #fff; font-size: 16px; font-weight: 950; }
+    .panel-title { font-size: 24px; line-height: 1.15; font-weight: 950; }
+    .panel-text { font-size: 18px; line-height: 1.28; font-weight: 750; color: #484238; }
+    .ok { color: #2f9c63; } .warn { color: #d45167; }
+    .summary { position: absolute; left: 46px; right: 46px; bottom: 30px; min-height: 58px; border-radius: 18px; background: #101010; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 11px 20px; font-size: 21px; line-height: 1.18; font-weight: 880; }
+    .summary span:last-child { color: #f4eadb; font-size: 17px; font-weight: 760; text-align: right; }
+  </style>
+</head>
+<body>
+  <main id="canvas">
+    <header class="header"><div><div class="label">V041 · AI 修改后的验收闭环</div><h1>改前干净 → Git 面板 → 看 diff → 跑测试 → 人工确认</h1><div class="desc">保留原流程关键点：不要只看 AI 总结，要看文件范围、diff 内容和测试输出。</div></div><div class="side-tag">适合图文教程 / PPT</div></header>
+    <section class="flow"><div class="node"><div class="node-title">改前干净</div><div class="node-text">git status<br>旧改动分开</div></div><div class="arrow"></div><div class="node"><div class="node-title">Git 面板</div><div class="node-text">改了哪些文件<br>排除无关改动</div></div><div class="arrow"></div><div class="node"><div class="node-title">看 diff</div><div class="node-text">逻辑是否对应<br>测试是否补上</div></div><div class="arrow"></div><div class="node"><div class="node-title">跑测试</div><div class="node-text">Testing 面板<br>npm test</div></div><div class="arrow"></div><div class="node"><div class="node-title">人工确认</div><div class="node-text">提交 / 补问<br>回滚 / 拆小</div></div></section>
+    <section class="lower"><div class="panel"><div class="panel-head"><span class="step">STEP 1</span><span class="panel-title">正常结果</span></div><div class="panel-text"><span class="ok">看见：</span>只改相关文件，diff 能解释，测试输出可追溯。</div></div><div class="panel"><div class="panel-head"><span class="step">STEP 2</span><span class="panel-title">常见错法</span></div><div class="panel-text"><span class="warn">避免：</span>只看 AI 总结，忽略无关配置、敏感文件或测试失败。</div></div><div class="panel"><div class="panel-head"><span class="step">STEP 3</span><span class="panel-title">工具边界</span></div><div class="panel-text">Codex review 可辅助；Claude slash command 入口需录屏前实测确认。</div></div></section>
+    <div class="summary"><span>验收依据：文件范围、diff 内容、测试输出、人工边界判断。</span><span>设计示意图 · 不含真实登录数据</span></div>
+  </main>
+</body>
+</html>

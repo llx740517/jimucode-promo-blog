@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V045 图文教程风格流程图</title>
+  <style>
+    :root {
+      --ink: #080808;
+      --muted: #62645f;
+      --paper: #fff9ee;
+      --line: #ebdeca;
+      --blue: #5b85dc;
+      --pink: #dd6b85;
+      --green: #5ca67d;
+      --dark: #141820;
+      --soft-blue: #eaf2ff;
+      --soft-pink: #fff0f4;
+      --soft-green: #effaf3;
+      --soft-yellow: #fff6d7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #e7dfcf;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+    }
+
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      padding: 34px 42px 30px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px) 0 0 / 34px 34px,
+        linear-gradient(0deg, rgba(0,0,0,.025) 1px, transparent 1px) 0 0 / 34px 34px,
+        var(--paper);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      padding: 10px 16px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .badge {
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 1000;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 50px;
+      line-height: 1.06;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+
+    .blue { color: var(--blue); }
+    .pink { color: var(--pink); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .step-card {
+      position: relative;
+      min-height: 194px;
+      padding: 14px 14px 12px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 12px 22px rgba(82,58,22,.07);
+    }
+
+    .step-card:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -16px;
+      top: 78px;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-size: 18px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-weight: 1000;
+    }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 30px;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: #070707;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 1000;
+    }
+
+    .step-card h2 {
+      margin: 0 0 9px;
+      font-size: 25px;
+      line-height: 1.15;
+      font-weight: 1000;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: #30312e;
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 760;
+    }
+
+    .s1 { background: var(--soft-blue); border-color: #cdddf7; }
+    .s2 { background: #fff; }
+    .s3 { background: var(--soft-yellow); border-color: #eadcaa; }
+    .s4 { background: var(--soft-pink); border-color: #f0cad3; }
+    .s5 { background: var(--soft-green); border-color: #cbe8d6; }
+    .s6 { background: #fff; }
+
+    .lower {
+      display: grid;
+      grid-template-columns: 1.16fr .84fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 12px 22px rgba(82,58,22,.07);
+    }
+
+    .compare {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .compare h3,
+    .why h3 {
+      margin: 0 0 9px;
+      font-size: 26px;
+      font-weight: 1000;
+    }
+
+    .compare-box {
+      padding: 14px;
+      border-radius: 8px;
+      border: 2px solid #e3dacd;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .good { background: var(--soft-green); border-color: #cbe8d6; }
+    .bad { background: var(--soft-pink); border-color: #f0cad3; }
+
+    .compare-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 23px;
+      font-weight: 1000;
+    }
+
+    .mark {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 1000;
+    }
+
+    .bad .mark { background: var(--pink); }
+
+    .why {
+      padding: 18px;
+      background: #fff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .why-item {
+      min-height: 48px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f8f4ea;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .summary {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 30px;
+      height: 48px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 1000;
+    }
+
+    .summary-label {
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .bottom-tags {
+      color: #6c665d;
+      font-size: 17px;
+      font-weight: 820;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V045 图文教程风格流程图">
+    <div class="top">
+      <div class="tag">V045 / 提示词模板复用闭环</div>
+      <div class="badge">图文教程流程图</div>
+    </div>
+
+    <h1>把提示词变成<span class="blue">模板库</span>：6 步形成<span class="pink">复用闭环</span></h1>
+
+    <section class="flow">
+      <article class="step-card s1">
+        <div class="num">STEP 1</div>
+        <h2>需求场景</h2>
+        <p>Bug、新功能、审查、发布说明，先判断属于哪类任务。</p>
+      </article>
+      <article class="step-card s2">
+        <div class="num">STEP 2</div>
+        <h2>选择模板</h2>
+        <p>从 prompts/ 目录选择对应 Markdown 模板。</p>
+      </article>
+      <article class="step-card s3">
+        <div class="num">STEP 3</div>
+        <h2>填写变量</h2>
+        <p>补 diff、目标、约束、验证命令和风险说明。</p>
+      </article>
+      <article class="step-card s4">
+        <div class="num">STEP 4</div>
+        <h2>生成草稿</h2>
+        <p>Codex / Claude Code 按各自入口调用模板。</p>
+      </article>
+      <article class="step-card s5">
+        <div class="num">STEP 5</div>
+        <h2>人工核对</h2>
+        <p>看 diff、跑测试，查风险、验证和回滚。</p>
+      </article>
+      <article class="step-card s6">
+        <div class="num">STEP 6</div>
+        <h2>保存复用</h2>
+        <p>把有效模板和填写规则沉淀到项目资料里。</p>
+      </article>
+    </section>
+
+    <section class="lower">
+      <div class="card compare">
+        <div class="compare-box good">
+          <h3 class="compare-head"><span class="mark">✓</span>正常</h3>
+          <div>模板固定结构；变量每次手填；输出后用清单核对。</div>
+        </div>
+        <div class="compare-box bad">
+          <h3 class="compare-head"><span class="mark">!</span>常见错法</h3>
+          <div>把一段长提示词当万能模板，缺少场景和验收标准。</div>
+        </div>
+      </div>
+
+      <div class="card why">
+        <h3>底部标签</h3>
+        <div class="why-grid">
+          <div class="why-item">复现 / 期望</div>
+          <div class="why-item">约束 / 验收</div>
+          <div class="why-item">风险 / 回滚</div>
+          <div class="why-item">测试 / 发布说明</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="summary"><span class="summary-label">总结</span><span>模板不是替你跳过判断，而是让上下文、边界和检查项每次都不漏。</span><span class="bottom-tags">设计示意图 / 不含真实登录数据</span></div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V051 后端录屏项目设计流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10141d"/>
+      <stop offset="0.55" stop-color="#182433"/>
+      <stop offset="1" stop-color="#242a31"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L7,4.5 L1,8" fill="none" stroke="#9fb1cd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 42px; font-weight: 850; fill: #f8fbff; letter-spacing: 0; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 20px; fill: #bfd0e8; letter-spacing: 0; }
+      .nodeTitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 23px; font-weight: 780; fill: #ffffff; letter-spacing: 0; }
+      .nodeText { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #d7e0ee; letter-spacing: 0; }
+      .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: #b7efd5; }
+      .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; fill: #e8eef8; letter-spacing: 0; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #9fb0c9; letter-spacing: 0; }
+      .num { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; font-weight: 800; fill: #0f1720; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M70 590 C220 520 346 632 514 548 C682 464 768 456 928 512 C1060 558 1160 530 1222 480" fill="none" stroke="#2f4667" stroke-width="2" opacity="0.46"/>
+  <text x="78" y="66" class="title">后端录屏项目设计流程</text>
+  <text x="78" y="102" class="subtitle">登录、订单、支付、退款、权限都用 demo 数据；每段都要可复现、可验证、可隐藏</text>
+
+  <g transform="translate(76 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="url(#card)" stroke="#557091"/>
+    <circle cx="34" cy="34" r="17" fill="#8bd3ff"/><text x="29" y="40" class="num">1</text>
+    <text x="24" y="76" class="nodeTitle">定边界</text>
+    <text x="24" y="108" class="nodeText">不录真实生产</text>
+    <text x="24" y="132" class="nodeText">只用 demo 数据</text>
+  </g>
+
+  <g transform="translate(310 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#172f48" stroke="#5aa7d5"/>
+    <circle cx="34" cy="34" r="17" fill="#8bd3ff"/><text x="29" y="40" class="num">2</text>
+    <text x="24" y="76" class="nodeTitle">设计模块</text>
+    <text x="24" y="108" class="nodeText">登录 / 订单</text>
+    <text x="24" y="132" class="nodeText">支付 / 退款 / 权限</text>
+  </g>
+
+  <g transform="translate(544 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#173d35" stroke="#58d391"/>
+    <circle cx="34" cy="34" r="17" fill="#9cf0c8"/><text x="29" y="40" class="num">3</text>
+    <text x="24" y="76" class="nodeTitle">准备假数据</text>
+    <text x="24" y="108" class="code">ORD-DEMO-1001</text>
+    <text x="24" y="132" class="code">PAY-DEMO-9001</text>
+  </g>
+
+  <g transform="translate(778 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#332b48" stroke="#a997ff"/>
+    <circle cx="34" cy="34" r="17" fill="#c7bdff"/><text x="29" y="40" class="num">4</text>
+    <text x="24" y="76" class="nodeTitle">预设故障</text>
+    <text x="24" y="108" class="nodeText">500 / 401 / 403</text>
+    <text x="24" y="132" class="nodeText">重复退款</text>
+  </g>
+
+  <g transform="translate(1012 160)" filter="url(#shadow)">
+    <rect width="188" height="150" rx="8" fill="#3a3030" stroke="#ff9a7a"/>
+    <circle cx="34" cy="34" r="17" fill="#ffc09c"/><text x="29" y="40" class="num">5</text>
+    <text x="24" y="76" class="nodeTitle">准备验证</text>
+    <text x="24" y="108" class="nodeText">请求 / 日志</text>
+    <text x="24" y="132" class="code">test + diff</text>
+  </g>
+
+  <path d="M264 235 H302" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M498 235 H536" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M732 235 H770" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M966 235 H1004" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <g transform="translate(126 386)" filter="url(#shadow)">
+    <rect width="1028" height="118" rx="8" fill="#101827" stroke="#4f6685"/>
+    <text x="26" y="40" class="nodeTitle">推荐录屏材料</text>
+    <text x="26" y="76" class="code">.env.example  +  curl/HTTP Client  +  service logs  +  npm test / pytest -q</text>
+    <text x="26" y="101" class="nodeText">真实命令、端口和框架需录屏前实测确认；真实支付、数据库和权限表不要上镜</text>
+  </g>
+
+  <g transform="translate(78 574)">
+    <text x="0" y="-18" class="small">底部检查标签：后端项目设计的核心是安全、清楚、可复现。</text>
+    <rect x="0" y="0" width="82" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="20" y="23" class="tag">假数据</text>
+    <rect x="94" y="0" width="98" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="114" y="23" class="tag">mock 支付</text>
+    <rect x="204" y="0" width="96" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="224" y="23" class="tag">权限矩阵</text>
+    <rect x="312" y="0" width="96" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="332" y="23" class="tag">接口请求</text>
+    <rect x="420" y="0" width="66" height="34" rx="17" fill="#332b48" stroke="#69609d"/><text x="441" y="23" class="tag">日志</text>
+    <rect x="498" y="0" width="66" height="34" rx="17" fill="#4b3535" stroke="#8b5a55"/><text x="519" y="23" class="tag">测试</text>
+    <rect x="576" y="0" width="96" height="34" rx="17" fill="#243852" stroke="#4d7798"/><text x="596" y="23" class="tag">安全清单</text>
+  </g>
+  <text x="78" y="668" class="small">录屏重点：登录、订单、支付、退款、权限分层验证。</text>
+</svg>

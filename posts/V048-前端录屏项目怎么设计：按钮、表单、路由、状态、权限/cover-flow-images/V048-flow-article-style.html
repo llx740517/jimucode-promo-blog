@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V048 v2 图文教程流程图</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f8f0e3;
+    }
+    .flow {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      padding: 34px 46px 32px;
+      color: #070707;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(96, 165, 250, .15), transparent 150px),
+        radial-gradient(circle at 14% 90%, rgba(101, 189, 132, .10), transparent 160px),
+        linear-gradient(180deg, #fffdf7 0%, #f7eee1 100%);
+    }
+    .rule {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(14, 22, 36, .035) 1px, transparent 1px);
+      background-size: 100% 34px;
+      pointer-events: none;
+    }
+    .head {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 20px;
+      background: #f4ead8;
+      border: 1px solid #e8dac7;
+      color: #1e293b;
+      font-size: 20px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #60a5fa;
+      box-shadow: 0 0 0 6px rgba(96, 165, 250, .18);
+    }
+    h1 {
+      margin: 15px 0 0;
+      font-size: 48px;
+      line-height: 1.04;
+      letter-spacing: 0;
+      font-weight: 960;
+    }
+    h1 span { color: #e25574; }
+    .note {
+      margin-top: 8px;
+      max-width: 455px;
+      color: #475569;
+      font-size: 22px;
+      line-height: 1.28;
+      font-weight: 740;
+      text-align: right;
+    }
+    .steps {
+      position: relative;
+      z-index: 2;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      align-items: stretch;
+    }
+    .step-card {
+      min-height: 198px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid #eadfce;
+      box-shadow: 0 16px 34px rgba(74, 51, 18, .10);
+      padding: 18px 15px 16px;
+      position: relative;
+    }
+    .step-card::after {
+      content: "";
+      position: absolute;
+      top: 88px;
+      right: -14px;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 12px solid #111827;
+      z-index: 4;
+    }
+    .step-card:last-child::after { display: none; }
+    .num {
+      display: inline-flex;
+      align-items: center;
+      height: 31px;
+      padding: 0 11px;
+      border-radius: 8px;
+      background: #050505;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 930;
+      white-space: nowrap;
+      margin-bottom: 12px;
+    }
+    .step-card h2 {
+      margin: 0;
+      color: #111827;
+      font-size: 25px;
+      line-height: 1.10;
+      font-weight: 930;
+    }
+    .step-card p {
+      margin: 10px 0 0;
+      color: #536171;
+      font-size: 17px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .highlight { background: #f2fbf3; border-color: #cdebd2; }
+    .danger { background: #fff2f5; border-color: #f2cbd5; }
+    .lower {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+    }
+    .box {
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid #eadfce;
+      box-shadow: 0 16px 34px rgba(74, 51, 18, .10);
+      padding: 20px 22px;
+      min-height: 145px;
+    }
+    .box h3 {
+      margin: 0 0 15px;
+      color: #111827;
+      font-size: 28px;
+      line-height: 1.05;
+      font-weight: 930;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .mini {
+      border-radius: 8px;
+      padding: 16px 17px;
+      min-height: 78px;
+      font-size: 21px;
+      line-height: 1.16;
+      font-weight: 850;
+      color: #172033;
+    }
+    .mini.good { background: #f1fbf3; border: 1px solid #cdebd2; }
+    .mini.bad { background: #fff0f4; border: 1px solid #f4c7d2; }
+    .bullets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .bullet {
+      display: grid;
+      grid-template-columns: 27px 1fr;
+      gap: 8px;
+      align-items: start;
+      color: #253044;
+      font-size: 18px;
+      line-height: 1.22;
+      font-weight: 760;
+    }
+    .check {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #65bd84;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .summary {
+      position: absolute;
+      left: 46px;
+      right: 46px;
+      bottom: 30px;
+      z-index: 2;
+      height: 54px;
+      border-radius: 8px;
+      background: #fffaf2;
+      border: 1px solid #eadfce;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111827;
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 930;
+      box-shadow: 0 14px 28px rgba(74, 51, 18, .08);
+    }
+    .summary span { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <main class="flow" aria-label="V048 图文教程流程图">
+    <div class="rule"></div>
+    <header class="head">
+      <div>
+        <div class="tag"><span class="dot"></span>前端录屏项目设计 · V048</div>
+        <h1>从 demo 项目到实战素材：<span>6 步闭环</span></h1>
+      </div>
+      <div class="note">服务后续 Codex / Claude Code 前端实战；不是完整框架安装教程。</div>
+    </header>
+
+    <section class="steps">
+      <article class="step-card highlight">
+        <div class="num">STEP 1</div>
+        <h2>设计五件套</h2>
+        <p>按钮、表单、路由、状态、权限都有画面。</p>
+      </article>
+      <article class="step-card">
+        <div class="num">STEP 2</div>
+        <h2>写任务卡</h2>
+        <p>一次只做小问题，写清范围和验收。</p>
+      </article>
+      <article class="step-card">
+        <div class="num">STEP 3</div>
+        <h2>规则文件</h2>
+        <p>AGENTS.md、CLAUDE.md 放长期项目约束。</p>
+      </article>
+      <article class="step-card">
+        <div class="num">STEP 4</div>
+        <h2>AI 读项目</h2>
+        <p>先列入口，先说计划，不马上改文件。</p>
+      </article>
+      <article class="step-card danger">
+        <div class="num">STEP 5</div>
+        <h2>小步修改</h2>
+        <p>修筛选 Bug 或新增按钮，不扩大范围。</p>
+      </article>
+      <article class="step-card highlight">
+        <div class="num">STEP 6</div>
+        <h2>验证复用</h2>
+        <p>看 diff、跑测试、浏览器手动点一遍。</p>
+      </article>
+    </section>
+
+    <section class="lower">
+      <article class="box">
+        <h3>正常 vs 常见错法</h3>
+        <div class="split">
+          <div class="mini good">正常：小而完整，页面变化能被验证。</div>
+          <div class="mini bad">错法：项目太薄，或直接录真实后台。</div>
+        </div>
+      </article>
+      <article class="box">
+        <h3>每个任务至少看三件事</h3>
+        <div class="bullets">
+          <div class="bullet"><span class="check">✓</span><span>页面变化</span></div>
+          <div class="bullet"><span class="check">✓</span><span>diff 受控</span></div>
+          <div class="bullet"><span class="check">✓</span><span>测试或构建可跑</span></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="summary">总结：前端录屏 demo 要 <span>可脱敏、可复用、可验收</span></div>
+  </main>
+</body>
+</html>

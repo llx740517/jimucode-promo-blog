@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V028 项目规则文件流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#101827"/>
+      <stop offset="48%" stop-color="#172033"/>
+      <stop offset="100%" stop-color="#12312f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#99f6e4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; }
+      .title { fill:#f8fafc; font-size:43px; font-weight:850; letter-spacing:0; }
+      .sub { fill:#cbd5e1; font-size:22px; font-weight:560; }
+      .nodeTitle { fill:#fff; font-size:25px; font-weight:780; }
+      .nodeSub { fill:#cbd5e1; font-size:16px; font-weight:560; }
+      .chip { fill:#d1fae5; font-size:16px; font-weight:720; }
+      .footer { fill:#94a3b8; font-size:18px; font-weight:650; }
+      .file { fill:#e0f2fe; font-size:24px; font-weight:820; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="42" y="40" width="1196" height="640" rx="28" fill="#0b1220" opacity="0.48" stroke="#334155"/>
+  <text x="78" y="102" class="title">项目规则文件怎么写</text>
+  <text x="80" y="140" class="sub">同一项目，Codex 和 Claude Code 分开读规则，再用 diff 和测试验证。</text>
+  <rect x="987" y="78" width="184" height="42" rx="21" fill="#0f766e"/>
+  <text x="1013" y="105" class="chip">规则文件</text>
+
+  <g filter="url(#shadow)">
+    <rect x="88" y="218" width="178" height="122" rx="18" fill="#132235" stroke="#475569"/>
+    <text x="126" y="270" class="nodeTitle">同一项目</text>
+    <text x="116" y="304" class="nodeSub">目录树 + package</text>
+
+    <rect x="320" y="182" width="232" height="142" rx="18" fill="#153044" stroke="#38bdf8"/>
+    <text x="360" y="235" class="file">AGENTS.md</text>
+    <text x="362" y="270" class="nodeSub">Codex 项目规则</text>
+    <text x="362" y="298" class="nodeSub">读取行为需实测确认</text>
+
+    <rect x="320" y="354" width="232" height="142" rx="18" fill="#302742" stroke="#a78bfa"/>
+    <text x="360" y="407" class="file">CLAUDE.md</text>
+    <text x="362" y="442" class="nodeSub">Claude Code 记忆文件</text>
+    <text x="362" y="470" class="nodeSub">/init /memory 入口</text>
+
+    <rect x="618" y="218" width="180" height="122" rx="18" fill="#1f2937" stroke="#fbbf24"/>
+    <text x="663" y="270" class="nodeTitle">写短规则</text>
+    <text x="655" y="304" class="nodeSub">命令 / 风格 / 禁区</text>
+
+    <rect x="850" y="218" width="180" height="122" rx="18" fill="#20352f" stroke="#34d399"/>
+    <text x="895" y="270" class="nodeTitle">只读验证</text>
+    <text x="890" y="304" class="nodeSub">先复述再修改</text>
+
+    <rect x="1082" y="218" width="124" height="122" rx="18" fill="#273244" stroke="#60a5fa"/>
+    <text x="1111" y="270" class="nodeTitle">验收</text>
+    <text x="1104" y="304" class="nodeSub">diff + test</text>
+  </g>
+
+  <g fill="none" stroke="#99f6e4" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M270 278 C292 278 294 252 316 252"/>
+    <path d="M270 278 C292 278 294 424 316 424"/>
+    <path d="M556 252 C588 252 584 278 614 278"/>
+    <path d="M556 424 C590 424 584 310 614 310"/>
+    <path d="M802 278 H846"/>
+    <path d="M1034 278 H1078"/>
+  </g>
+
+  <rect x="88" y="548" width="1118" height="58" rx="18" fill="#101827" stroke="#334155"/>
+  <text x="120" y="584" class="sub">规则五块：项目概览 / 常用命令 / 代码风格 / 修改边界 / 验收方式</text>
+
+  <line x1="80" y1="632" x2="1200" y2="632" stroke="#334155"/>
+  <text x="84" y="665" class="footer">排查顺序：终端输出 / 配置文件 / Key/API 地址 / 权益状态 / 日志页 / 网络 / 权限 / 项目目录</text>
+</svg>
+

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V016 flow article style</title>
+  <style>
+    :root {
+      --paper: #fbf7ef;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #e6dccd;
+      --blue: #2f72ff;
+      --pink: #ff6a9d;
+      --green: #18a66a;
+      --amber: #f3b43f;
+      --terminal: #121926;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1280px;
+      height: 720px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 38px 48px 36px;
+      background:
+        linear-gradient(90deg, rgba(47,114,255,.05) 0 1px, transparent 1px 88px),
+        linear-gradient(0deg, rgba(24,166,106,.035) 0 1px, transparent 1px 88px),
+        var(--paper);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      height: 36px;
+      padding: 0 14px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 18px;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+    .tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: var(--green);
+      box-shadow: 17px 0 0 var(--blue), 34px 0 0 var(--pink);
+    }
+    h1 {
+      margin: 0;
+      font-size: 50px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      width: 360px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      border: 2px solid #cbdbff;
+      background: #eaf1ff;
+      color: #263a62;
+      font-size: 21px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+    .flow {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .node {
+      min-height: 160px;
+      position: relative;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 14px 24px rgba(36, 48, 71, .08);
+    }
+    .node::after {
+      content: "→";
+      position: absolute;
+      top: 58px;
+      right: -22px;
+      width: 24px;
+      height: 40px;
+      color: var(--ink);
+      font-size: 34px;
+      font-weight: 950;
+      z-index: 2;
+    }
+    .node:nth-child(3)::after { content: "↓"; right: 18px; top: 154px; }
+    .node:nth-child(4)::after,
+    .node:nth-child(5)::after {
+      content: "←";
+      left: -22px;
+      right: auto;
+    }
+    .node:nth-child(4)::after {
+      content: "";
+      display: none;
+    }
+    .node:nth-child(6)::after { content: ""; display: none; }
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      min-width: 74px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: #111827;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+    .node h2 {
+      margin: 0 0 8px;
+      font-size: 27px;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .node p {
+      margin: 0;
+      color: #4b5566;
+      font-size: 18px;
+      line-height: 1.26;
+      font-weight: 700;
+    }
+    .note-row {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    .note {
+      min-height: 74px;
+      padding: 13px 16px;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .note b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      height: 32px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .ok { background: var(--green); }
+    .warn { background: var(--pink); }
+    .info { background: var(--blue); }
+    .note span {
+      color: #3b4556;
+      font-size: 17px;
+      line-height: 1.22;
+      font-weight: 750;
+    }
+    .summary {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 36px;
+      height: 68px;
+      padding: 0 22px;
+      border-radius: 22px;
+      background: #111827;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 18px 34px rgba(17, 24, 39, .18);
+    }
+    .summary strong {
+      color: #a7f3d0;
+      font-size: 22px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .summary p {
+      margin: 0;
+      color: #dbe7ff;
+      font-size: 19px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="header">
+      <div>
+        <div class="tag">V016 浅色图文流程</div>
+        <h1>ECS 买完后：先初始化，再装工具</h1>
+      </div>
+      <div class="subtitle">保留本条关键流程：实例、安全组、SSH、用户权限、系统更新、Git / Node、快照与费用。</div>
+    </div>
+
+    <section class="flow">
+      <div class="node">
+        <div class="num">STEP 1</div>
+        <h2>ECS / 安全组</h2>
+        <p>确认实例运行、公网 IP、镜像、22 端口和可信来源。</p>
+      </div>
+      <div class="node">
+        <div class="num">STEP 2</div>
+        <h2>SSH</h2>
+        <p>确认用户名、密钥或密码、密钥文件权限；Workbench 只做备用判断。</p>
+      </div>
+      <div class="node">
+        <div class="num">STEP 3</div>
+        <h2>用户权限</h2>
+        <p>进入服务器后看 whoami 和 /etc/os-release，区分 root 与普通用户。</p>
+      </div>
+      <div class="node">
+        <div class="num">STEP 6</div>
+        <h2>快照 / 费用</h2>
+        <p>重要操作前考虑快照；测试机不用时看停止和释放提示。</p>
+      </div>
+      <div class="node">
+        <div class="num">STEP 5</div>
+        <h2>安装工具</h2>
+        <p>安装并验证 Git、Node、npm；输出版本才算基础可用。</p>
+      </div>
+      <div class="node">
+        <div class="num">STEP 4</div>
+        <h2>更新环境</h2>
+        <p>按镜像选择 apt、dnf 或 yum；具体命令需录屏前实测确认。</p>
+      </div>
+    </section>
+
+    <div class="note-row">
+      <div class="note"><b class="ok">正常</b><span>先查实例和安全组，再连 SSH。</span></div>
+      <div class="note"><b class="warn">提示</b><span>不要长期开放所有来源。</span></div>
+      <div class="note"><b class="info">验证</b><span>git、node、npm 都要看版本输出。</span></div>
+    </div>
+
+    <div class="summary">
+      <strong>结尾复盘</strong>
+      <p>ECS 控制台 / 安全组 / 公网 IP / SSH / root / 普通用户 / 系统更新 / Git / Node / 快照</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V036 多 Agent 任务拆分流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101522"/>
+      <stop offset="0.52" stop-color="#17263a"/>
+      <stop offset="1" stop-color="#1f2231"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L7,4.5 L1,8" fill="none" stroke="#9fb1cd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 42px; font-weight: 850; fill: #f8fbff; letter-spacing: 0; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 20px; fill: #bfd0e8; letter-spacing: 0; }
+      .nodeTitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 23px; font-weight: 780; fill: #ffffff; letter-spacing: 0; }
+      .nodeText { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #d7e0ee; letter-spacing: 0; }
+      .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: #b7efd5; }
+      .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; fill: #e8eef8; letter-spacing: 0; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #9fb0c9; letter-spacing: 0; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M70 600 C210 520 330 640 485 560 C650 475 720 430 890 486 C1040 536 1140 535 1230 480" fill="none" stroke="#2c4567" stroke-width="2" opacity="0.45"/>
+  <text x="82" y="66" class="title">多 Agent 任务拆分流程</text>
+  <text x="82" y="102" class="subtitle">能独立调查、能独立验证，才适合拆；最后必须回到主线 diff/test</text>
+
+  <g transform="translate(76 162)" filter="url(#shadow)">
+    <rect width="192" height="148" rx="8" fill="url(#card)" stroke="#4b6182"/>
+    <text x="22" y="42" class="nodeTitle">1 判断任务</text>
+    <text x="22" y="78" class="nodeText">能否独立调查</text>
+    <text x="22" y="104" class="nodeText">能否独立验证</text>
+    <text x="22" y="130" class="nodeText">能否最终汇总</text>
+  </g>
+
+  <g transform="translate(312 136)" filter="url(#shadow)">
+    <rect width="146" height="92" rx="8" fill="#17344a" stroke="#4aa4c7"/>
+    <text x="22" y="38" class="nodeTitle">读代码</text>
+    <text x="22" y="66" class="nodeText">结构 / 依赖</text>
+  </g>
+  <g transform="translate(500 136)" filter="url(#shadow)">
+    <rect width="146" height="92" rx="8" fill="#243052" stroke="#8a94ff"/>
+    <text x="22" y="38" class="nodeTitle">查问题</text>
+    <text x="22" y="66" class="nodeText">边界 / 异常</text>
+  </g>
+  <g transform="translate(688 136)" filter="url(#shadow)">
+    <rect width="146" height="92" rx="8" fill="#173d35" stroke="#52d18f"/>
+    <text x="22" y="38" class="nodeTitle">写测试</text>
+    <text x="22" y="66" class="nodeText">用例 / 断言</text>
+  </g>
+  <g transform="translate(876 136)" filter="url(#shadow)">
+    <rect width="146" height="92" rx="8" fill="#3b2d36" stroke="#ff9282"/>
+    <text x="22" y="38" class="nodeTitle">复核</text>
+    <text x="22" y="66" class="nodeText">风险 / 冲突</text>
+  </g>
+
+  <g transform="translate(352 282)" filter="url(#shadow)">
+    <rect width="284" height="118" rx="8" fill="url(#card)" stroke="#5e7294"/>
+    <text x="24" y="42" class="nodeTitle">2 配入口</text>
+    <text x="24" y="74" class="code">.claude/agents/  --agent</text>
+    <text x="24" y="98" class="code">Codex: 需录屏前实测确认</text>
+  </g>
+
+  <g transform="translate(684 282)" filter="url(#shadow)">
+    <rect width="254" height="118" rx="8" fill="url(#card)" stroke="#5e7294"/>
+    <text x="24" y="42" class="nodeTitle">3 并行执行</text>
+    <text x="24" y="74" class="nodeText">各自输出结论</text>
+    <text x="24" y="100" class="nodeText">不要同时乱改同一文件</text>
+  </g>
+
+  <g transform="translate(478 452)" filter="url(#shadow)">
+    <rect width="326" height="102" rx="8" fill="#0f1726" stroke="#607798"/>
+    <text x="28" y="39" class="nodeTitle">4 主线汇总 + 验证</text>
+    <text x="28" y="73" class="code">git diff  +  npm test</text>
+  </g>
+
+  <path d="M268 236 C292 200 300 186 306 182" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M458 182 H492" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M646 182 H680" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M834 182 H868" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M572 230 L524 276" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M636 340 H676" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M812 402 C790 442 742 454 708 454" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M534 402 C548 430 574 442 604 450" stroke="#9fb1cd" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <g transform="translate(82 592)">
+    <text x="0" y="-18" class="small">不适合拆：一行小改 / 需求不清 / 强耦合设计 / Key 与生产权限 / 无验证命令</text>
+    <rect x="0" y="0" width="92" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="20" y="23" class="tag">读代码</text>
+    <rect x="104" y="0" width="92" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="124" y="23" class="tag">查问题</text>
+    <rect x="208" y="0" width="92" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="228" y="23" class="tag">写测试</text>
+    <rect x="312" y="0" width="76" height="34" rx="17" fill="#263855" stroke="#465c7c"/><text x="333" y="23" class="tag">复核</text>
+    <rect x="400" y="0" width="148" height="34" rx="17" fill="#233b52" stroke="#4d7798"/><text x="419" y="23" class="tag">.claude/agents</text>
+    <rect x="560" y="0" width="98" height="34" rx="17" fill="#233b52" stroke="#4d7798"/><text x="581" y="23" class="tag">--agent</text>
+    <rect x="670" y="0" width="106" height="34" rx="17" fill="#233b52" stroke="#4d7798"/><text x="690" y="23" class="tag">--agents</text>
+    <rect x="788" y="0" width="126" height="34" rx="17" fill="#3c334f" stroke="#69609d"/><text x="808" y="23" class="tag">multi_agent</text>
+    <rect x="926" y="0" width="104" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="949" y="23" class="tag">git diff</text>
+    <rect x="1042" y="0" width="102" height="34" rx="17" fill="#24423b" stroke="#3c7464"/><text x="1063" y="23" class="tag">npm test</text>
+  </g>
+  <text x="82" y="678" class="small">Codex 与 Claude Code Agent 入口不同，不要混用命令。</text>
+</svg>
+

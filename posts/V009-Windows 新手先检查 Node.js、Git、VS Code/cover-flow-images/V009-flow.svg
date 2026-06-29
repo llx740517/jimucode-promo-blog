@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Windows 安装前环境检查流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.48" stop-color="#102235"/>
+      <stop offset="1" stop-color="#172635"/>
+    </linearGradient>
+    <linearGradient id="cardBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173c59"/>
+      <stop offset="1" stop-color="#0f2638"/>
+    </linearGradient>
+    <linearGradient id="cardGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123f32"/>
+      <stop offset="1" stop-color="#0f2a25"/>
+    </linearGradient>
+    <linearGradient id="cardSlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#263246"/>
+      <stop offset="1" stop-color="#172233"/>
+    </linearGradient>
+    <linearGradient id="cardPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e315f"/>
+      <stop offset="1" stop-color="#1c2441"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-25%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.34"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#b7c5d3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font: 900 50px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#f8fafc; letter-spacing:0; }
+      .sub { font: 700 23px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#c8d8e6; letter-spacing:0; }
+      .meta { font: 800 18px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#8fb0c8; letter-spacing:0; }
+      .node-title { font: 900 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#f8fafc; letter-spacing:0; }
+      .node-sub { font: 700 18px Menlo, Consolas, "Microsoft YaHei", monospace; fill:#dce9f5; letter-spacing:0; }
+      .num { font: 900 19px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#07111f; }
+      .card { filter:url(#shadow); stroke-width:1.4; }
+      .line { stroke:#b7c5d3; stroke-width:2.1; fill:none; marker-end:url(#arrow); stroke-linecap:round; }
+      .chip-text { font: 900 21px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill:#f8fafc; letter-spacing:0; }
+      .terminal { font: 700 20px Menlo, Consolas, monospace; fill:#b9f6d3; }
+      .ok { fill:#86efac; }
+      .warn { fill:#fcd34d; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="230" cy="70" r="290" fill="#38bdf8" opacity="0.18"/>
+  <circle cx="1080" cy="128" r="250" fill="#22c55e" opacity="0.11"/>
+  <g opacity="0.11" stroke="#dbeafe" stroke-width="1">
+    <path d="M72 160 H1208"/>
+    <path d="M72 320 H1208"/>
+    <path d="M72 480 H1208"/>
+    <path d="M140 92 V612"/>
+    <path d="M360 92 V612"/>
+    <path d="M580 92 V612"/>
+    <path d="M800 92 V612"/>
+    <path d="M1020 92 V612"/>
+  </g>
+
+  <text x="64" y="80" class="title">Windows 安装前先检查三件事</text>
+  <text x="66" y="118" class="sub">PowerShell → Node/npm → Git → VS Code → 测试目录 → 再安装 Codex / Claude Code</text>
+  <text x="1194" y="82" class="meta" text-anchor="end">V009 / 环境检查</text>
+
+  <path class="line" d="M218 284 L262 284"/>
+  <path class="line" d="M418 284 L462 284"/>
+  <path class="line" d="M618 284 L662 284"/>
+  <path class="line" d="M818 284 L862 284"/>
+  <path class="line" d="M1018 284 C1110 284 1120 424 1016 424 L868 424"/>
+
+  <g transform="translate(60 208)">
+    <rect class="card" width="158" height="152" rx="10" fill="url(#cardBlue)" stroke="#38bdf8"/>
+    <circle cx="38" cy="36" r="18" fill="#7dd3fc"/>
+    <text x="38" y="43" class="num" text-anchor="middle">1</text>
+    <text x="24" y="82" class="node-title">PowerShell</text>
+    <text x="24" y="118" class="node-sub">PS C:\...</text>
+  </g>
+
+  <g transform="translate(262 208)">
+    <rect class="card" width="156" height="152" rx="10" fill="url(#cardGreen)" stroke="#34d399"/>
+    <circle cx="38" cy="36" r="18" fill="#86efac"/>
+    <text x="38" y="43" class="num" text-anchor="middle">2</text>
+    <text x="24" y="82" class="node-title">Node/npm</text>
+    <text x="24" y="118" class="node-sub">node -v</text>
+  </g>
+
+  <g transform="translate(462 208)">
+    <rect class="card" width="156" height="152" rx="10" fill="url(#cardSlate)" stroke="#60a5fa"/>
+    <circle cx="38" cy="36" r="18" fill="#93c5fd"/>
+    <text x="38" y="43" class="num" text-anchor="middle">3</text>
+    <text x="24" y="82" class="node-title">Git</text>
+    <text x="24" y="118" class="node-sub">git --version</text>
+  </g>
+
+  <g transform="translate(662 208)">
+    <rect class="card" width="156" height="152" rx="10" fill="url(#cardPurple)" stroke="#a78bfa"/>
+    <circle cx="38" cy="36" r="18" fill="#c4b5fd"/>
+    <text x="38" y="43" class="num" text-anchor="middle">4</text>
+    <text x="24" y="82" class="node-title">VS Code</text>
+    <text x="24" y="118" class="node-sub">code .</text>
+  </g>
+
+  <g transform="translate(862 208)">
+    <rect class="card" width="156" height="152" rx="10" fill="#2d2b18" stroke="#facc15"/>
+    <circle cx="38" cy="36" r="18" fill="#fde047"/>
+    <text x="38" y="43" class="num" text-anchor="middle">5</text>
+    <text x="24" y="82" class="node-title">测试目录</text>
+    <text x="24" y="118" class="node-sub">clean folder</text>
+  </g>
+
+  <g transform="translate(666 366)">
+    <rect class="card" width="202" height="122" rx="10" fill="#3b1f2c" stroke="#fb7185"/>
+    <circle cx="38" cy="34" r="18" fill="#fda4af"/>
+    <text x="38" y="41" class="num" text-anchor="middle">6</text>
+    <text x="26" y="74" class="node-title">再安装工具</text>
+    <text x="26" y="104" class="node-sub">Codex / Claude</text>
+  </g>
+
+  <g transform="translate(1046 220)">
+    <rect width="176" height="210" rx="14" fill="#07111f" stroke="#3b4a5c"/>
+    <text x="22" y="44" class="terminal">PS&gt; node -v</text>
+    <text x="22" y="74" class="terminal ok">v24.x</text>
+    <text x="22" y="108" class="terminal">PS&gt; git --version</text>
+    <text x="22" y="138" class="terminal ok">git version</text>
+    <text x="22" y="172" class="terminal">PS&gt; code .</text>
+    <text x="22" y="202" class="terminal warn">opens folder</text>
+  </g>
+
+  <text x="64" y="528" class="sub">失败时先按这个顺序查，不要直接怀疑 Key</text>
+  <g transform="translate(64 560)">
+    <rect x="0" y="0" width="128" height="48" rx="10" fill="#173c59" stroke="#38bdf8"/>
+    <text x="64" y="31" class="chip-text" text-anchor="middle">终端输出</text>
+    <rect x="144" y="0" width="78" height="48" rx="10" fill="#123f32" stroke="#34d399"/>
+    <text x="183" y="31" class="chip-text" text-anchor="middle">PATH</text>
+    <rect x="238" y="0" width="128" height="48" rx="10" fill="#263246" stroke="#60a5fa"/>
+    <text x="302" y="31" class="chip-text" text-anchor="middle">Node/npm</text>
+    <rect x="382" y="0" width="108" height="48" rx="10" fill="#2e315f" stroke="#a78bfa"/>
+    <text x="436" y="31" class="chip-text" text-anchor="middle">Git Bash</text>
+    <rect x="506" y="0" width="104" height="48" rx="10" fill="#2d2b18" stroke="#facc15"/>
+    <text x="558" y="31" class="chip-text" text-anchor="middle">VS Code</text>
+    <rect x="626" y="0" width="82" height="48" rx="10" fill="#1d3442" stroke="#67e8f9"/>
+    <text x="667" y="31" class="chip-text" text-anchor="middle">权限</text>
+    <rect x="724" y="0" width="104" height="48" rx="10" fill="#3b1f2c" stroke="#fb7185"/>
+    <text x="776" y="31" class="chip-text" text-anchor="middle">中文路径</text>
+    <rect x="844" y="0" width="128" height="48" rx="10" fill="#26321d" stroke="#bef264"/>
+    <text x="908" y="31" class="chip-text" text-anchor="middle">项目目录</text>
+  </g>
+</svg>

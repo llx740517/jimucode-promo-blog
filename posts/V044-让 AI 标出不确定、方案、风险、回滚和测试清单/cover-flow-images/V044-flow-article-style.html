@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>V044 图文教程风格流程图</title>
+  <style>
+    :root {
+      --paper: #fff9ee;
+      --ink: #080b11;
+      --muted: #526070;
+      --line: #eadbc6;
+      --blue: #dfeeff;
+      --pink: #ffe3ea;
+      --green: #e0f7e9;
+      --yellow: #fff0cb;
+      --lav: #ebe9ff;
+      --dark: #0f1722;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 1280px;
+      height: 720px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .page {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 32px 58px 28px;
+      background:
+        linear-gradient(90deg, rgba(26, 33, 43, 0.035) 1px, transparent 1px) 0 0 / 54px 54px,
+        linear-gradient(0deg, rgba(26, 33, 43, 0.028) 1px, transparent 1px) 0 0 / 54px 54px,
+        var(--paper);
+    }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 16px;
+      border-radius: 17px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.8);
+      color: #24344a;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin-top: 6px;
+      color: #4d5a6e;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .vnum {
+      color: #667085;
+      font-size: 26px;
+      font-weight: 950;
+      padding-top: 8px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px 24px;
+      margin-top: 6px;
+      position: relative;
+    }
+
+    .node {
+      min-height: 100px;
+      border-radius: 22px;
+      border: 2px solid var(--line);
+      padding: 13px 18px 12px;
+      background: #fff;
+      box-shadow: 0 14px 26px rgba(34, 27, 14, 0.07);
+      position: relative;
+    }
+
+    .node.blue { background: var(--blue); }
+    .node.green { background: var(--green); }
+    .node.yellow { background: var(--yellow); }
+    .node.pink { background: var(--pink); }
+    .node.lav { background: var(--lav); }
+
+    .node .k {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 9px;
+      background: #05070d;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      margin-bottom: 7px;
+    }
+
+    .node h2 {
+      margin: 0 0 6px;
+      color: #111827;
+      font-size: 25px;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+
+    .node p {
+      margin: 0;
+      color: #4a586b;
+      font-size: 17px;
+      line-height: 1.25;
+      font-weight: 750;
+    }
+
+    .arrow::after {
+      content: "→";
+      position: absolute;
+      right: -29px;
+      top: 36px;
+      color: #667085;
+      font-size: 30px;
+      font-weight: 950;
+      z-index: 2;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    .compare-card {
+      min-height: 92px;
+      border-radius: 22px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.82);
+      padding: 14px 24px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      box-shadow: 0 13px 24px rgba(34, 27, 14, 0.06);
+    }
+
+    .compare-card.good { background: #e3f8eb; }
+    .compare-card.bad { background: #ffe4eb; }
+
+    .icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 23px;
+      font-weight: 950;
+      margin-top: 2px;
+    }
+
+    .icon.good { background: #55bb8b; }
+    .icon.bad { background: #db6682; }
+
+    .compare-card h3 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      font-weight: 950;
+    }
+
+    .compare-card p {
+      margin: 0;
+      color: #455468;
+      font-size: 17px;
+      line-height: 1.3;
+      font-weight: 760;
+    }
+
+    .summary {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      bottom: 24px;
+      height: 46px;
+      border-radius: 23px;
+      background: rgba(255,255,255,0.84);
+      border: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #202b3e;
+      font-size: 22px;
+      font-weight: 950;
+      box-shadow: 0 12px 22px rgba(34, 27, 14, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="V044 图文教程风格流程图">
+    <header class="top">
+      <div>
+        <div class="label">Codex / Claude Code 共用风险清单流程</div>
+        <h1>让 AI 先说清风险，再动手改代码</h1>
+        <div class="sub">关键流程来自 V044：读项目、标不确定、列方案、说风险、验证与回滚。</div>
+      </div>
+      <div class="vnum">V044</div>
+    </header>
+
+    <section class="flow">
+      <div class="node blue arrow"><span class="k">STEP 1</span><h2>读项目</h2><p>复现问题，看相关测试。</p></div>
+      <div class="node green arrow"><span class="k">STEP 2</span><h2>标不确定</h2><p>不要把假设当事实。</p></div>
+      <div class="node yellow arrow"><span class="k">STEP 3</span><h2>给方案</h2><p>2-3 个可选路径。</p></div>
+      <div class="node pink down"><span class="k">STEP 4</span><h2>说明风险</h2><p>影响范围、失败点。</p></div>
+      <div class="node lav arrow"><span class="k">STEP 5</span><h2>小步修改</h2><p>只改确认过的点。</p></div>
+      <div class="node blue arrow"><span class="k">CHECK</span><h2>看 diff</h2><p>文件、函数、测试是否可解释。</p></div>
+      <div class="node green arrow"><span class="k">VERIFY</span><h2>跑测试</h2><p>失败就按输出精确修。</p></div>
+      <div class="node pink"><span class="k">ROLLBACK</span><h2>回滚边界</h2><p>能撤回，能解释。</p></div>
+    </section>
+
+    <section class="compare">
+      <div class="compare-card good">
+        <span class="icon good">✓</span>
+        <div>
+          <h3>正常做法</h3>
+          <p>先让 AI 输出不确定项、方案、风险、回滚路径和测试清单，确认后再做最小修改。</p>
+        </div>
+      </div>
+      <div class="compare-card bad">
+        <span class="icon bad">×</span>
+        <div>
+          <h3>常见错法</h3>
+          <p>一开始就直接修改，改后才发现测试命令、边界条件和回滚范围没有确认。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="summary">总结：先说假设和风险 → 小步修改 → 看 diff → 跑测试 → 保留回滚路径</footer>
+  </main>
+</body>
+</html>

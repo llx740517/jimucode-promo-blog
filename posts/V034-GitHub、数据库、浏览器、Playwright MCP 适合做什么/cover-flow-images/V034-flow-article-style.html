@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V034 Flow Article Style</title>
+  <style>
+    :root {
+      --paper: #fbf7ec;
+      --ink: #111;
+      --muted: #675f57;
+      --line: #ded7c9;
+      --blue: #3478f6;
+      --pink: #e85d7a;
+      --green: #2da56f;
+      --dark: #111923;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e9e3d6;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 42px 54px 38px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px),
+        linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 38px 38px, 38px 38px, auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 33px;
+      padding: 0 13px;
+      border-radius: 7px;
+      background: #111;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 43px;
+      line-height: 1.04;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+    .side-note {
+      width: 250px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,.86);
+      font-size: 17px;
+      line-height: 1.25;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      position: relative;
+    }
+    .card {
+      min-height: 252px;
+      padding: 15px 14px 13px;
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 8px 16px rgba(37,32,20,.06);
+      position: relative;
+    }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 6px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      line-height: 1.05;
+      font-weight: 1000;
+    }
+    .card p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.24;
+      color: var(--muted);
+      font-weight: 750;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -13px;
+      width: 16px;
+      height: 16px;
+      border-top: 4px solid #111;
+      border-right: 4px solid #111;
+      transform: translateY(-50%) rotate(45deg);
+      background: transparent;
+      z-index: 2;
+    }
+    .card:last-child::after { display: none; }
+    .a h3 { color: var(--blue); }
+    .b h3 { color: var(--green); }
+    .c h3 { color: var(--pink); }
+    .d h3 { color: #8a5a00; }
+    .e h3 { color: var(--blue); }
+    .f h3 { color: #111; }
+    .bottom {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 12px;
+    }
+    .info {
+      border-radius: 8px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,.88);
+      padding: 13px 15px;
+      min-height: 92px;
+    }
+    .info h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.24;
+      font-weight: 760;
+    }
+    .ok h3 { color: var(--green); }
+    .bad h3 { color: var(--pink); }
+    .dark {
+      background: var(--dark);
+      color: #fff;
+      border-color: #1b2735;
+    }
+    .dark h3 { color: #fff; }
+    .dark p { color: #d8e0ea; }
+    .summary {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 13px;
+      border-radius: 8px;
+      background: #fff;
+      border: 2px solid var(--line);
+      font-size: 17px;
+      line-height: 1.12;
+      font-weight: 900;
+    }
+    .summary span:first-child {
+      background: var(--pink);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      flex: 0 0 auto;
+    }
+    .tag {
+      position: absolute;
+      right: 54px;
+      bottom: 4px;
+      color: #756f67;
+      font-size: 11px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="header">
+      <div>
+        <div class="badge">V034 / MCP 场景判断流程</div>
+        <h1>MCP 场景判断与调用验证</h1>
+      </div>
+      <div class="side-note">本条不先承诺第三方服务都能跑通，先分清 GitHub、数据库、浏览器、Playwright 的用途和风险。</div>
+    </div>
+
+    <section class="flow">
+      <div class="card a"><div class="step">STEP 1</div><h3>外部服务</h3><p>GitHub / DB / Browser / Playwright。先判断它解决什么问题。</p></div>
+      <div class="card b"><div class="step">STEP 2</div><h3>MCP Server</h3><p>HTTP 连接远程服务，stdio 启动本地进程。</p></div>
+      <div class="card c"><div class="step">STEP 3</div><h3>CLI / 配置</h3><p>Codex 与 Claude Code 分开写，参数不要混用。</p></div>
+      <div class="card d"><div class="step">STEP 4</div><h3>AI 工具读取</h3><p>工具看到能力列表，但列表存在不等于调用成功。</p></div>
+      <div class="card e"><div class="step">STEP 5</div><h3>调用验证</h3><p>`list`、`get`、`/mcp` 只验证配置和状态。</p></div>
+      <div class="card f"><div class="step">STEP 6</div><h3>失败点</h3><p>Token、权限、网络、包名、参数、项目目录。</p></div>
+    </section>
+
+    <section class="bottom">
+      <div class="info ok"><h3>正常</h3><p>公开仓库、测试库、本地页面；先跑最短验证路径。</p></div>
+      <div class="info bad"><h3>常见错法</h3><p>把 MCP 当万能开关，直接接生产系统或登录态后台。</p></div>
+      <div class="info dark"><h3>排查顺序</h3><p>终端输出 / 配置文件 / Key/API 地址 / 权益状态 / 日志页 / 网络 / 权限 / 项目目录</p></div>
+    </section>
+
+    <div class="summary"><span>总结</span><span>MCP 是连接层：工具服务 -> MCP Server -> 配置 -> AI 工具 -> 调用验证 -> 排查。</span></div>
+    <div class="tag">设计示意图，不含真实登录数据</div>
+  </main>
+</body>
+</html>

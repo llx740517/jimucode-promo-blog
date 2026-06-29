@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V058 Flow Article Style</title>
+  <style>
+    :root {
+      --paper: #fff8ec;
+      --ink: #101010;
+      --line: #151515;
+      --blue: #2f80ed;
+      --pink: #ff6fae;
+      --green: #18a058;
+      --soft-blue: #e8f3ff;
+      --soft-pink: #fff0f6;
+      --soft-green: #eafff2;
+      --dark: #151515;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e9dfd1;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+    }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      overflow: hidden;
+      padding: 38px 48px 34px;
+      background:
+        linear-gradient(90deg, rgba(16,16,16,.035) 1px, transparent 1px) 0 0 / 52px 52px,
+        linear-gradient(rgba(16,16,16,.035) 1px, transparent 1px) 0 0 / 52px 52px,
+        var(--paper);
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 40px;
+      padding: 0 18px;
+      border: 2px solid #111;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 19px;
+      font-weight: 950;
+    }
+    .dots {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 20px 0 0 var(--pink), 40px 0 0 var(--green);
+      margin-right: 38px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 46px;
+      line-height: 1.05;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+    h1 span { color: var(--blue); }
+    .route {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .node {
+      position: relative;
+      min-height: 210px;
+      border: 2px solid #111;
+      border-radius: 8px;
+      background: #fff;
+      padding: 15px 14px;
+      box-shadow: 5px 5px 0 #111;
+    }
+    .node:nth-child(1) { background: var(--soft-blue); }
+    .node:nth-child(2) { background: var(--soft-pink); }
+    .node:nth-child(3) { background: var(--soft-green); }
+    .node:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -24px;
+      top: 84px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 34px;
+      border: 2px solid #111;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 22px;
+      font-weight: 950;
+    }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 4px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 950;
+      margin-bottom: 11px;
+    }
+    .node h2 {
+      margin: 0 0 9px;
+      font-size: 23px;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+    .node p {
+      margin: 0 0 6px;
+      font-size: 16px;
+      line-height: 1.28;
+      font-weight: 760;
+    }
+    .lower {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .terminal {
+      min-height: 164px;
+      border: 2px solid #000;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #f6f7f8;
+      padding: 18px 20px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 19px;
+      line-height: 1.44;
+      font-weight: 800;
+      box-shadow: 5px 5px 0 #111;
+    }
+    .terminal .green { color: #7df0a3; }
+    .terminal .dim { color: #aeb6bf; }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .cmp, .why {
+      border: 2px solid #111;
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+      box-shadow: 5px 5px 0 #111;
+    }
+    .cmp.ok { background: var(--soft-green); }
+    .cmp.bad { background: var(--soft-pink); }
+    .cmp b {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 950;
+    }
+    .cmp p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 820;
+    }
+    .why h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-weight: 950;
+    }
+    .why p {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 780;
+    }
+    .summary {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 34px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 21px;
+      font-weight: 950;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="head">
+      <div class="tag"><span class="dots"></span><span>V058 · 流程图 v2</span></div>
+      <h1>AI 编程录屏 <span>场景筛选路径</span></h1>
+    </div>
+
+    <section class="route">
+      <div class="node">
+        <div class="step">STEP 1</div>
+        <h2>高频问题池</h2>
+        <p>首次运行、权限、改小问题。</p>
+        <p>Codex 和 Claude Code 分开列。</p>
+      </div>
+      <div class="node">
+        <div class="step">STEP 2</div>
+        <h2>场景打分</h2>
+        <p>高频、可视化、可验证。</p>
+        <p>可打码、可复用。</p>
+      </div>
+      <div class="node">
+        <div class="step">STEP 3</div>
+        <h2>工具分镜</h2>
+        <p>Codex：doctor、exec、review。</p>
+        <p>Claude Code：权限、MCP、Agents。</p>
+      </div>
+      <div class="node">
+        <div class="step">STEP 4</div>
+        <h2>证据录制</h2>
+        <p>命令、配置、记录、diff。</p>
+        <p>测试结果和页面状态。</p>
+      </div>
+      <div class="node">
+        <div class="step">STEP 5</div>
+        <h2>平台改写</h2>
+        <p>横屏讲完整。</p>
+        <p>竖屏抓关键。</p>
+        <p>图文放步骤。</p>
+      </div>
+    </section>
+
+    <section class="lower">
+      <div class="terminal">
+        <span class="green">$</span> codex doctor --summary<br>
+        <span class="green">$</span> codex exec --help<br>
+        <span class="green">$</span> claude --help<br>
+        <span class="green">$</span> claude agents --help<br>
+        <span class="dim"># 网站页面需录屏前实测确认</span>
+      </div>
+      <div class="compare">
+        <div class="cmp ok"><b>正常</b><p>每个场景都有可见证据和安全边界。</p></div>
+        <div class="cmp bad"><b>常见错法</b><p>标题很大，但画面只有口头描述。</p></div>
+      </div>
+      <div class="why">
+        <h2>为什么这样做</h2>
+        <p>1. 先保证观众看得懂。</p>
+        <p>2. 再决定封面和平台拆条。</p>
+        <p>3. 录屏前先确认打码范围。</p>
+      </div>
+    </section>
+
+    <div class="summary">问题池 → 场景打分 → 工具分镜 → 证据录制 → 平台改写；未知入口以录屏前实测为准。</div>
+  </main>
+</body>
+</html>

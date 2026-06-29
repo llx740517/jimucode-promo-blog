@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V049 Codex 后端实战流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="0.52" stop-color="#182538"/>
+      <stop offset="1" stop-color="#24343D"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.26"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#B7C4D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g opacity="0.22" stroke="#4FD1C5" stroke-width="1.2" fill="none">
+    <path d="M90 130 H1190"/>
+    <path d="M90 590 H1190"/>
+    <path d="M180 70 V650"/>
+    <path d="M1090 70 V650"/>
+  </g>
+  <text x="72" y="84" fill="#F8FAFC" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif" font-size="38" font-weight="850">Codex 后端实战：500 不是直接乱修</text>
+  <text x="72" y="124" fill="#C9D4DF" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif" font-size="20">读接口 -> 定位日志 -> 最小修改 -> diff -> 测试</text>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif" filter="url(#shadow)">
+    <g transform="translate(72 178)">
+      <rect width="220" height="106" rx="14" fill="#F8FAFC"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">读项目</text>
+      <text x="22" y="76" fill="#475569" font-size="17">routes / service / tests</text>
+    </g>
+    <g transform="translate(376 178)">
+      <rect width="220" height="106" rx="14" fill="#FFE4E6"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">复现 500</text>
+      <text x="22" y="76" fill="#475569" font-size="17">curl + 服务端日志</text>
+    </g>
+    <g transform="translate(680 178)">
+      <rect width="220" height="106" rx="14" fill="#E0F2FE"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">提任务</text>
+      <text x="22" y="76" fill="#475569" font-size="17">让 Codex 先定位</text>
+    </g>
+    <g transform="translate(984 178)">
+      <rect width="220" height="106" rx="14" fill="#FFF7E5"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">最小修改</text>
+      <text x="22" y="76" fill="#475569" font-size="17">错误处理 + 测试</text>
+    </g>
+    <g transform="translate(224 408)">
+      <rect width="220" height="106" rx="14" fill="#F8FAFC"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">看 diff</text>
+      <text x="22" y="76" fill="#475569" font-size="17">确认没有乱改</text>
+    </g>
+    <g transform="translate(528 408)">
+      <rect width="220" height="106" rx="14" fill="#DCFCE7"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">跑测试</text>
+      <text x="22" y="76" fill="#475569" font-size="17">pytest / 回归用例</text>
+    </g>
+    <g transform="translate(832 408)">
+      <rect width="220" height="106" rx="14" fill="#EEF2FF"/>
+      <text x="22" y="43" fill="#0F172A" font-size="25" font-weight="850">再请求</text>
+      <text x="22" y="76" fill="#475569" font-size="17">500 -> 404 / 400</text>
+    </g>
+  </g>
+
+  <g stroke="#B7C4D0" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.92">
+    <line x1="302" y1="231" x2="362" y2="231"/>
+    <line x1="606" y1="231" x2="666" y2="231"/>
+    <line x1="910" y1="231" x2="970" y2="231"/>
+    <path d="M1094 300 V344 C1094 374 1064 380 1028 380 H346 C310 380 334 394 334 398"/>
+    <line x1="454" y1="461" x2="514" y2="461"/>
+    <line x1="758" y1="461" x2="818" y2="461"/>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+    <rect x="72" y="584" width="1136" height="66" rx="18" fill="rgba(15,23,42,0.62)" stroke="rgba(148,163,184,0.22)"/>
+    <text x="96" y="626" fill="#CBD5E1" font-size="18" font-weight="750">排查顺序：</text>
+    <text x="198" y="626" fill="#FEE2E2" font-size="18" font-weight="750">终端输出</text>
+    <text x="292" y="626" fill="#CBD5E1" font-size="18">/ 路由文件 / service / 测试文件 / Key/API 地址 / 网络 / 权限 / 项目目录</text>
+  </g>
+  <text x="72" y="686" fill="#8EA0AE" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif" font-size="15">V049 |  录屏后替换真实接口日志与测试画面</text>
+</svg>
+

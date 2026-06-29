@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V055 图文教程风格流程图</title>
+  <style>
+    :root {
+      --ink: #080808;
+      --paper: #fff9ee;
+      --line: #ebdeca;
+      --blue: #5b85dc;
+      --pink: #dd6b85;
+      --green: #5ca67d;
+      --soft-blue: #eaf2ff;
+      --soft-pink: #fff0f4;
+      --soft-green: #effaf3;
+      --soft-yellow: #fff6d7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #e7dfcf;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+    }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      padding: 34px 42px 30px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px) 0 0 / 34px 34px,
+        linear-gradient(0deg, rgba(0,0,0,.025) 1px, transparent 1px) 0 0 / 34px 34px,
+        var(--paper);
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .tag {
+      padding: 10px 16px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .badge {
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 1000;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 48px;
+      line-height: 1.06;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+    .blue { color: var(--blue); }
+    .pink { color: var(--pink); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+    .step-card {
+      position: relative;
+      min-height: 188px;
+      padding: 12px 12px 10px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 22px rgba(82,58,22,.07);
+    }
+    .step-card:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -15px;
+      top: 76px;
+      z-index: 2;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-weight: 1000;
+    }
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 66px;
+      height: 29px;
+      padding: 0 9px;
+      margin-bottom: 9px;
+      border-radius: 8px;
+      background: #070707;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 1000;
+    }
+    .step-card h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.12;
+      font-weight: 1000;
+    }
+    .step-card p {
+      margin: 0;
+      color: #30312e;
+      font-size: 15px;
+      line-height: 1.22;
+      font-weight: 760;
+    }
+    .s1 { background: var(--soft-blue); border-color: #cdddf7; }
+    .s3 { background: var(--soft-yellow); border-color: #eadcaa; }
+    .s4 { background: var(--soft-pink); border-color: #f0cad3; }
+    .s6 { background: var(--soft-green); border-color: #cbe8d6; }
+    .lower {
+      display: grid;
+      grid-template-columns: 1.16fr .84fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .card {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 22px rgba(82,58,22,.07);
+    }
+    .compare {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .compare-box {
+      padding: 14px;
+      border-radius: 8px;
+      border: 2px solid #e3dacd;
+      font-size: 19px;
+      line-height: 1.24;
+      font-weight: 820;
+    }
+    .good { background: var(--soft-green); border-color: #cbe8d6; }
+    .bad { background: var(--soft-pink); border-color: #f0cad3; }
+    .compare-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      font-size: 23px;
+      font-weight: 1000;
+    }
+    .mark {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 1000;
+    }
+    .bad .mark { background: var(--pink); }
+    .tags {
+      padding: 18px;
+      background: #fff;
+    }
+    .tags h3 { margin: 0 0 12px; font-size: 25px; font-weight: 1000; }
+    .tag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .tag-item {
+      min-height: 48px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f8f4ea;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+    .summary {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 30px;
+      height: 48px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      font-size: 21px;
+      line-height: 1.15;
+      font-weight: 1000;
+    }
+    .summary-label {
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    .bottom-note { color: #6c665d; font-size: 17px; font-weight: 820; }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V055 图文教程风格流程图">
+    <div class="top">
+      <div class="tag">V055 / Agent 没按预期工作怎么排查</div>
+      <div class="badge">图文教程流程图</div>
+    </div>
+
+    <h1>Agent 跑偏别先换 Key：按 <span class="blue">8 步</span> 看任务、定义、<span class="pink">权限日志</span></h1>
+
+    <section class="flow">
+      <article class="step-card s1"><div class="num">STEP 1</div><h2>复现现象</h2><p>没读项目、没用工具、改错目录或卡住。</p></article>
+      <article class="step-card"><div class="num">STEP 2</div><h2>看终端输出</h2><p>终端、Agent 面板、后台会话、JSON 输出。</p></article>
+      <article class="step-card s3"><div class="num">STEP 3</div><h2>看配置文件</h2><p>Agent 定义、AGENTS.md 与入口需确认。</p></article>
+      <article class="step-card s4"><div class="num">STEP 4</div><h2>看 Key/API</h2><p>只在启动请求或认证失败时进入。</p></article>
+      <article class="step-card"><div class="num">STEP 5</div><h2>看权益状态</h2><p>账号、额度、模型可用性，避免误判。</p></article>
+      <article class="step-card s6"><div class="num">STEP 6</div><h2>看日志页</h2><p>/logs、transcript、agents JSON，需打码。</p></article>
+      <article class="step-card"><div class="num">STEP 7</div><h2>查目录权限</h2><p>cwd、-C、add-dir、tools、sandbox、approval。</p></article>
+      <article class="step-card"><div class="num">STEP 8</div><h2>收窄重跑</h2><p>让 Agent 列出读过文件和结论边界。</p></article>
+    </section>
+
+    <section class="lower">
+      <div class="card compare">
+        <div class="compare-box good">
+          <h3 class="compare-head"><span class="mark">✓</span>正常</h3>
+          <div>先明确现象和任务边界，再看 Agent 定义、目录、权限。</div>
+        </div>
+        <div class="compare-box bad">
+          <h3 class="compare-head"><span class="mark">!</span>常见错法</h3>
+          <div>任务模糊、目录不明，就直接重装、换 Key 或改全局配置。</div>
+        </div>
+      </div>
+      <div class="card tags">
+        <h3>底部标签</h3>
+        <div class="tag-grid">
+          <div class="tag-item">终端输出 / 配置</div>
+          <div class="tag-item">Key/API / 权益</div>
+          <div class="tag-item">日志页 / 网络</div>
+          <div class="tag-item">权限 / 项目目录</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="summary"><span class="summary-label">总结</span><span>Agent 排查先看任务、定义、目录和权限；请求层真的失败时，再查 Key、权益、日志页和网络。</span><span class="bottom-note">设计示意图 / 不含真实登录数据</span></div>
+  </main>
+</body>
+</html>

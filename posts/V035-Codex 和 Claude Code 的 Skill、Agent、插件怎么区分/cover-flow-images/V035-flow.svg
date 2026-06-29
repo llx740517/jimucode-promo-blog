@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="46%" stop-color="#10223b"/>
+      <stop offset="100%" stop-color="#11251d"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 7 4 L 0 6.8" fill="none" stroke="#93a4bd" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:46px;font-weight:800;fill:#f8fafc;letter-spacing:0}
+      .sub{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:20px;font-weight:500;fill:#b7c7dd}
+      .nodeTitle{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:28px;font-weight:800;fill:#f8fafc}
+      .nodeText{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:17px;font-weight:500;fill:#cbd5e1}
+      .tiny{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:14px;font-weight:600;fill:#dbeafe}
+      .tag{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:16px;font-weight:700;fill:#e5edf8}
+      .mono{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:15px;font-weight:700;fill:#e2e8f0}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M70 108 C230 44 388 70 516 124 C681 193 816 180 963 113 C1070 64 1164 70 1226 105" fill="none" stroke="#1e9b75" stroke-opacity=".18" stroke-width="2"/>
+  <text x="64" y="70" class="title">Skill、Agent、插件怎么区分</text>
+  <text x="66" y="105" class="sub">用入口、文件位置、权限和安装状态拆开讲，不把三个概念混着用</text>
+
+  <rect x="520" y="64" width="194" height="46" rx="23" fill="#17324a" stroke="#365a78"/>
+  <text x="552" y="93" class="tag">V035 / 双工具</text>
+  <rect x="734" y="64" width="254" height="46" rx="23" fill="#173429" stroke="#2f6f55"/>
+  <text x="766" y="93" class="tag">Codex + Claude Code</text>
+
+  <rect x="72" y="155" width="250" height="86" rx="18" fill="#142238" stroke="#3a506e" filter="url(#shadow)"/>
+  <text x="103" y="190" class="nodeTitle">需求出现</text>
+  <text x="103" y="222" class="nodeText">先问：要复用、分工，还是分发？</text>
+
+  <line x1="322" y1="198" x2="390" y2="198" stroke="#93a4bd" stroke-width="1.7" marker-end="url(#arrow)"/>
+
+  <rect x="402" y="138" width="236" height="188" rx="22" fill="#0f2f34" stroke="#26d49a" stroke-opacity=".72" filter="url(#shadow)"/>
+  <text x="434" y="180" class="nodeTitle">Skill</text>
+  <text x="434" y="214" class="nodeText">复用做法 / 规则 / 流程</text>
+  <text x="434" y="248" class="mono">skills / SKILL.md</text>
+  <text x="434" y="282" class="nodeText">适合：审查清单、接口规范</text>
+
+  <rect x="522" y="362" width="236" height="188" rx="22" fill="#132944" stroke="#66a3ff" stroke-opacity=".75" filter="url(#shadow)"/>
+  <text x="554" y="404" class="nodeTitle">Agent</text>
+  <text x="554" y="438" class="nodeText">角色分工 / 后台任务</text>
+  <text x="554" y="472" class="mono">.claude/agents/</text>
+  <text x="554" y="506" class="nodeText">适合：reviewer、debugger</text>
+
+  <rect x="828" y="138" width="300" height="188" rx="22" fill="#30213b" stroke="#c084fc" stroke-opacity=".75" filter="url(#shadow)"/>
+  <text x="860" y="180" class="nodeTitle">插件</text>
+  <text x="860" y="214" class="nodeText">安装 / 启用 / 更新 / 分发</text>
+  <text x="860" y="248" class="mono">plugin list / install</text>
+  <text x="860" y="282" class="nodeText">打包：skills、agents、命令、MCP</text>
+
+  <line x1="638" y1="232" x2="828" y2="232" stroke="#93a4bd" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="640" y1="326" x2="640" y2="362" stroke="#93a4bd" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="758" y1="456" x2="925" y2="326" stroke="#93a4bd" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="72" y="390" width="330" height="128" rx="18" fill="#0b1324" stroke="#31465f"/>
+  <text x="102" y="430" class="nodeTitle">录屏验证</text>
+  <text x="104" y="464" class="mono">codex plugin --help</text>
+  <text x="104" y="494" class="mono">claude agents --help</text>
+
+  <line x1="322" y1="430" x2="522" y2="430" stroke="#93a4bd" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="840" y="398" width="314" height="118" rx="18" fill="#0b1324" stroke="#31465f"/>
+  <text x="870" y="438" class="nodeTitle">不要混讲</text>
+  <text x="872" y="472" class="nodeText">Skill 不是自动化角色</text>
+  <text x="872" y="500" class="nodeText">插件不是 MCP 本身</text>
+
+  <rect x="72" y="590" width="1136" height="68" rx="20" fill="#0b1220" stroke="#24364f"/>
+  <text x="104" y="632" class="tag">排查顺序</text>
+  <g>
+    <rect x="208" y="606" width="112" height="36" rx="18" fill="#142238" stroke="#39506d"/>
+    <text x="229" y="629" class="tiny">命令版本</text>
+    <rect x="338" y="606" width="112" height="36" rx="18" fill="#142238" stroke="#39506d"/>
+    <text x="359" y="629" class="tiny">文件位置</text>
+    <rect x="468" y="606" width="112" height="36" rx="18" fill="#142238" stroke="#39506d"/>
+    <text x="489" y="629" class="tiny">权限范围</text>
+    <rect x="598" y="606" width="112" height="36" rx="18" fill="#142238" stroke="#39506d"/>
+    <text x="619" y="629" class="tiny">插件状态</text>
+    <rect x="728" y="606" width="132" height="36" rx="18" fill="#142238" stroke="#39506d"/>
+    <text x="747" y="629" class="tiny">日志 / debug</text>
+    <rect x="878" y="606" width="160" height="36" rx="18" fill="#2f1b1f" stroke="#8a3b45"/>
+    <text x="899" y="629" class="tiny">安全边界</text>
+  </g>
+</svg>
+

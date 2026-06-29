@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V010 图文教程风格流程图</title>
+  <style>
+    :root {
+      --bg: #fbf6ec;
+      --paper: #fffdfa;
+      --ink: #111111;
+      --muted: #716b62;
+      --line: #e1d5c4;
+      --pink: #e75a8c;
+      --green: #35a96f;
+      --yellow: #ffd34d;
+      --dark: #101923;
+      --soft-green: #edf8f1;
+      --soft-pink: #fff0f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Arial Black", "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+    .page {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 34px 44px 28px;
+      background:
+        radial-gradient(circle at 90% 85%, rgba(75,155,230,.10), transparent 250px),
+        linear-gradient(180deg, #fffdf9 0%, #fbf5e9 100%);
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 2px solid var(--line);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 50px;
+      padding: 0 24px 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 14px 28px rgba(64, 46, 28, .08);
+      font-size: 22px;
+      font-weight: 1000;
+    }
+    .spark {
+      width: 17px;
+      height: 17px;
+      border-radius: 5px;
+      background: var(--yellow);
+      transform: rotate(45deg);
+    }
+    .site {
+      padding: 16px 22px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 1000;
+    }
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 26px 0 18px;
+      font-size: 54px;
+      line-height: .95;
+      letter-spacing: 0;
+      font-weight: 1000;
+    }
+    .steps {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .step-card {
+      position: relative;
+      min-height: 226px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,253,250,.92);
+      padding: 16px 14px;
+      box-shadow: 0 10px 20px rgba(64,46,28,.05);
+    }
+    .step-card:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -20px;
+      top: 90px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 1000;
+      z-index: 2;
+    }
+    .step {
+      display: inline-flex;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 1000;
+      margin-bottom: 12px;
+    }
+    .step-card h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .step-card p {
+      margin: 0;
+      font-family: "Microsoft YaHei", sans-serif;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.22;
+      font-weight: 900;
+      min-height: 52px;
+    }
+    .cmd {
+      margin-top: 13px;
+      min-height: 44px;
+      border-radius: 8px;
+      background: var(--dark);
+      color: #dfe8f2;
+      font-family: Consolas, "Courier New", monospace;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .compare {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .85fr;
+      gap: 22px;
+      margin-top: 20px;
+    }
+    .box {
+      min-height: 116px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      font-family: "Microsoft YaHei", sans-serif;
+      font-weight: 900;
+      box-shadow: 0 10px 20px rgba(64,46,28,.05);
+    }
+    .box h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .summary {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      height: 70px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 20px;
+      font-size: 24px;
+      line-height: 1.1;
+      font-weight: 1000;
+    }
+    .summary b {
+      background: var(--pink);
+      border-radius: 10px;
+      padding: 13px 18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <div class="tag"><span class="spark"></span>V010 Windows 命令找不到排查</div>
+      <div class="site">code.jimuxyz.com</div>
+    </div>
+    <h1>Windows 报错先分层：命令、PATH、策略、路径、日志</h1>
+    <section class="steps">
+      <div class="step-card">
+        <div class="step">STEP 1</div>
+        <h2>终端输出</h2>
+        <p>先看错误原文，分清命令找不到、脚本被拦或认证失败。</p>
+        <div class="cmd">codex --version</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 2</div>
+        <h2>命令位置</h2>
+        <p>用 where.exe 看命令是否被当前 PATH 找到。</p>
+        <div class="cmd">where.exe codex</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 3</div>
+        <h2>PATH</h2>
+        <p>先看当前会话，安装后通常要重开 PowerShell。</p>
+        <div class="cmd">$env:Path</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 4</div>
+        <h2>执行策略</h2>
+        <p>.ps1 被拦时查策略，不当作普通命令错误。</p>
+        <div class="cmd">Get-ExecutionPolicy</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 5</div>
+        <h2>英文目录</h2>
+        <p>换干净英文路径，排除中文、空格、乱码干扰。</p>
+        <div class="cmd">jimu-v010-demo</div>
+      </div>
+      <div class="step-card">
+        <div class="step">STEP 6</div>
+        <h2>分线查看</h2>
+        <p>Codex 与 Claude Code 的命令、Key、日志不要混用。</p>
+        <div class="cmd">/docs/cli</div>
+      </div>
+    </section>
+    <section class="compare">
+      <div class="box" style="background: var(--soft-green)">
+        <h3 style="color: var(--green)">通过标准</h3>
+        <p>命令可定位，PATH 可解释，脚本策略清楚，干净目录可复现；工具能启动后再查 Key、权益和日志页。</p>
+      </div>
+      <div class="box" style="background: var(--soft-pink)">
+        <h3 style="color: var(--pink)">常见错法</h3>
+        <p>PowerShell / CMD 混用、没重开终端、中文路径里排查、Codex 和 Claude Code 产品线混用。</p>
+      </div>
+    </section>
+    <div class="summary"><b>总结</b><span>终端输出 → where.exe → PATH → 执行策略 → 英文目录 → 文档 / Key / 日志。</span></div>
+  </main>
+</body>
+</html>

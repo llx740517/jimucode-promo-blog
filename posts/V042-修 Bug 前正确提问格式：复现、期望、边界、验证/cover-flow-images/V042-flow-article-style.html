@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V042 article style flow</title>
+  <style>
+    :root {
+      --ink: #111216;
+      --paper: #fffaf0;
+      --line: #ebdec8;
+      --blue: #4f7fc8;
+      --pink: #e26982;
+      --green: #4fae82;
+      --dark: #141a22;
+      --shadow: 0 14px 32px rgba(31, 28, 22, 0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1280px; min-height: 720px; background: var(--paper); }
+    body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: var(--ink); letter-spacing: 0; }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 24px 38px 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,250,240,0.96)),
+        radial-gradient(circle at 92% 12%, rgba(226,105,130,0.16), transparent 24%),
+        radial-gradient(circle at 8% 86%, rgba(79,174,130,0.12), transparent 24%);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 17px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(40,36,26,0.08);
+      color: #3e4650;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--pink); box-shadow: 17px 0 0 var(--blue), 34px 0 0 var(--green); margin-right: 38px; }
+    h1 { margin: 8px 0 0; font-size: 43px; line-height: 1.04; font-weight: 950; letter-spacing: 0; }
+    .subtitle { margin-top: 6px; font-size: 22px; line-height: 1.2; font-weight: 850; color: #3d444b; }
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    .step {
+      min-height: 206px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 14px 14px 13px;
+      position: relative;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 10px;
+      background: #050608;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 950;
+    }
+    .step h2 { margin: 10px 0 7px; font-size: 22px; line-height: 1.08; font-weight: 950; }
+    .step p { margin: 0; font-size: 17px; line-height: 1.2; font-weight: 760; color: #3b4249; }
+    .file {
+      margin-top: 10px;
+      border-radius: 14px;
+      background: #f5f8fd;
+      border: 1px solid #dde8f4;
+      padding: 8px 9px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 800;
+      color: #385576;
+    }
+    .arrow {
+      position: absolute;
+      top: 90px;
+      right: -21px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 950;
+      z-index: 2;
+      box-shadow: 0 8px 18px rgba(79,127,200,0.22);
+    }
+    .step:last-child .arrow { display: none; }
+    .bottom {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.22fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .panel {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.88);
+      box-shadow: var(--shadow);
+      padding: 14px 18px;
+    }
+    .panel h3 { margin: 0 0 10px; font-size: 24px; line-height: 1.1; font-weight: 950; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mini { border-radius: 16px; padding: 10px 12px; border: 1px solid #dcebdd; background: #eaf8ef; }
+    .mini.bad { border-color: #efd2d8; background: #ffecef; }
+    .mini b { display: block; font-size: 18px; margin-bottom: 4px; color: #2f7b5c; }
+    .mini.bad b { color: #b64960; }
+    .mini span { display: block; font-size: 16px; line-height: 1.18; font-weight: 760; color: #3c4248; }
+    .terminal { border-radius: 16px; background: var(--dark); color: #edf4f8; overflow: hidden; border: 1px solid rgba(255,255,255,0.13); font-family: "SFMono-Regular", Consolas, monospace; }
+    .bar { height: 34px; display: flex; align-items: center; padding: 0 13px; background: #111820; color: #b8c2cc; font-size: 15px; font-weight: 800; }
+    .lamp { width: 8px; height: 8px; border-radius: 50%; background: #ef6b73; box-shadow: 14px 0 0 #f2bf5b, 28px 0 0 #61bf82; margin-right: 34px; }
+    .code { padding: 10px 12px 11px; font-size: 15px; line-height: 1.28; }
+    .blue { color: #8fc5ff; }
+    .green { color: #8ee6b5; }
+    .muted { color: #96a5b1; }
+    .summary { display: flex; align-items: center; gap: 12px; font-size: 22px; line-height: 1.22; font-weight: 950; background: #fff7dd; }
+    .sumtag { min-width: 84px; height: 42px; border-radius: 12px; background: var(--pink); color: white; display: flex; align-items: center; justify-content: center; }
+    .summary span { color: var(--blue); }
+  </style>
+</head>
+<body>
+  <main class="canvas" role="img" aria-label="V042 图文教程风格流程图">
+    <div class="pill"><i></i>V042 · 修 Bug 前正确提问格式</div>
+    <h1>先整理问题卡，再让 AI 进入修改</h1>
+    <div class="subtitle">保留原关键流程：错误对比、演示项目、复现、问题卡、Codex、Claude Code、diff 和验证</div>
+
+    <section class="grid">
+      <article class="step"><span class="badge">STEP 1</span><h2>错误对比</h2><p>先展示一句话提问为什么信息不够。</p><div class="file">“报错了”<br>信息不足</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 2</span><h2>演示项目</h2><p>打开同一个脱敏小项目，避免项目差异。</p><div class="file">bug-prompt-demo<br>需打码路径</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 3</span><h2>复现错误</h2><p>先跑测试，圈出失败点和当前结果。</p><div class="file">npm test / pytest<br>需实测确认</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 4</span><h2>问题卡</h2><p>写清复现、期望、边界和验证。</p><div class="file">BUG-CARD.md<br>四块结构</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 5</span><h2>Codex</h2><p>要求先读代码、解释原因、列计划。</p><div class="file">交互 / exec<br>需实测确认</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 6</span><h2>Claude Code</h2><p>同项目、同问题卡、看权限和计划。</p><div class="file">claude / -p<br>需实测确认</div><div class="arrow">›</div></article>
+      <article class="step"><span class="badge">STEP 7</span><h2>diff 验证</h2><p>看改动是否收敛，再运行验证命令。</p><div class="file">git diff<br>test result</div></article>
+    </section>
+
+    <section class="bottom">
+      <article class="panel">
+        <h3>正常 vs 常见错法</h3>
+        <div class="compare">
+          <div class="mini"><b>正常</b><span>先给复现、期望、边界、验证。</span></div>
+          <div class="mini bad"><b>常见错法</b><span>只贴错误，不说明正确结果。</span></div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>问题卡片段</h3>
+        <div class="terminal">
+          <div class="bar"><span class="lamp"></span>BUG-CARD.md</div>
+          <div class="code"><span class="blue">复现</span>：all 场景失败<br><span class="green">期望</span>：返回全部任务<br><span class="muted">边界 / 验证</span>：只改相关逻辑，看 diff 后测试</div>
+        </div>
+      </article>
+      <article class="panel summary">
+        <div class="sumtag">总结</div>
+        <div>复现 <span>→</span> 期望 <span>→</span> 边界 <span>→</span> 验证 <span>→</span> 计划 <span>→</span> diff</div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

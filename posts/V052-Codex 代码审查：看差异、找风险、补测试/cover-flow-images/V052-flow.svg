@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="V052 Codex 代码审查流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="48%" stop-color="#172033"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 9 5 L 0 10" fill="none" stroke="#93a4b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 38px; font-weight: 800; fill: #f8fafc; }
+      .sub { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; fill: #b7c3d3; }
+      .node-title { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 22px; font-weight: 760; fill: #f8fafc; }
+      .node-text { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 14px; fill: #d6deea; }
+      .tag { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 15px; font-weight: 650; fill: #dbeafe; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 13px; fill: #91a0b4; }
+      .box { rx: 16; fill: #172033; stroke: #334155; stroke-width: 1.2; filter: url(#softShadow); }
+      .boxA { fill: #12313b; stroke: #2dd4bf; }
+      .boxB { fill: #2a2442; stroke: #a78bfa; }
+      .boxC { fill: #3a2028; stroke: #fb7185; }
+      .boxD { fill: #1e293b; stroke: #38bdf8; }
+      .boxE { fill: #242b35; stroke: #facc15; }
+      .boxF { fill: #162a2a; stroke: #34d399; }
+      .line { stroke: #93a4b8; stroke-width: 1.8; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+      .pill { fill: rgba(30, 41, 59, 0.82); stroke: #3b4b63; stroke-width: 1; rx: 15; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <path d="M80 132 H1180" stroke="#64748b" stroke-width="1"/>
+    <path d="M80 598 H1180" stroke="#64748b" stroke-width="1"/>
+    <path d="M180 90 V620" stroke="#64748b" stroke-width="1"/>
+    <path d="M1100 90 V620" stroke="#64748b" stroke-width="1"/>
+  </g>
+  <text x="80" y="78" class="title">Codex 代码审查流程</text>
+  <text x="80" y="110" class="sub">先看差异，再找风险，最后用测试和 PR 清单收口</text>
+  <text x="1070" y="76" class="small">V052 / MR-20</text>
+
+  <g transform="translate(70 180)">
+    <rect class="box boxA" width="170" height="138"/>
+    <text x="22" y="40" class="node-title">读差异</text>
+    <text x="22" y="72" class="node-text">git status</text>
+    <text x="22" y="95" class="node-text">git diff --stat</text>
+    <text x="22" y="118" class="node-text">git diff</text>
+  </g>
+  <path class="line" d="M248 249 H320"/>
+
+  <g transform="translate(330 180)">
+    <rect class="box boxB" width="190" height="138"/>
+    <text x="22" y="40" class="node-title">跑 review</text>
+    <text x="22" y="72" class="node-text">review --uncommitted</text>
+    <text x="22" y="98" class="node-text">review --base main</text>
+    <text x="22" y="124" class="node-text">基线需确认</text>
+  </g>
+  <path class="line" d="M530 249 H602"/>
+
+  <g transform="translate(612 180)">
+    <rect class="box boxC" width="170" height="138"/>
+    <text x="22" y="40" class="node-title">标风险</text>
+    <text x="22" y="72" class="node-text">边界条件</text>
+    <text x="22" y="95" class="node-text">缺测试</text>
+    <text x="22" y="118" class="node-text">验证建议</text>
+  </g>
+  <path class="line" d="M792 249 H864"/>
+
+  <g transform="translate(874 180)">
+    <rect class="box boxD" width="170" height="138"/>
+    <text x="22" y="40" class="node-title">补测试</text>
+    <text x="22" y="72" class="node-text">最小用例</text>
+    <text x="22" y="95" class="node-text">不改接口</text>
+    <text x="22" y="118" class="node-text">不重写模块</text>
+  </g>
+  <path class="line" d="M959 328 V387"/>
+
+  <g transform="translate(746 397)">
+    <rect class="box boxE" width="220" height="124"/>
+    <text x="22" y="40" class="node-title">回看最终 diff</text>
+    <text x="22" y="73" class="node-text">确认改动范围</text>
+    <text x="22" y="98" class="node-text">排除无关改动</text>
+  </g>
+  <path class="line" d="M736 459 H665"/>
+
+  <g transform="translate(435 397)">
+    <rect class="box boxF" width="220" height="124"/>
+    <text x="22" y="40" class="node-title">跑验证 / 写 PR</text>
+    <text x="22" y="73" class="node-text">npm test / pytest</text>
+    <text x="22" y="98" class="node-text">描述 + 上线清单</text>
+  </g>
+
+  <g transform="translate(184 606)">
+    <rect class="pill" x="0" y="0" width="105" height="32"/>
+    <text x="20" y="22" class="tag">git diff</text>
+    <rect class="pill" x="120" y="0" width="118" height="32"/>
+    <text x="139" y="22" class="tag">review 输出</text>
+    <rect class="pill" x="253" y="0" width="82" height="32"/>
+    <text x="273" y="22" class="tag">风险项</text>
+    <rect class="pill" x="350" y="0" width="100" height="32"/>
+    <text x="367" y="22" class="tag">测试命令</text>
+    <rect class="pill" x="465" y="0" width="98" height="32"/>
+    <text x="482" y="22" class="tag">PR 描述</text>
+    <rect class="pill" x="578" y="0" width="100" height="32"/>
+    <text x="595" y="22" class="tag">回滚准备</text>
+  </g>
+</svg>
+

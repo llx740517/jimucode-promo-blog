@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V014 图文教程风格流程图</title>
+  <style>
+    :root {
+      --paper: #fbf7ed;
+      --ink: #10131a;
+      --muted: #667085;
+      --line: #e7dcc9;
+      --blue: #2f6cf6;
+      --pink: #e86e8d;
+      --green: #2aa866;
+      --yellow: #ffd96a;
+      --terminal: #121722;
+      --card: #fffdf8;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 28px 44px 28px;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(47,108,246,.048) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(232,110,141,.04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 36px 36px;
+    }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 2px solid #e8dcc9;
+      color: #344054;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(20, 16, 10, .06);
+    }
+
+    h1 {
+      margin: 8px 0 0;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 2px solid #efdfbb;
+      background: #fff5d8;
+      color: #3b3328;
+      max-width: 500px;
+      font-size: 20px;
+      line-height: 1.22;
+      font-weight: 850;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .node {
+      background: rgba(255,253,248,.94);
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 12px 12px;
+      min-height: 158px;
+      position: relative;
+      box-shadow: 0 14px 28px rgba(20, 26, 36, .07);
+    }
+
+    .node::after {
+      content: "→";
+      position: absolute;
+      right: -16px;
+      top: 58px;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #11151d;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .node:last-child::after { display: none; }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 11px;
+      border-radius: 10px;
+      background: #080b10;
+      color: #fff;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+
+    .node h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .node p {
+      margin: 0;
+      color: #4b5565;
+      font-size: 18px;
+      line-height: 1.27;
+      font-weight: 750;
+    }
+
+    .node.blue { border-color: #bcd0ff; background: #f4f7ff; }
+    .node.green { border-color: #bfe8cf; background: #f2fff7; }
+    .node.pink { border-color: #f0bfd0; background: #fff5f8; }
+    .node.yellow { border-color: #efdfbb; background: #fff8df; }
+
+    .lower {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 22px;
+    }
+
+    .terminal {
+      background: var(--terminal);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 16px 28px rgba(20, 26, 36, .12);
+    }
+
+    .bar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      background: #0a0f17;
+      color: #9da7b7;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .red { background: #ff6b6b; }
+    .yellow-dot { background: #ffd166; }
+    .green-dot { background: #52d273; }
+
+    pre {
+      margin: 0;
+      padding: 10px 16px;
+      color: #d8f7e9;
+      font: 800 19px/1.28 "SF Mono", "Cascadia Mono", "Menlo", "Consolas", monospace;
+      white-space: pre-wrap;
+    }
+
+    .comment { color: #84d8ff; }
+    .ok { color: #82e89e; }
+    .warn { color: #ffd36e; }
+
+    .check {
+      background: rgba(255,253,248,.95);
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: 0 14px 28px rgba(20, 26, 36, .07);
+    }
+
+    .check h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border-radius: 12px;
+      background: #fff;
+      border: 2px solid #e8dcc9;
+      padding: 9px 12px;
+      color: #344054;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 850;
+    }
+
+    .chip.unknown {
+      border-color: #efdfbb;
+      background: #fff8df;
+      color: #7a4a08;
+    }
+
+    .summary {
+      position: absolute;
+      left: 44px;
+      right: 44px;
+      bottom: 24px;
+      padding: 10px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.93);
+      border: 2px solid #e8dcc9;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      box-shadow: 0 14px 26px rgba(20, 26, 36, .07);
+    }
+
+    .summary b {
+      background: #10141c;
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 20px;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .summary span {
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="top">
+      <div>
+        <div class="tag">V014 / Claude Code / Linux 服务器</div>
+        <h1>安装到第一次提问：按这条链路核对</h1>
+      </div>
+      <div class="note">只保留本条视频已有关键流程；服务器、账号、日志均使用脱敏示意。</div>
+    </section>
+
+    <section class="flow">
+      <article class="node blue">
+        <div class="num">STEP 1</div>
+        <h2>ECS / SSH 入口</h2>
+        <p>确认服务器可连，公网 IP 和实例信息录屏需遮挡。</p>
+      </article>
+      <article class="node green">
+        <div class="num">STEP 2</div>
+        <h2>普通用户与权限</h2>
+        <p>看 whoami、id、pwd，避免安装用户和运行用户错位。</p>
+      </article>
+      <article class="node yellow">
+        <div class="num">STEP 3</div>
+        <h2>Git / Node / curl</h2>
+        <p>先查基础工具，再判断是否能执行安装脚本。</p>
+      </article>
+      <article class="node blue">
+        <div class="num">STEP 4</div>
+        <h2>安装 Claude Code</h2>
+        <p>使用本地资料确认的官方安装命令。</p>
+      </article>
+      <article class="node pink">
+        <div class="num">STEP 5</div>
+        <h2>认证与配置</h2>
+        <p>登录状态、第三方 Key/API 入口需录屏前实测确认。</p>
+      </article>
+      <article class="node green">
+        <div class="num">STEP 6</div>
+        <h2>第一次提问</h2>
+        <p>进入干净目录，只问只读问题，不碰真实项目。</p>
+      </article>
+      <article class="node yellow">
+        <div class="num">STEP 7</div>
+        <h2>日志 / 状态核对</h2>
+        <p>按终端输出、配置和日志页拆开排查。</p>
+      </article>
+    </section>
+
+    <section class="lower">
+      <div class="terminal">
+        <div class="bar"><span class="dot red"></span><span class="dot yellow-dot"></span><span class="dot green-dot"></span>install and check commands</div>
+        <pre><span class="comment"># 本条确认使用的安装命令</span>
+$ curl -fsSL https://claude.ai/install.sh | bash
+$ claude --version
+$ claude doctor
+$ claude auth status --text</pre>
+      </div>
+      <div class="check">
+        <h2>排查标签</h2>
+        <div class="tags">
+          <span class="chip">终端输出</span>
+          <span class="chip">配置文件</span>
+          <span class="chip unknown">Key/API 地址需实测</span>
+          <span class="chip">权益状态</span>
+          <span class="chip unknown">日志页需实测</span>
+          <span class="chip">网络</span>
+          <span class="chip">权限</span>
+          <span class="chip">项目目录</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="summary">
+      <b>总结</b>
+      <span>按 SSH、用户、环境、安装、认证、项目目录和日志状态逐段核对。</span>
+    </div>
+  </main>
+</body>
+</html>

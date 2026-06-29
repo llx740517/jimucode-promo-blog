@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Claude Code 新手从零到一流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.48" stop-color="#1f2937"/>
+      <stop offset="1" stop-color="#231815"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.12" cy="0.16" r="0.55">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.84" cy="0.18" r="0.55">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-16%" y="-22%" width="132%" height="144%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.36"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10.2" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#c9d4df" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font: 900 48px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #fff7ed; letter-spacing: 0; }
+      .subtitle { font: 700 24px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #d8e4ef; letter-spacing: 0; }
+      .card { stroke-width: 1.4; filter: url(#shadow); }
+      .num { font: 900 20px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #111827; }
+      .node-title { font: 900 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .node-sub { font: 700 18px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #e5edf6; letter-spacing: 0; }
+      .line { stroke: #c9d4df; stroke-width: 2.2; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+      .chip-text { font: 900 21px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #f8fafc; letter-spacing: 0; }
+      .small { font: 800 18px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #b9c7d5; letter-spacing: 0; }
+      .terminal { font: 700 22px Menlo, Consolas, monospace; fill: #fed7aa; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow1)"/>
+  <rect width="1280" height="720" fill="url(#glow2)"/>
+  <g opacity="0.12" stroke="#cbd5e1" stroke-width="1">
+    <path d="M70 156 H1196"/>
+    <path d="M70 330 H1196"/>
+    <path d="M70 500 H1196"/>
+    <path d="M140 90 V616"/>
+    <path d="M396 90 V616"/>
+    <path d="M652 90 V616"/>
+    <path d="M908 90 V616"/>
+    <path d="M1164 90 V616"/>
+  </g>
+
+  <text x="64" y="78" class="title">Claude Code 新手先登录，再进入项目</text>
+  <text x="66" y="118" class="subtitle">网站权益 → Claude Key → 环境变量 → 状态检查 → 项目目录 → 日志核对</text>
+  <text x="1188" y="82" class="small" text-anchor="end">V006 / 新手入门</text>
+
+  <path class="line" d="M210 254 L260 254"/>
+  <path class="line" d="M418 254 L468 254"/>
+  <path class="line" d="M626 254 L676 254"/>
+  <path class="line" d="M834 254 L884 254"/>
+  <path class="line" d="M1042 254 C1126 256 1140 385 1032 386 L872 386"/>
+  <path class="line" d="M684 386 L606 386"/>
+  <path class="line" d="M418 386 L340 386"/>
+
+  <g transform="translate(58 184)">
+    <rect class="card" width="152" height="140" rx="12" fill="#3a2411" stroke="#f59e0b"/>
+    <circle cx="36" cy="34" r="18" fill="#fdba74"/>
+    <text x="36" y="41" class="num" text-anchor="middle">1</text>
+    <text x="24" y="78" class="node-title">登录网站</text>
+    <text x="24" y="110" class="node-sub">价格 / Key</text>
+  </g>
+
+  <g transform="translate(260 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#15344a" stroke="#38bdf8"/>
+    <circle cx="36" cy="34" r="18" fill="#7dd3fc"/>
+    <text x="36" y="41" class="num" text-anchor="middle">2</text>
+    <text x="24" y="78" class="node-title">选 Claude</text>
+    <text x="24" y="110" class="node-sub">产品线别混</text>
+  </g>
+
+  <g transform="translate(468 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#422006" stroke="#f97316"/>
+    <circle cx="36" cy="34" r="18" fill="#fb923c"/>
+    <text x="36" y="41" class="num" text-anchor="middle">3</text>
+    <text x="24" y="78" class="node-title">创建 Key</text>
+    <text x="24" y="110" class="node-sub">只选 Claude</text>
+  </g>
+
+  <g transform="translate(676 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#2b2457" stroke="#a78bfa"/>
+    <circle cx="36" cy="34" r="18" fill="#c4b5fd"/>
+    <text x="36" y="41" class="num" text-anchor="middle">4</text>
+    <text x="24" y="78" class="node-title">环境变量</text>
+    <text x="24" y="110" class="node-sub">BASE / KEY</text>
+  </g>
+
+  <g transform="translate(884 184)">
+    <rect class="card" width="158" height="140" rx="12" fill="#123d2a" stroke="#34d399"/>
+    <circle cx="36" cy="34" r="18" fill="#86efac"/>
+    <text x="36" y="41" class="num" text-anchor="middle">5</text>
+    <text x="24" y="78" class="node-title">新终端</text>
+    <text x="24" y="110" class="node-sub">auth / doctor</text>
+  </g>
+
+  <g transform="translate(684 316)">
+    <rect class="card" width="188" height="140" rx="12" fill="#13364b" stroke="#22d3ee"/>
+    <circle cx="38" cy="34" r="18" fill="#67e8f9"/>
+    <text x="38" y="41" class="num" text-anchor="middle">6</text>
+    <text x="28" y="78" class="node-title">项目目录</text>
+    <text x="28" y="110" class="node-sub">README / CLAUDE</text>
+  </g>
+
+  <g transform="translate(418 316)">
+    <rect class="card" width="188" height="140" rx="12" fill="#312e16" stroke="#facc15"/>
+    <circle cx="38" cy="34" r="18" fill="#fde047"/>
+    <text x="38" y="41" class="num" text-anchor="middle">7</text>
+    <text x="28" y="78" class="node-title">首次运行</text>
+    <text x="28" y="110" class="node-sub">先读项目</text>
+  </g>
+
+  <g transform="translate(152 316)">
+    <rect class="card" width="188" height="140" rx="12" fill="#3a1f25" stroke="#fb7185"/>
+    <circle cx="38" cy="34" r="18" fill="#fda4af"/>
+    <text x="38" y="41" class="num" text-anchor="middle">8</text>
+    <text x="28" y="78" class="node-title">日志核对</text>
+    <text x="28" y="110" class="node-sub">当天记录</text>
+  </g>
+
+  <g transform="translate(930 356)">
+    <rect width="214" height="88" rx="14" fill="#07111c" stroke="#3d4a5d"/>
+    <text x="24" y="36" class="terminal">claude auth</text>
+    <text x="24" y="68" class="terminal">claude doctor</text>
+  </g>
+
+  <text x="64" y="534" class="subtitle">失败时按这个顺序查</text>
+  <g transform="translate(64 568)">
+    <rect x="0" y="0" width="128" height="48" rx="10" fill="#3a2411" stroke="#f59e0b"/>
+    <text x="64" y="31" class="chip-text" text-anchor="middle">终端输出</text>
+    <rect x="144" y="0" width="128" height="48" rx="10" fill="#2b2457" stroke="#a78bfa"/>
+    <text x="208" y="31" class="chip-text" text-anchor="middle">环境变量</text>
+    <rect x="288" y="0" width="162" height="48" rx="10" fill="#422006" stroke="#f97316"/>
+    <text x="369" y="31" class="chip-text" text-anchor="middle">Key/API 地址</text>
+    <rect x="466" y="0" width="128" height="48" rx="10" fill="#123d2a" stroke="#34d399"/>
+    <text x="530" y="31" class="chip-text" text-anchor="middle">权益状态</text>
+    <rect x="610" y="0" width="100" height="48" rx="10" fill="#3a1f25" stroke="#fb7185"/>
+    <text x="660" y="31" class="chip-text" text-anchor="middle">日志页</text>
+    <rect x="726" y="0" width="82" height="48" rx="10" fill="#15344a" stroke="#38bdf8"/>
+    <text x="767" y="31" class="chip-text" text-anchor="middle">网络</text>
+    <rect x="824" y="0" width="82" height="48" rx="10" fill="#1d3442" stroke="#67e8f9"/>
+    <text x="865" y="31" class="chip-text" text-anchor="middle">权限</text>
+    <rect x="922" y="0" width="128" height="48" rx="10" fill="#26321d" stroke="#bef264"/>
+    <text x="986" y="31" class="chip-text" text-anchor="middle">项目目录</text>
+  </g>
+</svg>

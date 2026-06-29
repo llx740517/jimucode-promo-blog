@@ -1,0 +1,73 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#F8FAFC"/>
+  <rect x="42" y="36" width="1196" height="648" rx="26" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="76" y="92" fill="#0F172A" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" font-weight="900">V042 修 Bug 前提问流程</text>
+  <text x="78" y="126" fill="#475569" font-family="Arial, 'PingFang SC', sans-serif" font-size="18">先说清问题，再让 AI 修改</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="78" y="190" width="154" height="104" rx="18" fill="#ECFEFF" stroke="#06B6D4" stroke-width="2"/>
+    <text x="155" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">读项目</text>
+    <text x="155" y="265" text-anchor="middle" fill="#0E7490" font-size="16" font-weight="700">先看相关代码</text>
+    <rect x="282" y="190" width="154" height="104" rx="18" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="359" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">复现</text>
+    <text x="359" y="265" text-anchor="middle" fill="#B91C1C" font-size="16" font-weight="700">命令 + 报错</text>
+    <rect x="486" y="190" width="154" height="104" rx="18" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+    <text x="563" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">期望</text>
+    <text x="563" y="265" text-anchor="middle" fill="#15803D" font-size="16" font-weight="700">正确结果</text>
+    <rect x="690" y="190" width="154" height="104" rx="18" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+    <text x="767" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">边界</text>
+    <text x="767" y="265" text-anchor="middle" fill="#C2410C" font-size="16" font-weight="700">只改相关处</text>
+    <rect x="894" y="190" width="154" height="104" rx="18" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="971" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">AI 计划</text>
+    <text x="971" y="265" text-anchor="middle" fill="#6D28D9" font-size="16" font-weight="700">先解释再改</text>
+    <rect x="1098" y="190" width="104" height="104" rx="18" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="1150" y="235" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="900">验证</text>
+    <text x="1150" y="265" text-anchor="middle" fill="#1D4ED8" font-size="16" font-weight="700">diff + 测试</text>
+  </g>
+  <g stroke="#64748B" stroke-width="2.2" marker-end="url(#arrow)">
+    <line x1="234" y1="242" x2="274" y2="242"/>
+    <line x1="438" y1="242" x2="478" y2="242"/>
+    <line x1="642" y1="242" x2="682" y2="242"/>
+    <line x1="846" y1="242" x2="886" y2="242"/>
+    <line x1="1050" y1="242" x2="1090" y2="242"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="118" y="384" width="458" height="130" rx="20" fill="#0F172A"/>
+    <text x="148" y="430" fill="#F8FAFC" font-size="25" font-weight="900">Codex</text>
+    <text x="148" y="467" fill="#CBD5E1" font-size="18">同一问题卡：先读代码、解释原因、列计划</text>
+    <text x="148" y="496" fill="#94A3B8" font-size="16">入口和参数按录屏前当前版本实测确认</text>
+    <rect x="704" y="384" width="458" height="130" rx="20" fill="#111827"/>
+    <text x="734" y="430" fill="#F8FAFC" font-size="25" font-weight="900">Claude Code</text>
+    <text x="734" y="467" fill="#CBD5E1" font-size="18">同一问题卡：注意权限提示、计划和验证</text>
+    <text x="734" y="496" fill="#94A3B8" font-size="16">`claude` / `claude "query"` / `claude -p` 按场景选</text>
+  </g>
+  <g stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M971 296 C890 342 555 334 347 378"/>
+    <path d="M971 296 C1018 340 983 352 933 378"/>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <text x="96" y="590" fill="#475569" font-size="18" font-weight="800">录屏检查点：</text>
+    <rect x="210" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="268" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">终端输出</text>
+    <rect x="344" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="402" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">相关代码</text>
+    <rect x="478" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="536" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">提问卡</text>
+    <rect x="612" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="670" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">修改边界</text>
+    <rect x="746" y="564" width="92" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="792" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">diff</text>
+    <rect x="856" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="914" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">测试命令</text>
+    <rect x="990" y="564" width="116" height="42" rx="21" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="1048" y="591" text-anchor="middle" fill="#334155" font-size="16" font-weight="700">回滚准备</text>
+  </g>
+</svg>
+

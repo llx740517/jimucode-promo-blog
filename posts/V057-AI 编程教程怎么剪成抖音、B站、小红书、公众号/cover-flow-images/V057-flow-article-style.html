@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V057 图文教程风格流程图</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: #f8f1e4;
+    }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      color: #111;
+      letter-spacing: 0;
+    }
+    .flow {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      padding: 42px 52px 36px;
+      background:
+        radial-gradient(circle at 1140px 92px, rgba(236,91,130,.12) 0 76px, transparent 78px),
+        radial-gradient(circle at 150px 620px, rgba(45,108,255,.12) 0 88px, transparent 90px),
+        linear-gradient(180deg, #fffdf8 0%, #f7efe1 100%);
+    }
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .label {
+      display: inline-flex;
+      height: 38px;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 950;
+    }
+    h1 {
+      margin: 12px 0 0;
+      font-size: 50px;
+      line-height: 1.02;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+    .hint {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: #e7f0ff;
+      border: 2px solid rgba(17,17,17,.08);
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 850;
+      color: #25364b;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr .9fr .9fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+      height: 330px;
+      position: relative;
+    }
+    .card {
+      position: relative;
+      padding: 18px 16px 16px;
+      border: 3px solid #111;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 7px 7px 0 rgba(17,17,17,.12);
+      overflow: hidden;
+    }
+    .card.master { background: #f0f6ff; }
+    .card.douyin { background: #fff1f4; }
+    .card.bili { background: #f3f5ff; }
+    .card.xhs { background: #eaf8ef; }
+    .card.wechat { background: #fff7d9; }
+    .card.check { background: #fff; }
+    .step {
+      display: inline-flex;
+      height: 30px;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 27px;
+      line-height: 1.04;
+      font-weight: 1000;
+    }
+    .card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+    .card li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 18px;
+      line-height: 1.16;
+      font-weight: 800;
+      color: #303030;
+    }
+    .card li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #111;
+      margin-top: 7px;
+      flex: 0 0 auto;
+    }
+    .arrow {
+      position: absolute;
+      right: -16px;
+      top: 150px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 1000;
+      z-index: 3;
+    }
+    .compare {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.25fr;
+      gap: 18px;
+      height: 124px;
+    }
+    .compare-card {
+      border: 3px solid #111;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 7px 7px 0 rgba(17,17,17,.11);
+      padding: 15px 22px;
+    }
+    .compare-card.good { background: #eaf8ef; }
+    .compare-card.bad { background: #fff1f4; }
+    .compare-card.summary { background: #111; color: #fff; }
+    .compare-card h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.05;
+      font-weight: 1000;
+    }
+    .compare-card p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.22;
+      font-weight: 820;
+    }
+    .summary p { color: #f4f4f4; }
+    .footer {
+      position: absolute;
+      left: 52px;
+      right: 52px;
+      bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
+      font-weight: 850;
+      color: #606060;
+    }
+    .footer span:last-child {
+      color: #111;
+      background: #fff;
+      border: 2px solid rgba(17,17,17,.12);
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="flow" aria-label="AI 编程教程平台拆条流程图">
+    <header class="header">
+      <div>
+        <div class="label">V057 · AI 编程教程平台拆条流程</div>
+        <h1>一条母素材，拆成四个平台版本</h1>
+      </div>
+      <div class="hint">发布入口、字段和后台页面<br>需录屏前实测确认</div>
+    </header>
+
+    <section class="grid">
+      <article class="card master">
+        <div class="step">STEP 1</div>
+        <h2>母素材归档</h2>
+        <ul>
+          <li>横屏录屏</li>
+          <li>关键截图</li>
+          <li>流程图与封面</li>
+          <li>平台文案草稿</li>
+        </ul>
+        <div class="arrow">›</div>
+      </article>
+      <article class="card douyin">
+        <div class="step">STEP 2</div>
+        <h2>抖音竖屏版</h2>
+        <ul>
+          <li>先给结果</li>
+          <li>放大终端/编辑器</li>
+          <li>短节奏</li>
+        </ul>
+        <div class="arrow">›</div>
+      </article>
+      <article class="card bili">
+        <div class="step">STEP 3</div>
+        <h2>B站横屏版</h2>
+        <ul>
+          <li>完整流程</li>
+          <li>章节标题</li>
+          <li>保留上下文</li>
+        </ul>
+        <div class="arrow">›</div>
+      </article>
+      <article class="card xhs">
+        <div class="step">STEP 4</div>
+        <h2>小红书图文版</h2>
+        <ul>
+          <li>问题图</li>
+          <li>步骤图</li>
+          <li>踩坑提醒</li>
+        </ul>
+        <div class="arrow">›</div>
+      </article>
+      <article class="card wechat">
+        <div class="step">STEP 5</div>
+        <h2>公众号长文版</h2>
+        <ul>
+          <li>背景</li>
+          <li>截图说明</li>
+          <li>清单和边界</li>
+        </ul>
+        <div class="arrow">›</div>
+      </article>
+      <article class="card check">
+        <div class="step">STEP 6</div>
+        <h2>发布检查</h2>
+        <ul>
+          <li>标题 / 封面</li>
+          <li>简介 / 标签</li>
+          <li>敏感信息遮挡</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="compare">
+      <div class="compare-card good">
+        <h3>正常</h3>
+        <p>横屏看完整流程，竖屏看关键操作。</p>
+      </div>
+      <div class="compare-card bad">
+        <h3>常见错法</h3>
+        <p>横屏硬裁竖屏，终端文字太小。</p>
+      </div>
+      <div class="compare-card summary">
+        <h3>总结</h3>
+        <p>不是到处上传同一版，而是按平台重新安排信息密度。</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>横屏、竖屏、步骤图、长文、标题、封面、标签、打码</span>
+      <span>非真实登录数据 / 脱敏示意</span>
+    </footer>
+  </main>
+</body>
+</html>

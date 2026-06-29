@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V023 图文教程流程图</title>
+  <style>
+    :root {
+      --paper: #fff8ea;
+      --ink: #101010;
+      --muted: #706a60;
+      --line: #eadcc7;
+      --blue: #2f77ff;
+      --pink: #e7658a;
+      --green: #56b887;
+      --dark: #101820;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1280px;
+      min-height: 720px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .canvas {
+      width: 1280px;
+      height: 720px;
+      padding: 34px 42px 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(47,119,255,.045) 1px, transparent 1px),
+        linear-gradient(rgba(47,119,255,.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 32px 32px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 26px;
+      margin-bottom: 22px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 20px;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(70,51,20,.08);
+    }
+    .tag::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 20px 0 0 var(--blue), 40px 0 0 var(--pink);
+      margin-right: 54px;
+    }
+    h1 {
+      margin: 10px 0 0;
+      font-size: 52px;
+      line-height: 1.06;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+    h1 span { color: var(--blue); }
+    .hint {
+      width: 360px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #292723;
+      font-size: 21px;
+      line-height: 1.34;
+      font-weight: 780;
+      box-shadow: 0 10px 20px rgba(70,51,20,.08);
+    }
+    .flow {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      align-items: stretch;
+      margin-top: 6px;
+    }
+    .flow::before {
+      content: "";
+      position: absolute;
+      left: 82px;
+      right: 82px;
+      top: 104px;
+      height: 5px;
+      background: #161616;
+      opacity: .18;
+      z-index: 0;
+    }
+    .node {
+      position: relative;
+      z-index: 1;
+      min-height: 226px;
+      padding: 16px 11px 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(70,51,20,.08);
+    }
+    .node:nth-child(3) { border-top: 10px solid var(--blue); }
+    .node:nth-child(5) { border-top: 10px solid var(--green); }
+    .node:nth-child(6) { border-top: 10px solid var(--pink); }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 68px;
+      height: 32px;
+      padding: 0 9px;
+      border-radius: 9px;
+      background: #050505;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+    .node h2 {
+      margin: 0 0 9px;
+      font-size: 20px;
+      line-height: 1.16;
+      font-weight: 950;
+    }
+    .node p {
+      margin: 0;
+      color: #33302b;
+      font-size: 16px;
+      line-height: 1.32;
+      font-weight: 760;
+    }
+    .code {
+      margin-top: 11px;
+      padding: 9px 9px;
+      border-radius: 12px;
+      background: var(--dark);
+      color: #dce8e8;
+      font-family: "SF Mono", "Menlo", "Consolas", monospace;
+      font-size: 12px;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+    .arrow {
+      position: absolute;
+      right: -17px;
+      top: 91px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #101010;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 950;
+      z-index: 2;
+    }
+    .panel-row {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.15fr;
+      gap: 16px;
+    }
+    .panel {
+      min-height: 124px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 20px rgba(70,51,20,.07);
+    }
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+      line-height: 1.15;
+      font-weight: 950;
+    }
+    .panel p {
+      margin: 0;
+      color: #302d28;
+      font-size: 20px;
+      line-height: 1.32;
+      font-weight: 760;
+    }
+    .panel.good { border-left: 10px solid var(--green); }
+    .panel.risk { border-left: 10px solid var(--pink); }
+    .panel.summary {
+      background: #101010;
+      color: #fff;
+      border-color: #101010;
+    }
+    .panel.summary p { color: #fff; font-size: 23px; font-weight: 900; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      color: #746f66;
+      font-size: 17px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas" aria-label="V023 flow article style">
+    <header class="header">
+      <div>
+        <div class="tag">Codex 第一次读项目流程</div>
+        <h1>先读清楚 <span>-> 小步修改 -></span> 验证结果</h1>
+      </div>
+      <div class="hint">保留本条关键流程：目录、Git、只读、计划、小改、diff、验证。</div>
+    </header>
+
+    <section class="flow">
+      <div class="node">
+        <span class="step">STEP 1</span>
+        <h2>选项目目录</h2>
+        <p>确认主工作目录，不要混多个项目。</p>
+        <div class="code">--cd ~/demo</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 2</span>
+        <h2>看 Git 基线</h2>
+        <p>先知道旧改动，后面 diff 才清楚。</p>
+        <div class="code">git status --short</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 3</span>
+        <h2>只读项目</h2>
+        <p>让 Codex 说明入口、命令、风险。</p>
+        <div class="code">-s read-only</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 4</span>
+        <h2>提小任务</h2>
+        <p>先说计划，限制必要文件。</p>
+        <div class="code">small task<br>plan first</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 5</span>
+        <h2>看 diff</h2>
+        <p>看文件数量和每处增删是否相关。</p>
+        <div class="code">git diff</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 6</span>
+        <h2>跑验证</h2>
+        <p>按项目实际命令测试或构建。</p>
+        <div class="code">npm test<br>npm run build</div>
+        <div class="arrow">></div>
+      </div>
+      <div class="node">
+        <span class="step">STEP 7</span>
+        <h2>说清边界</h2>
+        <p>通过只代表当前演示范围通过。</p>
+        <div class="code">review scope</div>
+      </div>
+    </section>
+
+    <section class="panel-row">
+      <div class="panel good">
+        <h3>正常</h3>
+        <p>先让 Codex 读项目地图，再给一个小任务。</p>
+      </div>
+      <div class="panel risk">
+        <h3>风险</h3>
+        <p>直接让它优化全项目，最后验收失控。</p>
+      </div>
+      <div class="panel summary">
+        <h3>总结条</h3>
+        <p>AI 的回答是导航，diff 和验证才是录屏里最该展示的证据。</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>#Codex #项目读取 #diff #测试验证</span>
+      <span>V023-flow-article-style</span>
+    </footer>
+  </main>
+</body>
+</html>
