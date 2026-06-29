@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>V020｜Codex CLI 常用命令总览：help、login、doctor、update</title><style>
+:root{--paper:#fbf7ef;--ink:#161616;--muted:#64605a;--line:#222;--blue:#2f6df6;--pink:#f15e8a;--green:#1b9d67;--card:#fffdf8;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;letter-spacing:0}.page{max-width:980px;margin:0 auto;padding:26px 18px 64px}.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px;position:sticky;top:0;background:rgba(251,247,239,.94);backdrop-filter:blur(10px);z-index:3;padding:12px 0;border-bottom:2px solid var(--line)}.brand{font-weight:900}.nav a{display:inline-block;border:2px solid var(--line);background:white;color:var(--ink);text-decoration:none;padding:8px 12px;font-weight:800;margin-left:8px}.hero{border:2px solid var(--line);background:#fffaf0;padding:26px;box-shadow:7px 7px 0 #171717;margin-bottom:26px}.kicker{display:flex;flex-wrap:wrap;gap:8px}.pill{border:2px solid var(--line);border-radius:999px;background:white;padding:7px 12px;font-weight:900;font-size:13px}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:18px 0 8px}h2{font-size:30px;margin:34px 0 12px;border-left:10px solid var(--blue);padding-left:12px}h3{font-size:23px;margin:28px 0 12px}h4{font-size:18px;margin:24px 0 10px}.content{border:2px solid var(--line);background:var(--card);padding:28px;box-shadow:5px 5px 0 #171717}.content p{font-size:18px;line-height:1.9;color:#302d29}.content a{color:#174dbf;font-weight:800}.content code{background:#1d1d1f;color:#fff;border-radius:5px;padding:2px 6px;font-size:.92em}.content ul{padding-left:22px}.content li{font-size:17px;line-height:1.85;margin:6px 0}.content figure{margin:26px 0;border:2px solid var(--line);background:#fff;padding:10px;box-shadow:4px 4px 0 #171717}.content img{width:100%;height:auto;display:block}.content figcaption{font-size:14px;color:var(--muted);padding:9px 4px 0}.content pre{background:#1d1d1f;color:#f4f4f4;padding:16px;overflow:auto;border-radius:6px}.footer{margin-top:28px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);line-height:1.8}.cta{border:2px solid var(--line);background:#dce8ff;padding:16px;margin-top:20px;font-weight:900}@media(max-width:620px){.page{padding:14px 12px 44px}.hero,.content{padding:18px;box-shadow:4px 4px 0 #171717}.nav a{margin-left:4px;padding:7px 9px}.content p{font-size:16px}h2{font-size:25px}}
+.hero-cover{width:100%;margin-top:20px;border:2px solid var(--line);display:block}</style></head>
+<body><main class="page"><div class="topbar"><div class="brand">积木代码助手推广图文</div><div class="nav"><a href="../../index.html">首页</a><a href="图文发布稿-带图版.md">Markdown</a></div></div><section class="hero"><div class="kicker"><span class="pill">V020</span><span class="pill">图文教程</span><span class="pill">AI 编程工具</span></div><h1>Codex CLI 常用命令总览：help、login、doctor、update</h1><p>这是一篇可直接在线浏览的图文版文章，保留 Markdown 原稿和配图资源。</p><img class="hero-cover" src="cover-flow-images/V020-cover-landscape.png" alt="V020 封面" loading="eager"></section><article class="content"><h1>V020 图文发布稿（带图版）</h1>
+<h2>标题</h2>
+<p>Codex CLI 常用命令总览：help、login、doctor、update 怎么用</p>
+<h2>前两段短文案</h2>
+<p>这条录屏只讲 Codex CLI 的基础命令顺序：先用 <code>codex --help</code> 看入口，再用 <code>codex login status</code> 确认登录，用 <code>codex doctor</code> 检查本地环境，最后看 <code>codex update</code> 的更新入口。</p>
+<p>这篇主要解决：不知道安装后第一条命令应该跑 <code>codex --help</code> 还是直接 <code>codex</code>。看完你能：用 <code>codex --help</code> 看当前 Codex CLI 可用命令。建议先收藏，操作时对照配图一步步核对。</p>
+<h2>备用标题</h2>
+<p>Codex 装完别急着改项目，先跑这 4 类命令 AI 编程工具入门第 20 集：Codex CLI 基础命令路线</p>
+<h2>完整正文备用</h2>
+<p>这条录屏只讲 Codex CLI 的基础命令顺序：先用 <code>codex --help</code> 看入口，再用 <code>codex login status</code> 确认登录，用 <code>codex doctor</code> 检查本地环境，最后看 <code>codex update</code> 的更新入口。适合刚安装 Codex、准备进入项目之前的新手。</p>
+<p>本条不做项目实战，不混讲 Claude Code，不展示真实 Key。命令输出以录屏当天的 Codex CLI 版本为准。</p>
+<p>这篇适合刚开始接触积木代码助手、Codex 或 Claude Code 的同学。不要只盯着一个按钮或一条命令，建议按图里的顺序看：先看当前问题，再看操作路径，最后确认结果有没有真正跑通。</p>
+<p>常见卡点： 不知道安装后第一条命令应该跑 <code>codex --help</code> 还是直接 <code>codex</code> 不知道 <code>login</code>、<code>logout</code>、<code>login status</code> 分别用来确认什么 本地环境出问题时只会重装，不知道先跑 <code>codex doctor</code> 不清楚 <code>update</code> 什么时候录、什么时候不该现场升级</p>
+<p>看完这篇，你应该能做到： 用 <code>codex --help</code> 看当前 Codex CLI 可用命令 用 <code>codex login</code> 或 <code>codex login status</code> 确认登录状态 知道 API Key 登录可以通过 <code>codex login --with-api-key</code> 从标准输入读取 Key，但录屏中不能展示真实 Key 用 <code>codex doctor --summary --ascii --no-color</code> 做一版适合录屏的本地诊断输出</p>
+<p>我的建议是，第一次操作时不要一边改很多地方，一边猜原因。先把页面、终端输出、配置文件、日志记录这几块分开看，哪一步不一致，就从那一步往回查。</p>
+<p>如果你也在配置或使用 AI 编程工具，可以先收藏这篇。后面遇到类似问题时，按这条路线重新核对一遍，通常能更快判断下一步该看哪里。</p>
+<h2>配图说明</h2>
+<p>首图用 <code>cover-flow-images/V020-cover-douyin.png</code>。 第二张用 <code>cover-flow-images/V020-flow.png</code>。 后面从 <code>ppt-images/slide-01.png</code> 到 <code>ppt-images/slide-08.png</code> 里选关键步骤图。 如果平台限制图片数量，优先保留：流程图、关键操作、常见错误、结果确认。</p>
+<h2>配图预览</h2>
+<h3>首图与流程图</h3>
+<figure><img src="cover-flow-images/V020-cover-douyin.png" alt="V020 竖版首图" loading="lazy"><figcaption>V020 竖版首图</figcaption></figure>
+<figure><img src="cover-flow-images/V020-cover-landscape.png" alt="V020 横版封面" loading="lazy"><figcaption>V020 横版封面</figcaption></figure>
+<figure><img src="cover-flow-images/V020-flow-article-style.png" alt="V020 图文风流程图" loading="lazy"><figcaption>V020 图文风流程图</figcaption></figure>
+<figure><img src="cover-flow-images/V020-flow.png" alt="V020 流程图" loading="lazy"><figcaption>V020 流程图</figcaption></figure>
+<figure><img src="cover-flow-images/V020-flow.svg" alt="V020 流程图 SVG" loading="lazy"><figcaption>V020 流程图 SVG</figcaption></figure>
+<h3>PPT 步骤图</h3>
+<figure><img src="ppt-images/slide-01.png" alt="V020 第 01 张步骤图" loading="lazy"><figcaption>V020 第 01 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-02.png" alt="V020 第 02 张步骤图" loading="lazy"><figcaption>V020 第 02 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-03.png" alt="V020 第 03 张步骤图" loading="lazy"><figcaption>V020 第 03 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-04.png" alt="V020 第 04 张步骤图" loading="lazy"><figcaption>V020 第 04 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-05.png" alt="V020 第 05 张步骤图" loading="lazy"><figcaption>V020 第 05 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-06.png" alt="V020 第 06 张步骤图" loading="lazy"><figcaption>V020 第 06 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-07.png" alt="V020 第 07 张步骤图" loading="lazy"><figcaption>V020 第 07 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-08.png" alt="V020 第 08 张步骤图" loading="lazy"><figcaption>V020 第 08 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-09.png" alt="V020 第 09 张步骤图" loading="lazy"><figcaption>V020 第 09 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-10.png" alt="V020 第 10 张步骤图" loading="lazy"><figcaption>V020 第 10 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-11.png" alt="V020 第 11 张步骤图" loading="lazy"><figcaption>V020 第 11 张步骤图</figcaption></figure>
+<h2>标签</h2>
+<p>#CodexCLI #AI编程 #基础 #配置教程 #故障排查 #终端命令 #doctor #login</p><div class="cta">建议：先看这篇网页预览，再按平台要求复制文字并上传配图。</div></article><div class="footer">返回 <a href="../../index.html">文章总目录</a> · 查看 <a href="README.md">本篇素材目录</a></div></main></body></html>

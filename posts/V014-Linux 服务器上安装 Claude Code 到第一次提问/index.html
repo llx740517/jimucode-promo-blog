@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>V014｜Linux 服务器上安装 Claude Code 到第一次提问</title><style>
+:root{--paper:#fbf7ef;--ink:#161616;--muted:#64605a;--line:#222;--blue:#2f6df6;--pink:#f15e8a;--green:#1b9d67;--card:#fffdf8;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;letter-spacing:0}.page{max-width:980px;margin:0 auto;padding:26px 18px 64px}.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px;position:sticky;top:0;background:rgba(251,247,239,.94);backdrop-filter:blur(10px);z-index:3;padding:12px 0;border-bottom:2px solid var(--line)}.brand{font-weight:900}.nav a{display:inline-block;border:2px solid var(--line);background:white;color:var(--ink);text-decoration:none;padding:8px 12px;font-weight:800;margin-left:8px}.hero{border:2px solid var(--line);background:#fffaf0;padding:26px;box-shadow:7px 7px 0 #171717;margin-bottom:26px}.kicker{display:flex;flex-wrap:wrap;gap:8px}.pill{border:2px solid var(--line);border-radius:999px;background:white;padding:7px 12px;font-weight:900;font-size:13px}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:18px 0 8px}h2{font-size:30px;margin:34px 0 12px;border-left:10px solid var(--blue);padding-left:12px}h3{font-size:23px;margin:28px 0 12px}h4{font-size:18px;margin:24px 0 10px}.content{border:2px solid var(--line);background:var(--card);padding:28px;box-shadow:5px 5px 0 #171717}.content p{font-size:18px;line-height:1.9;color:#302d29}.content a{color:#174dbf;font-weight:800}.content code{background:#1d1d1f;color:#fff;border-radius:5px;padding:2px 6px;font-size:.92em}.content ul{padding-left:22px}.content li{font-size:17px;line-height:1.85;margin:6px 0}.content figure{margin:26px 0;border:2px solid var(--line);background:#fff;padding:10px;box-shadow:4px 4px 0 #171717}.content img{width:100%;height:auto;display:block}.content figcaption{font-size:14px;color:var(--muted);padding:9px 4px 0}.content pre{background:#1d1d1f;color:#f4f4f4;padding:16px;overflow:auto;border-radius:6px}.footer{margin-top:28px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);line-height:1.8}.cta{border:2px solid var(--line);background:#dce8ff;padding:16px;margin-top:20px;font-weight:900}@media(max-width:620px){.page{padding:14px 12px 44px}.hero,.content{padding:18px;box-shadow:4px 4px 0 #171717}.nav a{margin-left:4px;padding:7px 9px}.content p{font-size:16px}h2{font-size:25px}}
+.hero-cover{width:100%;margin-top:20px;border:2px solid var(--line);display:block}</style></head>
+<body><main class="page"><div class="topbar"><div class="brand">积木代码助手推广图文</div><div class="nav"><a href="../../index.html">首页</a><a href="图文发布稿-带图版.md">Markdown</a></div></div><section class="hero"><div class="kicker"><span class="pill">V014</span><span class="pill">图文教程</span><span class="pill">AI 编程工具</span></div><h1>Linux 服务器上安装 Claude Code 到第一次提问</h1><p>这是一篇可直接在线浏览的图文版文章，保留 Markdown 原稿和配图资源。</p><img class="hero-cover" src="cover-flow-images/V014-cover-landscape.png" alt="V014 封面" loading="eager"></section><article class="content"><h1>V014 图文发布稿（带图版）</h1>
+<h2>标题</h2>
+<p>Linux 服务器安装 Claude Code：从 SSH 到第一次提问</p>
+<h2>前两段短文案</h2>
+<p>这条用真实录屏路线讲 Linux 服务器上安装 Claude Code 的完整前期步骤：SSH 登录、普通用户、系统环境、Node/Git/curl、官方安装命令、认证状态、第一次进入测试目录提问。</p>
+<p>这篇主要解决：服务器终端和本机终端不一样，容易把 macOS/Windows 的命令照搬到 Linux。看完你能：在 Linux 服务器上按顺序检查 SSH、用户权限、系统环境、Node/Git/curl。建议先收藏，操作时对照配图一步步核对。</p>
+<h2>备用标题</h2>
+<p>服务器上 Claude Code 跑不起来？先按这条顺序查 AI 编程服务器入门 04：Linux 上跑通 Claude Code</p>
+<h2>完整正文备用</h2>
+<p>这条用真实录屏路线讲 Linux 服务器上安装 Claude Code 的完整前期步骤：SSH 登录、普通用户、系统环境、Node/Git/curl、官方安装命令、认证状态、第一次进入测试目录提问。Key、API 地址、日志页和服务器信息都按脱敏方式处理。不同 Linux 发行版和第三方 Key 接入方式可能不同，正式录屏前需要在目标服务器实测确认。</p>
+<p>这篇适合刚开始接触积木代码助手、Codex 或 Claude Code 的同学。不要只盯着一个按钮或一条命令，建议按图里的顺序看：先看当前问题，再看操作路径，最后确认结果有没有真正跑通。</p>
+<p>常见卡点： 服务器终端和本机终端不一样，容易把 macOS/Windows 的命令照搬到 Linux 不知道安装前要先查系统、Node/Git/curl、普通用户和 sudo 权限 安装后 <code>claude</code> 命令可能找不到，PATH、shell 重载和安装位置容易混在一起 认证方式容易混：Claude.ai 订阅、Anthropic Console/API 计费、积木代码助手 Key/API 地址不是同一件事</p>
+<p>看完这篇，你应该能做到： 在 Linux 服务器上按顺序检查 SSH、用户权限、系统环境、Node/Git/curl 使用 Claude Code 官方推荐的 Linux/macOS 安装命令安装：<code>curl -fsSL https://claude.ai/install.sh | bash</code> 用 <code>claude --version</code>、<code>claude --help</code>、<code>claude doctor</code>、<code>claude auth status --text</code> 这类命令确认状态 知道 <code>~/.claude/settings.json</code>、<code>.claude/settings.json</code>、<code>.claude/settings.local.json</code>、<code>~/.claude.json</code> 大致各管什么</p>
+<p>我的建议是，第一次操作时不要一边改很多地方，一边猜原因。先把页面、终端输出、配置文件、日志记录这几块分开看，哪一步不一致，就从那一步往回查。</p>
+<p>如果你也在配置或使用 AI 编程工具，可以先收藏这篇。后面遇到类似问题时，按这条路线重新核对一遍，通常能更快判断下一步该看哪里。</p>
+<h2>配图说明</h2>
+<p>首图用 <code>cover-flow-images/V014-cover-douyin.png</code>。 第二张用 <code>cover-flow-images/V014-flow.png</code>。 后面从 <code>ppt-images/slide-01.png</code> 到 <code>ppt-images/slide-08.png</code> 里选关键步骤图。 如果平台限制图片数量，优先保留：流程图、关键操作、常见错误、结果确认。</p>
+<h2>配图预览</h2>
+<h3>首图与流程图</h3>
+<figure><img src="cover-flow-images/V014-cover-douyin.png" alt="V014 竖版首图" loading="lazy"><figcaption>V014 竖版首图</figcaption></figure>
+<figure><img src="cover-flow-images/V014-cover-landscape.png" alt="V014 横版封面" loading="lazy"><figcaption>V014 横版封面</figcaption></figure>
+<figure><img src="cover-flow-images/V014-flow-article-style.png" alt="V014 图文风流程图" loading="lazy"><figcaption>V014 图文风流程图</figcaption></figure>
+<figure><img src="cover-flow-images/V014-flow.png" alt="V014 流程图" loading="lazy"><figcaption>V014 流程图</figcaption></figure>
+<figure><img src="cover-flow-images/V014-flow.svg" alt="V014 流程图 SVG" loading="lazy"><figcaption>V014 流程图 SVG</figcaption></figure>
+<h3>PPT 步骤图</h3>
+<figure><img src="ppt-images/slide-01.png" alt="V014 第 01 张步骤图" loading="lazy"><figcaption>V014 第 01 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-02.png" alt="V014 第 02 张步骤图" loading="lazy"><figcaption>V014 第 02 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-03.png" alt="V014 第 03 张步骤图" loading="lazy"><figcaption>V014 第 03 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-04.png" alt="V014 第 04 张步骤图" loading="lazy"><figcaption>V014 第 04 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-05.png" alt="V014 第 05 张步骤图" loading="lazy"><figcaption>V014 第 05 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-06.png" alt="V014 第 06 张步骤图" loading="lazy"><figcaption>V014 第 06 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-07.png" alt="V014 第 07 张步骤图" loading="lazy"><figcaption>V014 第 07 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-08.png" alt="V014 第 08 张步骤图" loading="lazy"><figcaption>V014 第 08 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-09.png" alt="V014 第 09 张步骤图" loading="lazy"><figcaption>V014 第 09 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-10.png" alt="V014 第 10 张步骤图" loading="lazy"><figcaption>V014 第 10 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-11.png" alt="V014 第 11 张步骤图" loading="lazy"><figcaption>V014 第 11 张步骤图</figcaption></figure>
+<figure><img src="ppt-images/slide-12.png" alt="V014 第 12 张步骤图" loading="lazy"><figcaption>V014 第 12 张步骤图</figcaption></figure>
+<h2>标签</h2>
+<p>#ClaudeCode #Linux服务器 #SSH #AI编程 #服务器部署 #配置教程 #权限安全 #日志核对 #真实录屏</p><div class="cta">建议：先看这篇网页预览，再按平台要求复制文字并上传配图。</div></article><div class="footer">返回 <a href="../../index.html">文章总目录</a> · 查看 <a href="README.md">本篇素材目录</a></div></main></body></html>

@@ -6,749 +6,713 @@
   <link rel="icon" href="data:,">
   <title>积木代码助手推广图文博客</title>
   <style>
-    :root {
-      --paper: #fbf7ef;
-      --ink: #171717;
-      --muted: #62615e;
-      --blue: #2f6df6;
-      --green: #20a66b;
-      --pink: #f15e8a;
-      --line: #26231e;
-      --card: #fffdf8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      letter-spacing: 0;
-    }
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 42px 22px 72px; }
-    .hero {
-      border: 2px solid var(--line);
-      background: #fffaf0;
-      padding: 34px;
-      box-shadow: 8px 8px 0 #171717;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      top: -80px;
-      width: 240px;
-      height: 240px;
-      background: repeating-linear-gradient(135deg, #2f6df6 0 10px, #f15e8a 10px 20px, #20a66b 20px 30px);
-      opacity: .16;
-      transform: rotate(8deg);
-    }
-    .kicker { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 14px; font-weight: 800; }
-    .pill { border: 2px solid var(--line); border-radius: 999px; padding: 8px 14px; background: white; }
-    h1 { margin: 22px 0 12px; font-size: clamp(42px, 7vw, 86px); line-height: .98; max-width: 880px; }
-    .lead { max-width: 780px; font-size: 19px; line-height: 1.8; color: #34312d; margin: 0; }
-    .toolbar { display: flex; flex-wrap: wrap; gap: 14px; margin: 32px 0 26px; align-items: center; }
-    .search {
-      flex: 1 1 300px;
-      min-width: 240px;
-      height: 48px;
-      border: 2px solid var(--line);
-      padding: 0 16px;
-      background: #fff;
-      font-size: 16px;
-      outline: none;
-    }
-    .count { font-weight: 800; border: 2px solid var(--line); padding: 12px 16px; background: #171717; color: #fff; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .card { border: 2px solid var(--line); background: var(--card); box-shadow: 5px 5px 0 #171717; min-width: 0; }
-    .thumb { display: block; aspect-ratio: 16 / 9; border-bottom: 2px solid var(--line); overflow: hidden; background: #eee7da; }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .no-cover { height: 100%; display: grid; place-items: center; font-weight: 900; color: var(--muted); }
-    .card-body { padding: 16px; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 900; border-radius: 999px; padding: 6px 10px; background: #dce8ff; border: 1px solid #9cb8ff; }
-    h2 { font-size: 21px; line-height: 1.32; margin: 12px 0 10px; min-height: 56px; }
-    p { color: var(--muted); line-height: 1.7; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-    .links a { color: var(--ink); text-decoration: none; border: 2px solid var(--line); padding: 8px 10px; background: #fff; font-weight: 800; }
-    .links a:hover { background: #171717; color: white; }
-    .footer { margin-top: 40px; border-top: 2px solid var(--line); padding-top: 18px; color: var(--muted); }
-    @media (max-width: 620px) {
-      .wrap { padding: 22px 14px 46px; }
-      .hero { padding: 24px 18px; box-shadow: 5px 5px 0 #171717; }
-      h1 { font-size: 42px; }
-      .lead { font-size: 16px; }
-    }
+    :root { --paper:#fbf7ef; --ink:#171717; --muted:#62615e; --blue:#2f6df6; --green:#20a66b; --pink:#f15e8a; --line:#26231e; --card:#fffdf8; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; letter-spacing:0; }
+    .wrap { max-width:1180px; margin:0 auto; padding:42px 22px 72px; }
+    .hero { border:2px solid var(--line); background:#fffaf0; padding:34px; box-shadow:8px 8px 0 #171717; position:relative; overflow:hidden; }
+    .hero::after { content:""; position:absolute; right:-70px; top:-80px; width:240px; height:240px; background:repeating-linear-gradient(135deg,#2f6df6 0 10px,#f15e8a 10px 20px,#20a66b 20px 30px); opacity:.16; transform:rotate(8deg); }
+    .kicker { display:inline-flex; gap:10px; flex-wrap:wrap; align-items:center; font-size:14px; font-weight:800; } .pill { border:2px solid var(--line); border-radius:999px; padding:8px 14px; background:white; }
+    h1 { margin:22px 0 12px; font-size:clamp(42px,7vw,86px); line-height:.98; max-width:880px; } .lead { max-width:800px; font-size:19px; line-height:1.8; color:#34312d; margin:0; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:14px; margin:32px 0 26px; align-items:center; } .search { flex:1 1 300px; min-width:240px; height:48px; border:2px solid var(--line); padding:0 16px; background:#fff; font-size:16px; outline:none; } .count { font-weight:800; border:2px solid var(--line); padding:12px 16px; background:#171717; color:#fff; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; } .card { border:2px solid var(--line); background:var(--card); box-shadow:5px 5px 0 #171717; min-width:0; } .thumb { display:block; aspect-ratio:16/9; border-bottom:2px solid var(--line); overflow:hidden; background:#eee7da; } .thumb img { width:100%; height:100%; object-fit:cover; display:block; } .no-cover { height:100%; display:grid; place-items:center; font-weight:900; color:var(--muted); }
+    .card-body { padding:16px; } .tag { display:inline-block; font-size:12px; font-weight:900; border-radius:999px; padding:6px 10px; background:#dce8ff; border:1px solid #9cb8ff; } h2 { font-size:21px; line-height:1.32; margin:12px 0 10px; min-height:56px; } p { color:var(--muted); line-height:1.7; } .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; } .links a { color:var(--ink); text-decoration:none; border:2px solid var(--line); padding:8px 10px; background:#fff; font-weight:800; } .links a:hover { background:#171717; color:white; } .footer { margin-top:40px; border-top:2px solid var(--line); padding-top:18px; color:var(--muted); }
+    @media(max-width:620px) { .wrap { padding:22px 14px 46px; } .hero { padding:24px 18px; box-shadow:5px 5px 0 #171717; } h1 { font-size:42px; } .lead { font-size:16px; } }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="kicker"><span class="pill">V001-V058</span><span class="pill">GitHub / Gitee 可预览</span><span class="pill">推广图文素材</span></div>
-      <h1>积木代码助手<br>推广图文博客</h1>
-      <p class="lead">把 58 条推广视频的图文发布稿、封面流程图和 PPT 图片整理成可浏览的文章库。适合先在线预览，再复制到公众号、B站、小红书、抖音图文等平台。</p>
-    </section>
-    <div class="toolbar">
-      <input class="search" id="search" placeholder="搜索编号或标题，例如 V001、Codex、Claude Code、服务器" aria-label="搜索文章">
-      <div class="count"><span id="shown">58</span> / 58 篇</div>
-    </div>
-    <section class="grid" id="grid">
-      <article class="card" data-code="V001">
-  <a class="thumb" href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/README.md"><img src="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/cover-flow-images/V001-cover-landscape.png" alt="V001 封面" loading="lazy"></a>
+<body><main class="wrap"><section class="hero"><div class="kicker"><span class="pill">V001-V058</span><span class="pill">网页图文博客</span><span class="pill">GitHub / Gitee Pages</span></div><h1>积木代码助手<br>推广图文博客</h1><p class="lead">58 篇 AI 编程工具推广图文已经整理成可直接浏览的网页文章。每篇都包含文字、封面、流程图和 PPT 步骤图，适合先在线预览，再复制到公众号、B站、小红书、抖音图文等平台。</p></section><div class="toolbar"><input class="search" id="search" placeholder="搜索编号或标题，例如 V001、Codex、Claude Code、服务器" aria-label="搜索文章"><div class="count"><span id="shown">58</span> / 58 篇</div></div><section class="grid" id="grid"><article class="card" data-code="V001">
+  <a class="thumb" href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/index.html"><img src="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/cover-flow-images/V001-cover-landscape.png" alt="V001 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V001 · 推广图文</div>
+    <div class="tag">V001 · 图文博客</div>
     <h2>积木代码助手从购买 Key 到日志核对完整路线</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/index.html">网页阅读</a>
+      <a href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V001-积木代码助手从购买 Key 到日志核对完整路线/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V002">
-  <a class="thumb" href="posts/V002-Codex Key 配置失败先查哪 5 个地方/README.md"><img src="posts/V002-Codex Key 配置失败先查哪 5 个地方/cover-flow-images/V002-cover-landscape.png" alt="V002 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V002-Codex Key 配置失败先查哪 5 个地方/index.html"><img src="posts/V002-Codex Key 配置失败先查哪 5 个地方/cover-flow-images/V002-cover-landscape.png" alt="V002 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V002 · 推广图文</div>
+    <div class="tag">V002 · 图文博客</div>
     <h2>Codex Key 配置失败先查哪 5 个地方</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V002-Codex Key 配置失败先查哪 5 个地方/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V002-Codex Key 配置失败先查哪 5 个地方/index.html">网页阅读</a>
+      <a href="posts/V002-Codex Key 配置失败先查哪 5 个地方/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V002-Codex Key 配置失败先查哪 5 个地方/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V003">
-  <a class="thumb" href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/README.md"><img src="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/cover-flow-images/V003-cover-landscape.png" alt="V003 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/index.html"><img src="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/cover-flow-images/V003-cover-landscape.png" alt="V003 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V003 · 推广图文</div>
+    <div class="tag">V003 · 图文博客</div>
     <h2>Claude Code Key 配置失败先查 Key、地址和权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/index.html">网页阅读</a>
+      <a href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V003-Claude Code Key 配置失败先查 Key、地址和权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V004">
-  <a class="thumb" href="posts/V004-购买前怎么选 Codex 还是 Claude Code/README.md"><img src="posts/V004-购买前怎么选 Codex 还是 Claude Code/cover-flow-images/V004-cover-landscape.png" alt="V004 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V004-购买前怎么选 Codex 还是 Claude Code/index.html"><img src="posts/V004-购买前怎么选 Codex 还是 Claude Code/cover-flow-images/V004-cover-landscape.png" alt="V004 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V004 · 推广图文</div>
+    <div class="tag">V004 · 图文博客</div>
     <h2>购买前怎么选 Codex 还是 Claude Code</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V004-购买前怎么选 Codex 还是 Claude Code/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V004-购买前怎么选 Codex 还是 Claude Code/index.html">网页阅读</a>
+      <a href="posts/V004-购买前怎么选 Codex 还是 Claude Code/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V004-购买前怎么选 Codex 还是 Claude Code/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V005">
-  <a class="thumb" href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/README.md"><img src="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/cover-flow-images/V005-cover-landscape.png" alt="V005 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/index.html"><img src="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/cover-flow-images/V005-cover-landscape.png" alt="V005 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V005 · 推广图文</div>
+    <div class="tag">V005 · 图文博客</div>
     <h2>Codex 新手从 0 到 1：先跑通再写代码</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/index.html">网页阅读</a>
+      <a href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V005-Codex 新手从 0 到 1：先跑通再写代码/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V006">
-  <a class="thumb" href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/README.md"><img src="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/cover-flow-images/V006-cover-landscape.png" alt="V006 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/index.html"><img src="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/cover-flow-images/V006-cover-landscape.png" alt="V006 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V006 · 推广图文</div>
+    <div class="tag">V006 · 图文博客</div>
     <h2>Claude Code 新手从 0 到 1：先登录再进入项目</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/index.html">网页阅读</a>
+      <a href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V006-Claude Code 新手从 0 到 1：先登录再进入项目/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V007">
-  <a class="thumb" href="posts/V007-Windows 上安装 Codex 到第一次提问/README.md"><img src="posts/V007-Windows 上安装 Codex 到第一次提问/cover-flow-images/V007-cover-landscape.png" alt="V007 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V007-Windows 上安装 Codex 到第一次提问/index.html"><img src="posts/V007-Windows 上安装 Codex 到第一次提问/cover-flow-images/V007-cover-landscape.png" alt="V007 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V007 · 推广图文</div>
+    <div class="tag">V007 · 图文博客</div>
     <h2>Windows 上安装 Codex 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V007-Windows 上安装 Codex 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V007-Windows 上安装 Codex 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V007-Windows 上安装 Codex 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V007-Windows 上安装 Codex 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V008">
-  <a class="thumb" href="posts/V008-Windows 上安装 Claude Code 到第一次提问/README.md"><img src="posts/V008-Windows 上安装 Claude Code 到第一次提问/cover-flow-images/V008-cover-landscape.png" alt="V008 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V008-Windows 上安装 Claude Code 到第一次提问/index.html"><img src="posts/V008-Windows 上安装 Claude Code 到第一次提问/cover-flow-images/V008-cover-landscape.png" alt="V008 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V008 · 推广图文</div>
+    <div class="tag">V008 · 图文博客</div>
     <h2>Windows 上安装 Claude Code 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V008-Windows 上安装 Claude Code 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V008-Windows 上安装 Claude Code 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V008-Windows 上安装 Claude Code 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V008-Windows 上安装 Claude Code 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V009">
-  <a class="thumb" href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/README.md"><img src="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/cover-flow-images/V009-cover-landscape.png" alt="V009 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/index.html"><img src="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/cover-flow-images/V009-cover-landscape.png" alt="V009 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V009 · 推广图文</div>
+    <div class="tag">V009 · 图文博客</div>
     <h2>Windows 新手先检查 Node.js、Git、VS Code</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/index.html">网页阅读</a>
+      <a href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V009-Windows 新手先检查 Node.js、Git、VS Code/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V010">
-  <a class="thumb" href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/README.md"><img src="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/cover-flow-images/V010-cover-landscape.png" alt="V010 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/index.html"><img src="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/cover-flow-images/V010-cover-landscape.png" alt="V010 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V010 · 推广图文</div>
+    <div class="tag">V010 · 图文博客</div>
     <h2>Windows 命令找不到、PATH、中文路径、乱码怎么排查</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/index.html">网页阅读</a>
+      <a href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V010-Windows 命令找不到、PATH、中文路径、乱码怎么排查/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V011">
-  <a class="thumb" href="posts/V011-macOS 上安装 Codex 到第一次提问/README.md"><img src="posts/V011-macOS 上安装 Codex 到第一次提问/cover-flow-images/V011-cover-landscape.png" alt="V011 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V011-macOS 上安装 Codex 到第一次提问/index.html"><img src="posts/V011-macOS 上安装 Codex 到第一次提问/cover-flow-images/V011-cover-landscape.png" alt="V011 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V011 · 推广图文</div>
+    <div class="tag">V011 · 图文博客</div>
     <h2>macOS 上安装 Codex 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V011-macOS 上安装 Codex 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V011-macOS 上安装 Codex 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V011-macOS 上安装 Codex 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V011-macOS 上安装 Codex 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V012">
-  <a class="thumb" href="posts/V012-macOS 上安装 Claude Code 到第一次提问/README.md"><img src="posts/V012-macOS 上安装 Claude Code 到第一次提问/cover-flow-images/V012-cover-landscape.png" alt="V012 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V012-macOS 上安装 Claude Code 到第一次提问/index.html"><img src="posts/V012-macOS 上安装 Claude Code 到第一次提问/cover-flow-images/V012-cover-landscape.png" alt="V012 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V012 · 推广图文</div>
+    <div class="tag">V012 · 图文博客</div>
     <h2>macOS 上安装 Claude Code 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V012-macOS 上安装 Claude Code 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V012-macOS 上安装 Claude Code 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V012-macOS 上安装 Claude Code 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V012-macOS 上安装 Claude Code 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V013">
-  <a class="thumb" href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/README.md"><img src="posts/V013-Linux 服务器上安装 Codex 到第一次提问/cover-flow-images/V013-cover-landscape.png" alt="V013 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/index.html"><img src="posts/V013-Linux 服务器上安装 Codex 到第一次提问/cover-flow-images/V013-cover-landscape.png" alt="V013 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V013 · 推广图文</div>
+    <div class="tag">V013 · 图文博客</div>
     <h2>Linux 服务器上安装 Codex 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V013-Linux 服务器上安装 Codex 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V014">
-  <a class="thumb" href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/README.md"><img src="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/cover-flow-images/V014-cover-landscape.png" alt="V014 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/index.html"><img src="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/cover-flow-images/V014-cover-landscape.png" alt="V014 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V014 · 推广图文</div>
+    <div class="tag">V014 · 图文博客</div>
     <h2>Linux 服务器上安装 Claude Code 到第一次提问</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/index.html">网页阅读</a>
+      <a href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V014-Linux 服务器上安装 Claude Code 到第一次提问/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V015">
-  <a class="thumb" href="posts/V015-阿里云 ECS 新手买服务器完整路线/README.md"><img src="posts/V015-阿里云 ECS 新手买服务器完整路线/cover-flow-images/V015-cover-landscape.png" alt="V015 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V015-阿里云 ECS 新手买服务器完整路线/index.html"><img src="posts/V015-阿里云 ECS 新手买服务器完整路线/cover-flow-images/V015-cover-landscape.png" alt="V015 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V015 · 推广图文</div>
+    <div class="tag">V015 · 图文博客</div>
     <h2>阿里云 ECS 新手买服务器完整路线</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V015-阿里云 ECS 新手买服务器完整路线/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V015-阿里云 ECS 新手买服务器完整路线/index.html">网页阅读</a>
+      <a href="posts/V015-阿里云 ECS 新手买服务器完整路线/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V015-阿里云 ECS 新手买服务器完整路线/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V016">
-  <a class="thumb" href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/README.md"><img src="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/cover-flow-images/V016-cover-landscape.png" alt="V016 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/index.html"><img src="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/cover-flow-images/V016-cover-landscape.png" alt="V016 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V016 · 推广图文</div>
+    <div class="tag">V016 · 图文博客</div>
     <h2>ECS 买完后五件事：安全组、SSH、更新、Git、Node</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/index.html">网页阅读</a>
+      <a href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V016-ECS 买完后五件事：安全组、SSH、更新、Git、Node/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V017">
-  <a class="thumb" href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/README.md"><img src="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/cover-flow-images/V017-cover-landscape.png" alt="V017 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/index.html"><img src="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/cover-flow-images/V017-cover-landscape.png" alt="V017 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V017 · 推广图文</div>
+    <div class="tag">V017 · 图文博客</div>
     <h2>SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/index.html">网页阅读</a>
+      <a href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V017-SSH 登录阿里云服务器：Windows、Mac、Linux 三种入口/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V018">
-  <a class="thumb" href="posts/V018-服务器第一次登录后必须做的安全检查/README.md"><img src="posts/V018-服务器第一次登录后必须做的安全检查/cover-flow-images/V018-cover-landscape.png" alt="V018 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V018-服务器第一次登录后必须做的安全检查/index.html"><img src="posts/V018-服务器第一次登录后必须做的安全检查/cover-flow-images/V018-cover-landscape.png" alt="V018 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V018 · 推广图文</div>
+    <div class="tag">V018 · 图文博客</div>
     <h2>服务器第一次登录后必须做的安全检查</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V018-服务器第一次登录后必须做的安全检查/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V018-服务器第一次登录后必须做的安全检查/index.html">网页阅读</a>
+      <a href="posts/V018-服务器第一次登录后必须做的安全检查/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V018-服务器第一次登录后必须做的安全检查/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V019">
-  <a class="thumb" href="posts/V019-服务器上怎么保护 Key、配置和多人权限/README.md"><img src="posts/V019-服务器上怎么保护 Key、配置和多人权限/cover-flow-images/V019-cover-landscape.png" alt="V019 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V019-服务器上怎么保护 Key、配置和多人权限/index.html"><img src="posts/V019-服务器上怎么保护 Key、配置和多人权限/cover-flow-images/V019-cover-landscape.png" alt="V019 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V019 · 推广图文</div>
+    <div class="tag">V019 · 图文博客</div>
     <h2>服务器上怎么保护 Key、配置和多人权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V019-服务器上怎么保护 Key、配置和多人权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V019-服务器上怎么保护 Key、配置和多人权限/index.html">网页阅读</a>
+      <a href="posts/V019-服务器上怎么保护 Key、配置和多人权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V019-服务器上怎么保护 Key、配置和多人权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V020">
-  <a class="thumb" href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/README.md"><img src="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/cover-flow-images/V020-cover-landscape.png" alt="V020 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/index.html"><img src="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/cover-flow-images/V020-cover-landscape.png" alt="V020 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V020 · 推广图文</div>
+    <div class="tag">V020 · 图文博客</div>
     <h2>Codex CLI 常用命令总览：help、login、doctor、update</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/index.html">网页阅读</a>
+      <a href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V020-Codex CLI 常用命令总览：help、login、doctor、update/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V021">
-  <a class="thumb" href="posts/V021-Codex 非交互和结构化输出怎么用/README.md"><img src="posts/V021-Codex 非交互和结构化输出怎么用/cover-flow-images/V021-cover-landscape.png" alt="V021 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V021-Codex 非交互和结构化输出怎么用/index.html"><img src="posts/V021-Codex 非交互和结构化输出怎么用/cover-flow-images/V021-cover-landscape.png" alt="V021 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V021 · 推广图文</div>
+    <div class="tag">V021 · 图文博客</div>
     <h2>Codex 非交互和结构化输出怎么用</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V021-Codex 非交互和结构化输出怎么用/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V021-Codex 非交互和结构化输出怎么用/index.html">网页阅读</a>
+      <a href="posts/V021-Codex 非交互和结构化输出怎么用/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V021-Codex 非交互和结构化输出怎么用/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V022">
-  <a class="thumb" href="posts/V022-Codex 权限、沙盒和审批模式怎么选/README.md"><img src="posts/V022-Codex 权限、沙盒和审批模式怎么选/cover-flow-images/V022-cover-landscape.png" alt="V022 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V022-Codex 权限、沙盒和审批模式怎么选/index.html"><img src="posts/V022-Codex 权限、沙盒和审批模式怎么选/cover-flow-images/V022-cover-landscape.png" alt="V022 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V022 · 推广图文</div>
+    <div class="tag">V022 · 图文博客</div>
     <h2>Codex 权限、沙盒和审批模式怎么选</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V022-Codex 权限、沙盒和审批模式怎么选/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V022-Codex 权限、沙盒和审批模式怎么选/index.html">网页阅读</a>
+      <a href="posts/V022-Codex 权限、沙盒和审批模式怎么选/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V022-Codex 权限、沙盒和审批模式怎么选/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V023">
-  <a class="thumb" href="posts/V023-Codex 进入项目后第一次读代码怎么录/README.md"><img src="posts/V023-Codex 进入项目后第一次读代码怎么录/cover-flow-images/V023-cover-landscape.png" alt="V023 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V023-Codex 进入项目后第一次读代码怎么录/index.html"><img src="posts/V023-Codex 进入项目后第一次读代码怎么录/cover-flow-images/V023-cover-landscape.png" alt="V023 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V023 · 推广图文</div>
+    <div class="tag">V023 · 图文博客</div>
     <h2>Codex 进入项目后第一次读代码怎么录</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V023-Codex 进入项目后第一次读代码怎么录/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V023-Codex 进入项目后第一次读代码怎么录/index.html">网页阅读</a>
+      <a href="posts/V023-Codex 进入项目后第一次读代码怎么录/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V023-Codex 进入项目后第一次读代码怎么录/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V024">
-  <a class="thumb" href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/README.md"><img src="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/cover-flow-images/V024-cover-landscape.png" alt="V024 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/index.html"><img src="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/cover-flow-images/V024-cover-landscape.png" alt="V024 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V024 · 推广图文</div>
+    <div class="tag">V024 · 图文博客</div>
     <h2>Claude Code 常用命令总览：help、auth、doctor、update</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/index.html">网页阅读</a>
+      <a href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V024-Claude Code 常用命令总览：help、auth、doctor、update/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V025">
-  <a class="thumb" href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/README.md"><img src="posts/V025-Claude Code 非交互和 JSON 输出怎么用/cover-flow-images/V025-cover-landscape.png" alt="V025 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/index.html"><img src="posts/V025-Claude Code 非交互和 JSON 输出怎么用/cover-flow-images/V025-cover-landscape.png" alt="V025 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V025 · 推广图文</div>
+    <div class="tag">V025 · 图文博客</div>
     <h2>Claude Code 非交互和 JSON 输出怎么用</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/index.html">网页阅读</a>
+      <a href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V025-Claude Code 非交互和 JSON 输出怎么用/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V026">
-  <a class="thumb" href="posts/V026-Claude Code 权限模式和工具限制怎么选/README.md"><img src="posts/V026-Claude Code 权限模式和工具限制怎么选/cover-flow-images/V026-cover-landscape.png" alt="V026 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V026-Claude Code 权限模式和工具限制怎么选/index.html"><img src="posts/V026-Claude Code 权限模式和工具限制怎么选/cover-flow-images/V026-cover-landscape.png" alt="V026 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V026 · 推广图文</div>
+    <div class="tag">V026 · 图文博客</div>
     <h2>Claude Code 权限模式和工具限制怎么选</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V026-Claude Code 权限模式和工具限制怎么选/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V026-Claude Code 权限模式和工具限制怎么选/index.html">网页阅读</a>
+      <a href="posts/V026-Claude Code 权限模式和工具限制怎么选/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V026-Claude Code 权限模式和工具限制怎么选/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V027">
-  <a class="thumb" href="posts/V027-Claude Code 第一次进入项目和读代码/README.md"><img src="posts/V027-Claude Code 第一次进入项目和读代码/cover-flow-images/V027-cover-landscape.png" alt="V027 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V027-Claude Code 第一次进入项目和读代码/index.html"><img src="posts/V027-Claude Code 第一次进入项目和读代码/cover-flow-images/V027-cover-landscape.png" alt="V027 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V027 · 推广图文</div>
+    <div class="tag">V027 · 图文博客</div>
     <h2>Claude Code 第一次进入项目和读代码</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V027-Claude Code 第一次进入项目和读代码/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V027-Claude Code 第一次进入项目和读代码/index.html">网页阅读</a>
+      <a href="posts/V027-Claude Code 第一次进入项目和读代码/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V027-Claude Code 第一次进入项目和读代码/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V028">
-  <a class="thumb" href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/README.md"><img src="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/cover-flow-images/V028-cover-landscape.png" alt="V028 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/index.html"><img src="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/cover-flow-images/V028-cover-landscape.png" alt="V028 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V028 · 推广图文</div>
+    <div class="tag">V028 · 图文博客</div>
     <h2>AGENTS.md 和 CLAUDE.md 到底怎么写</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/index.html">网页阅读</a>
+      <a href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V028-AGENTS.md 和 CLAUDE.md 到底怎么写/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V029">
-  <a class="thumb" href="posts/V029-规则文件写太多、不生效、冲突怎么排查/README.md"><img src="posts/V029-规则文件写太多、不生效、冲突怎么排查/cover-flow-images/V029-cover-landscape.png" alt="V029 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V029-规则文件写太多、不生效、冲突怎么排查/index.html"><img src="posts/V029-规则文件写太多、不生效、冲突怎么排查/cover-flow-images/V029-cover-landscape.png" alt="V029 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V029 · 推广图文</div>
+    <div class="tag">V029 · 图文博客</div>
     <h2>规则文件写太多、不生效、冲突怎么排查</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V029-规则文件写太多、不生效、冲突怎么排查/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V029-规则文件写太多、不生效、冲突怎么排查/index.html">网页阅读</a>
+      <a href="posts/V029-规则文件写太多、不生效、冲突怎么排查/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V029-规则文件写太多、不生效、冲突怎么排查/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V030">
-  <a class="thumb" href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/README.md"><img src="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/cover-flow-images/V030-cover-landscape.png" alt="V030 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/index.html"><img src="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/cover-flow-images/V030-cover-landscape.png" alt="V030 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V030 · 推广图文</div>
+    <div class="tag">V030 · 图文博客</div>
     <h2>前端、后端、Python、全栈项目规则模板怎么录</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/index.html">网页阅读</a>
+      <a href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V030-前端、后端、Python、全栈项目规则模板怎么录/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V031">
-  <a class="thumb" href="posts/V031-AI 编程工具不要一上来给满权限/README.md"><img src="posts/V031-AI 编程工具不要一上来给满权限/cover-flow-images/V031-cover-landscape.png" alt="V031 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V031-AI 编程工具不要一上来给满权限/index.html"><img src="posts/V031-AI 编程工具不要一上来给满权限/cover-flow-images/V031-cover-landscape.png" alt="V031 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V031 · 推广图文</div>
+    <div class="tag">V031 · 图文博客</div>
     <h2>AI 编程工具不要一上来给满权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V031-AI 编程工具不要一上来给满权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V031-AI 编程工具不要一上来给满权限/index.html">网页阅读</a>
+      <a href="posts/V031-AI 编程工具不要一上来给满权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V031-AI 编程工具不要一上来给满权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V032">
-  <a class="thumb" href="posts/V032-审批提示出现时到底该看哪些关键词/README.md"><img src="posts/V032-审批提示出现时到底该看哪些关键词/cover-flow-images/V032-cover-landscape.png" alt="V032 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V032-审批提示出现时到底该看哪些关键词/index.html"><img src="posts/V032-审批提示出现时到底该看哪些关键词/cover-flow-images/V032-cover-landscape.png" alt="V032 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V032 · 推广图文</div>
+    <div class="tag">V032 · 图文博客</div>
     <h2>审批提示出现时到底该看哪些关键词</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V032-审批提示出现时到底该看哪些关键词/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V032-审批提示出现时到底该看哪些关键词/index.html">网页阅读</a>
+      <a href="posts/V032-审批提示出现时到底该看哪些关键词/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V032-审批提示出现时到底该看哪些关键词/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V033">
-  <a class="thumb" href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/README.md"><img src="posts/V033-MCP 新手第 1 集：连接、权限和失败点/cover-flow-images/V033-cover-landscape.png" alt="V033 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/index.html"><img src="posts/V033-MCP 新手第 1 集：连接、权限和失败点/cover-flow-images/V033-cover-landscape.png" alt="V033 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V033 · 推广图文</div>
+    <div class="tag">V033 · 图文博客</div>
     <h2>MCP 新手第 1 集：连接、权限和失败点</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/index.html">网页阅读</a>
+      <a href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V033-MCP 新手第 1 集：连接、权限和失败点/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V034">
-  <a class="thumb" href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/README.md"><img src="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/cover-flow-images/V034-cover-landscape.png" alt="V034 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/index.html"><img src="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/cover-flow-images/V034-cover-landscape.png" alt="V034 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V034 · 推广图文</div>
+    <div class="tag">V034 · 图文博客</div>
     <h2>GitHub、数据库、浏览器、Playwright MCP 适合做什么</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/index.html">网页阅读</a>
+      <a href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V034-GitHub、数据库、浏览器、Playwright MCP 适合做什么/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V035">
-  <a class="thumb" href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/README.md"><img src="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/cover-flow-images/V035-cover-landscape.png" alt="V035 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/index.html"><img src="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/cover-flow-images/V035-cover-landscape.png" alt="V035 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V035 · 推广图文</div>
+    <div class="tag">V035 · 图文博客</div>
     <h2>Codex 和 Claude Code 的 Skill、Agent、插件怎么区分</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/index.html">网页阅读</a>
+      <a href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V035-Codex 和 Claude Code 的 Skill、Agent、插件怎么区分/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V036">
-  <a class="thumb" href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/README.md"><img src="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/cover-flow-images/V036-cover-landscape.png" alt="V036 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/index.html"><img src="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/cover-flow-images/V036-cover-landscape.png" alt="V036 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V036 · 推广图文</div>
+    <div class="tag">V036 · 图文博客</div>
     <h2>多 Agent 适合拆哪些任务，不适合什么时候用</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/index.html">网页阅读</a>
+      <a href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V036-多 Agent 适合拆哪些任务，不适合什么时候用/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V037">
-  <a class="thumb" href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/README.md"><img src="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/cover-flow-images/V037-cover-landscape.png" alt="V037 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/index.html"><img src="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/cover-flow-images/V037-cover-landscape.png" alt="V037 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V037 · 推广图文</div>
+    <div class="tag">V037 · 图文博客</div>
     <h2>Skill 适合做代码审查、视频脚本、项目初始化模板吗</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/index.html">网页阅读</a>
+      <a href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V037-Skill 适合做代码审查、视频脚本、项目初始化模板吗/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V038">
-  <a class="thumb" href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/README.md"><img src="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/cover-flow-images/V038-cover-landscape.png" alt="V038 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/index.html"><img src="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/cover-flow-images/V038-cover-landscape.png" alt="V038 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V038 · 推广图文</div>
+    <div class="tag">V038 · 图文博客</div>
     <h2>Hooks 能解决什么问题：生命周期、日志和自动化</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/index.html">网页阅读</a>
+      <a href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V038-Hooks 能解决什么问题：生命周期、日志和自动化/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V039">
-  <a class="thumb" href="posts/V039-批量检查多个仓库怎么录才不枯燥/README.md"><img src="posts/V039-批量检查多个仓库怎么录才不枯燥/cover-flow-images/V039-cover-landscape.png" alt="V039 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V039-批量检查多个仓库怎么录才不枯燥/index.html"><img src="posts/V039-批量检查多个仓库怎么录才不枯燥/cover-flow-images/V039-cover-landscape.png" alt="V039 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V039 · 推广图文</div>
+    <div class="tag">V039 · 图文博客</div>
     <h2>批量检查多个仓库怎么录才不枯燥</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V039-批量检查多个仓库怎么录才不枯燥/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V039-批量检查多个仓库怎么录才不枯燥/index.html">网页阅读</a>
+      <a href="posts/V039-批量检查多个仓库怎么录才不枯燥/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V039-批量检查多个仓库怎么录才不枯燥/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V040">
-  <a class="thumb" href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/README.md"><img src="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/cover-flow-images/V040-cover-landscape.png" alt="V040 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/index.html"><img src="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/cover-flow-images/V040-cover-landscape.png" alt="V040 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V040 · 推广图文</div>
+    <div class="tag">V040 · 图文博客</div>
     <h2>VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/index.html">网页阅读</a>
+      <a href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V040-VS Code、Cursor、Windsurf、JetBrains 里怎么配合 AI 编程工具/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V041">
-  <a class="thumb" href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/README.md"><img src="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/cover-flow-images/V041-cover-landscape.png" alt="V041 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/index.html"><img src="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/cover-flow-images/V041-cover-landscape.png" alt="V041 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V041 · 推广图文</div>
+    <div class="tag">V041 · 图文博客</div>
     <h2>AI 修改后怎么用 Git 面板和测试面板确认结果</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/index.html">网页阅读</a>
+      <a href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V041-AI 修改后怎么用 Git 面板和测试面板确认结果/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V042">
-  <a class="thumb" href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/README.md"><img src="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/cover-flow-images/V042-cover-landscape.png" alt="V042 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/index.html"><img src="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/cover-flow-images/V042-cover-landscape.png" alt="V042 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V042 · 推广图文</div>
+    <div class="tag">V042 · 图文博客</div>
     <h2>修 Bug 前正确提问格式：复现、期望、边界、验证</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/index.html">网页阅读</a>
+      <a href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V042-修 Bug 前正确提问格式：复现、期望、边界、验证/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V043">
-  <a class="thumb" href="posts/V043-写新功能前要给 AI 哪些约束/README.md"><img src="posts/V043-写新功能前要给 AI 哪些约束/cover-flow-images/V043-cover-landscape.png" alt="V043 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V043-写新功能前要给 AI 哪些约束/index.html"><img src="posts/V043-写新功能前要给 AI 哪些约束/cover-flow-images/V043-cover-landscape.png" alt="V043 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V043 · 推广图文</div>
+    <div class="tag">V043 · 图文博客</div>
     <h2>写新功能前要给 AI 哪些约束</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V043-写新功能前要给 AI 哪些约束/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V043-写新功能前要给 AI 哪些约束/index.html">网页阅读</a>
+      <a href="posts/V043-写新功能前要给 AI 哪些约束/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V043-写新功能前要给 AI 哪些约束/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V044">
-  <a class="thumb" href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/README.md"><img src="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/cover-flow-images/V044-cover-landscape.png" alt="V044 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/index.html"><img src="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/cover-flow-images/V044-cover-landscape.png" alt="V044 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V044 · 推广图文</div>
+    <div class="tag">V044 · 图文博客</div>
     <h2>让 AI 标出不确定、方案、风险、回滚和测试清单</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/index.html">网页阅读</a>
+      <a href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V044-让 AI 标出不确定、方案、风险、回滚和测试清单/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V045">
-  <a class="thumb" href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/README.md"><img src="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/cover-flow-images/V045-cover-landscape.png" alt="V045 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/index.html"><img src="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/cover-flow-images/V045-cover-landscape.png" alt="V045 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V045 · 推广图文</div>
+    <div class="tag">V045 · 图文博客</div>
     <h2>新手提示词和项目开发模板怎么做成可复用素材</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/index.html">网页阅读</a>
+      <a href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V045-新手提示词和项目开发模板怎么做成可复用素材/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V046">
-  <a class="thumb" href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/README.md"><img src="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/cover-flow-images/V046-cover-landscape.png" alt="V046 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/index.html"><img src="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/cover-flow-images/V046-cover-landscape.png" alt="V046 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V046 · 推广图文</div>
+    <div class="tag">V046 · 图文博客</div>
     <h2>Codex 前端实战：读项目、修 Bug、新增筛选项</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/index.html">网页阅读</a>
+      <a href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V046-Codex 前端实战：读项目、修 Bug、新增筛选项/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V047">
-  <a class="thumb" href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/README.md"><img src="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/cover-flow-images/V047-cover-landscape.png" alt="V047 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/index.html"><img src="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/cover-flow-images/V047-cover-landscape.png" alt="V047 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V047 · 推广图文</div>
+    <div class="tag">V047 · 图文博客</div>
     <h2>Claude Code 前端实战：读项目、修 Bug、新增筛选项</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/index.html">网页阅读</a>
+      <a href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V047-Claude Code 前端实战：读项目、修 Bug、新增筛选项/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V048">
-  <a class="thumb" href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/README.md"><img src="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/cover-flow-images/V048-cover-landscape.png" alt="V048 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/index.html"><img src="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/cover-flow-images/V048-cover-landscape.png" alt="V048 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V048 · 推广图文</div>
+    <div class="tag">V048 · 图文博客</div>
     <h2>前端录屏项目怎么设计：按钮、表单、路由、状态、权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/index.html">网页阅读</a>
+      <a href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V048-前端录屏项目怎么设计：按钮、表单、路由、状态、权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V049">
-  <a class="thumb" href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/README.md"><img src="posts/V049-Codex 后端实战：读接口、定位 500、补测试/cover-flow-images/V049-cover-landscape.png" alt="V049 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/index.html"><img src="posts/V049-Codex 后端实战：读接口、定位 500、补测试/cover-flow-images/V049-cover-landscape.png" alt="V049 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V049 · 推广图文</div>
+    <div class="tag">V049 · 图文博客</div>
     <h2>Codex 后端实战：读接口、定位 500、补测试</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/index.html">网页阅读</a>
+      <a href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V049-Codex 后端实战：读接口、定位 500、补测试/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V050">
-  <a class="thumb" href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/README.md"><img src="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/cover-flow-images/V050-cover-landscape.png" alt="V050 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/index.html"><img src="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/cover-flow-images/V050-cover-landscape.png" alt="V050 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V050 · 推广图文</div>
+    <div class="tag">V050 · 图文博客</div>
     <h2>Claude Code 后端实战：读接口、定位 500、补测试</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/index.html">网页阅读</a>
+      <a href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V050-Claude Code 后端实战：读接口、定位 500、补测试/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V051">
-  <a class="thumb" href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/README.md"><img src="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/cover-flow-images/V051-cover-landscape.png" alt="V051 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/index.html"><img src="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/cover-flow-images/V051-cover-landscape.png" alt="V051 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V051 · 推广图文</div>
+    <div class="tag">V051 · 图文博客</div>
     <h2>后端录屏项目怎么设计：登录、订单、支付、退款、权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/index.html">网页阅读</a>
+      <a href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V051-后端录屏项目怎么设计：登录、订单、支付、退款、权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V052">
-  <a class="thumb" href="posts/V052-Codex 代码审查：看差异、找风险、补测试/README.md"><img src="posts/V052-Codex 代码审查：看差异、找风险、补测试/cover-flow-images/V052-cover-landscape.png" alt="V052 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V052-Codex 代码审查：看差异、找风险、补测试/index.html"><img src="posts/V052-Codex 代码审查：看差异、找风险、补测试/cover-flow-images/V052-cover-landscape.png" alt="V052 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V052 · 推广图文</div>
+    <div class="tag">V052 · 图文博客</div>
     <h2>Codex 代码审查：看差异、找风险、补测试</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V052-Codex 代码审查：看差异、找风险、补测试/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V052-Codex 代码审查：看差异、找风险、补测试/index.html">网页阅读</a>
+      <a href="posts/V052-Codex 代码审查：看差异、找风险、补测试/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V052-Codex 代码审查：看差异、找风险、补测试/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V053">
-  <a class="thumb" href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/README.md"><img src="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/cover-flow-images/V053-cover-landscape.png" alt="V053 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/index.html"><img src="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/cover-flow-images/V053-cover-landscape.png" alt="V053 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V053 · 推广图文</div>
+    <div class="tag">V053 · 图文博客</div>
     <h2>Claude Code 代码审查：看差异、找风险、补测试</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/index.html">网页阅读</a>
+      <a href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V053-Claude Code 代码审查：看差异、找风险、补测试/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V054">
-  <a class="thumb" href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/README.md"><img src="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/cover-flow-images/V054-cover-landscape.png" alt="V054 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/index.html"><img src="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/cover-flow-images/V054-cover-landscape.png" alt="V054 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V054 · 推广图文</div>
+    <div class="tag">V054 · 图文博客</div>
     <h2>配置后不能用：终端、配置、Key、权益、日志、网络、权限</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/index.html">网页阅读</a>
+      <a href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V054-配置后不能用：终端、配置、Key、权益、日志、网络、权限/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V055">
-  <a class="thumb" href="posts/V055-Agent 没按预期工作怎么排查/README.md"><img src="posts/V055-Agent 没按预期工作怎么排查/cover-flow-images/V055-cover-landscape.png" alt="V055 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V055-Agent 没按预期工作怎么排查/index.html"><img src="posts/V055-Agent 没按预期工作怎么排查/cover-flow-images/V055-cover-landscape.png" alt="V055 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V055 · 推广图文</div>
+    <div class="tag">V055 · 图文博客</div>
     <h2>Agent 没按预期工作怎么排查</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V055-Agent 没按预期工作怎么排查/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V055-Agent 没按预期工作怎么排查/index.html">网页阅读</a>
+      <a href="posts/V055-Agent 没按预期工作怎么排查/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V055-Agent 没按预期工作怎么排查/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V056">
-  <a class="thumb" href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/README.md"><img src="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/cover-flow-images/V056-cover-landscape.png" alt="V056 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/index.html"><img src="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/cover-flow-images/V056-cover-landscape.png" alt="V056 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V056 · 推广图文</div>
+    <div class="tag">V056 · 图文博客</div>
     <h2>Codex 和 Claude Code 权限、MCP、记忆配置有什么不同</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/index.html">网页阅读</a>
+      <a href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V056-Codex 和 Claude Code 权限、MCP、记忆配置有什么不同/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V057">
-  <a class="thumb" href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/README.md"><img src="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/cover-flow-images/V057-cover-landscape.png" alt="V057 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/index.html"><img src="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/cover-flow-images/V057-cover-landscape.png" alt="V057 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V057 · 推广图文</div>
+    <div class="tag">V057 · 图文博客</div>
     <h2>AI 编程教程怎么剪成抖音、B站、小红书、公众号</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/index.html">网页阅读</a>
+      <a href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V057-AI 编程教程怎么剪成抖音、B站、小红书、公众号/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
 </article><article class="card" data-code="V058">
-  <a class="thumb" href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/README.md"><img src="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/cover-flow-images/V058-cover-landscape.png" alt="V058 封面" loading="lazy"></a>
+  <a class="thumb" href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/index.html"><img src="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/cover-flow-images/V058-cover-landscape.png" alt="V058 封面" loading="lazy"></a>
   <div class="card-body">
-    <div class="tag">V058 · 推广图文</div>
+    <div class="tag">V058 · 图文博客</div>
     <h2>Codex ／ Claude Code 适合录屏展示的高频场景</h2>
-    <p>含图文发布稿、封面流程图、PPT 图片，可直接预览后复制到各平台。</p>
+    <p>打开即可看完整图文版文章，也可复制 Markdown 到其他平台。</p>
     <div class="links">
-      <a href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/图文发布稿.md">阅读稿件</a>
+      <a href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/index.html">网页阅读</a>
+      <a href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/图文发布稿-带图版.md">带图 Markdown</a>
       <a href="posts/V058-Codex ／ Claude Code 适合录屏展示的高频场景/图文发布稿-直接复制.md">直接复制版</a>
     </div>
   </div>
-</article>
-    </section>
-    <div class="footer">本页为静态博客索引。仓库不包含原始视频、音频、剪辑工程和 v8 安全版包。</div>
-  </main>
-  <script>
-    const input = document.getElementById('search');
-    const cards = [...document.querySelectorAll('.card')];
-    const shown = document.getElementById('shown');
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      let n = 0;
-      cards.forEach(card => {
-        const hit = card.innerText.toLowerCase().includes(q);
-        card.style.display = hit ? '' : 'none';
-        if (hit) n += 1;
-      });
-      shown.textContent = n;
-    });
-  </script>
-</body>
-</html>
+</article></section><div class="footer">本页为静态博客索引。仓库不包含原始视频、音频、剪辑工程和 v8 安全版包。</div></main><script>const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];const shown=document.getElementById('shown');input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();let n=0;cards.forEach(card=>{const hit=card.innerText.toLowerCase().includes(q);card.style.display=hit?'':'none';if(hit)n+=1;});shown.textContent=n;});</script></body></html>
